@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get/route_manager.dart';
+import 'package:telegram/router/router.dart';
 import 'package:telegram/views/home/index.dart';
 
 class Application extends StatelessWidget {
@@ -13,7 +15,8 @@ class Application extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      initialRoute: Routes.games.name,
+      getPages: Routes.pages,
     );
   }
 }

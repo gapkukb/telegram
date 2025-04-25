@@ -28,13 +28,13 @@ String _sign(String qid, Map data, TokenManager manger) {
 class Bizinterceptor extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    options.data = options.data?.addAll(_common) ?? _common;
     final qid = _qid();
+    options.data?.addAll(_common);
+    options.data ??= _common;
+
     options.headers["qid"] = qid;
     options.headers['Sign'] = _sign(qid, options.data, _tokenManager);
     options.headers['token'] = _tokenManager.token;
-
-    print(options.headers);
 
     super.onRequest(options, handler);
   }
