@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
-import 'package:telegram/models/user.dart';
+import 'package:telegram/views/home/state.dart';
 
 class HomeController extends GetxController {
   HomeController();
-  late User user;
+  final state = HomeState();
 
   _initData() {
     update(["home"]);
@@ -14,7 +14,6 @@ class HomeController extends GetxController {
   // @override
   void onInit() {
     super.onInit();
-    user = User.fromJson({"name": "zhangsan"});
   }
 
   @override
