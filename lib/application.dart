@@ -17,10 +17,10 @@ class Application extends StatelessWidget {
         title: 'Flutter Demo',
         popGesture: true,
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
           useMaterial3: true,
         ),
-        initialRoute: Routes.dashboard.name,
+        initialRoute: Routes.login.name,
         getPages: Routes.pages,
       ),
     );
