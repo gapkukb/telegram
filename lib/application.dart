@@ -20,7 +20,7 @@ class Application extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
           useMaterial3: true,
         ),
-        initialRoute: Routes.login.name,
+        initialRoute: Routes.initialRoute,
         getPages: Routes.pages,
       ),
     );

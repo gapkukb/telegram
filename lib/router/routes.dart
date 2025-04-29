@@ -27,8 +27,25 @@ class Routes {
     page: () => const LoginPage(),
     binding: LoginBinding(),
   );
+  static final forgot = GetPage(
+    popGesture: true,
+    name: "/forgot",
+    page: () => const ForgotPasswordPage(),
+  );
+  static final otp = GetPage(
+    popGesture: true,
+    name: "/otp",
+    page: () => const OTPPage(),
+  );
+  static final webview = GetPage(
+    popGesture: true,
+    name: "/webview",
+    page: () => const Webview(),
+  );
 
   static List<GetPage> get pages {
-    return [dashboard, games, login];
+    return [dashboard, games, login, forgot, otp, webview];
   }
+
+  static String get initialRoute => webview.name;
 }

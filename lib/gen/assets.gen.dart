@@ -15,11 +15,14 @@ class $AssetsImagesGen {
   /// File path: assets/images/21age.png
   AssetGenImage get a21age => const AssetGenImage('assets/images/21age.png');
 
+  /// File path: assets/images/mail.png
+  AssetGenImage get mail => const AssetGenImage('assets/images/mail.png');
+
   /// File path: assets/images/pagcor.png
   AssetGenImage get pagcor => const AssetGenImage('assets/images/pagcor.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [a21age, pagcor];
+  List<AssetGenImage> get values => [a21age, mail, pagcor];
 }
 
 class Assets {
