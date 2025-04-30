@@ -42,10 +42,15 @@ class Routes {
     name: "/webview",
     page: () => const Webview(),
   );
+  static final demo = GetPage(
+    popGesture: true,
+    name: "/demo",
+    page: () => const Demo(),
+  );
 
   static List<GetPage> get pages {
-    return [dashboard, games, login, forgot, otp, webview];
+    return [dashboard, games, login, forgot, otp, webview, demo];
   }
 
-  static String get initialRoute => webview.name;
+  static String get initialRoute => demo.name;
 }
