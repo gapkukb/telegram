@@ -1,4 +1,4 @@
-library settings;
+library;
 
 export './state.dart';
 export './controller.dart';

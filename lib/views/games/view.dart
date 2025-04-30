@@ -5,7 +5,7 @@ import 'index.dart';
 import 'widgets/widgets.dart';
 
 class GamesPage extends GetView<GamesController> {
-  const GamesPage({Key? key}) : super(key: key);
+  const GamesPage({super.key});
 
   // 主视图
   Widget _buildView() {
@@ -18,9 +18,7 @@ class GamesPage extends GetView<GamesController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("games")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );

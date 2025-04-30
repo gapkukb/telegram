@@ -72,7 +72,7 @@ class SliverGridRegularTileLayout2 extends SliverGridRegularTileLayout {
       print('object2');
     }
 
-    double _getOffsetFromStartInCrossAxis(double crossAxisStart) {
+    double getOffsetFromStartInCrossAxis(double crossAxisStart) {
       if (reverseCrossAxis) {
         return crossAxisCount * crossAxisStride -
             crossAxisStart -
@@ -86,7 +86,7 @@ class SliverGridRegularTileLayout2 extends SliverGridRegularTileLayout {
 
     return SliverGridGeometry(
       scrollOffset: (index ~/ crossAxisCount) * mainAxisStride,
-      crossAxisOffset: _getOffsetFromStartInCrossAxis(crossAxisStart),
+      crossAxisOffset: getOffsetFromStartInCrossAxis(crossAxisStart),
       mainAxisExtent: childMainAxisExtent,
       crossAxisExtent: childCrossAxisExtent,
     );

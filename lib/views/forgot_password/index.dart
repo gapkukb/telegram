@@ -1,4 +1,4 @@
-library forgot_password;
+library;
 
 export './controller.dart';
 export './view.dart';

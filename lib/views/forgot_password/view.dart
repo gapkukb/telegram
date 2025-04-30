@@ -6,7 +6,7 @@ import 'package:telegram/router/router.dart';
 import 'index.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
-  const ForgotPasswordPage({Key? key}) : super(key: key);
+  const ForgotPasswordPage({super.key});
 
   @override
   State<ForgotPasswordPage> createState() => _ForgotPasswordPageState();
@@ -25,7 +25,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
 }
 
 class _ForgotPasswordViewGetX extends GetView<ForgotPasswordController> {
-  const _ForgotPasswordViewGetX({Key? key}) : super(key: key);
+  const _ForgotPasswordViewGetX({super.key});
 
   // 主视图
   Widget _buildView() {

@@ -9,7 +9,7 @@ import '../index.dart';
 
 /// hello
 class OAuthWidget extends GetView<LoginController> {
-  const OAuthWidget({Key? key}) : super(key: key);
+  const OAuthWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -4,7 +4,6 @@ import 'dart:math';
 
 import 'package:crypto/crypto.dart';
 import 'package:dio/dio.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:telegram/api/app.dart';
 import 'package:telegram/helpers/string.dart';
 

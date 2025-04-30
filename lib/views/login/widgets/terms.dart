@@ -7,7 +7,7 @@ import '../index.dart';
 
 /// hello
 class TermsWidget extends GetView<LoginController> {
-  const TermsWidget({Key? key}) : super(key: key);
+  const TermsWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

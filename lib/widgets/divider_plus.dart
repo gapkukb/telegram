@@ -9,13 +9,13 @@ class DividerPlus extends StatelessWidget {
   final double? gutter;
 
   const DividerPlus({
-    Key? key,
+    super.key,
     this.color = Colors.black,
     this.lineColor = Colors.black,
     this.child,
     this.gutter,
     required this.text,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

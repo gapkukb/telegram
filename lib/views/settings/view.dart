@@ -5,7 +5,7 @@ import 'index.dart';
 import 'widgets/widgets.dart';
 
 class SettingsPage extends GetView<SettingsController> {
-  const SettingsPage({Key? key}) : super(key: key);
+  const SettingsPage({super.key});
 
   // 主视图
   Widget _buildView() {
@@ -18,9 +18,7 @@ class SettingsPage extends GetView<SettingsController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("settings")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );

@@ -1,4 +1,4 @@
-library promo;
+library;
 
 export './state.dart';
 export './controller.dart';

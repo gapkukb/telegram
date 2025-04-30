@@ -1,4 +1,4 @@
-library dashboard;
+library;
 
 export './state.dart';
 export './controller.dart';

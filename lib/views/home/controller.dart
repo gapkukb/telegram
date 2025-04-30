@@ -12,6 +12,7 @@ class HomeController extends GetxController {
   void onTap() {}
 
   // @override
+  @override
   void onInit() {
     super.onInit();
   }

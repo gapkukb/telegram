@@ -5,7 +5,7 @@ import 'index.dart';
 import 'widgets/widgets.dart';
 
 class MePage extends GetView<MeController> {
-  const MePage({Key? key}) : super(key: key);
+  const MePage({super.key});
 
   // 主视图
   Widget _buildView() {
@@ -18,9 +18,7 @@ class MePage extends GetView<MeController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("me")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );

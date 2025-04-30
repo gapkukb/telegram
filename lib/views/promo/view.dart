@@ -5,7 +5,7 @@ import 'index.dart';
 import 'widgets/widgets.dart';
 
 class PromoPage extends GetView<PromoController> {
-  const PromoPage({Key? key}) : super(key: key);
+  const PromoPage({super.key});
 
   // 主视图
   Widget _buildView() {
@@ -18,9 +18,7 @@ class PromoPage extends GetView<PromoController> {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(title: const Text("promo")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
+          body: SafeArea(child: _buildView()),
         );
       },
     );

@@ -5,7 +5,7 @@ import 'package:telegram/gen/assets.gen.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 
 class OTPPage extends StatefulWidget {
-  const OTPPage({Key? key}) : super(key: key);
+  const OTPPage({super.key});
 
   @override
   _OTPPageState createState() => _OTPPageState();

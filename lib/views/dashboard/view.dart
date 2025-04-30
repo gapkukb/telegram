@@ -5,7 +5,7 @@ import 'index.dart';
 import 'widgets/widgets.dart';
 
 class DashboardPage extends GetView<DashboardController> {
-  const DashboardPage({Key? key}) : super(key: key);
+  const DashboardPage({super.key});
 
   // 主视图
   Widget _buildView() {

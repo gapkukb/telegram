@@ -1,4 +1,4 @@
-library games;
+library;
 
 export './state.dart';
 export './controller.dart';

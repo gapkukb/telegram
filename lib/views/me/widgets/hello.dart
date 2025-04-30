@@ -6,7 +6,7 @@ import '../index.dart';
 
 /// hello
 class HelloWidget extends GetView<MeController> {
-  const HelloWidget({Key? key}) : super(key: key);
+  const HelloWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -412,10 +412,10 @@ packages:
     dependency: "direct main"
     description:
       name: json
-      sha256: "8708a43b61848f50dbe952131fa60af35e15164ddb275d14ef8b7994ffd492ae"
+      sha256: "40a98ec3715f40f3723c20ee68dce3640f32d24d278262de4eddae885c060180"
       url: "https://pub.dev"
     source: hosted
-    version: "0.20.4"
+    version: "0.20.2"
   json_annotation:
     dependency: transitive
     description:
