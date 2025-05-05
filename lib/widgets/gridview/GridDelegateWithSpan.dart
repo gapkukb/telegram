@@ -64,53 +64,44 @@ class SliverGridRegularTileLayout2 extends SliverGridRegularTileLayout {
     required this.mainAxisSpacing,
   });
 
-  int x = 0;
-  int next = -1;
+  int offset = 0;
+  int row = 2;
 
   @override
   SliverGridGeometry getGeometryForChildIndex(int index) {
-    index = index + x;
-    if (next == index) {
-      index += 4;
+    final $span = span(index) ?? Span();
+    if (index == 2) {
+      offset += $span.col - 1;
+    } else if (index == 4) {
+      offset += $span.col;
     }
 
-    final _span = span(index);
-    var crossAxisExtent = childCrossAxisExtent;
-    var mainAxisExtent = childMainAxisExtent;
+    index += offset;
 
-    if (_span != null && _span.row > 1) {
-      mainAxisExtent = mainAxisStride * _span.row - mainAxisSpacing;
-      next = index + crossAxisCount;
-    }
+    var crossAxisStart = (index % crossAxisCount) * crossAxisStride;
+    var scrollOffset = (index ~/ crossAxisCount) * mainAxisStride;
+    var crossAxisOffset = _getOffsetFromStartInCrossAxis(crossAxisStart);
+    var mainAxisExtent = mainAxisStride * $span.row - mainAxisSpacing;
+    var crossAxisExtent = crossAxisStride * $span.col - crossAxisSpacing;
 
-    // if (_span != null && _span.col > 1) {
-    //   final cols = math.min(_span.col, crossAxisCount) - 1;
-    //   x += cols;
-    //   //如果放不下，则放到下一排
-    //   if (index % crossAxisCount + _span.col > crossAxisCount) {
-    //     x += crossAxisCount - index % crossAxisCount;
-    //     index += cols;
-    //   }
-    //   crossAxisExtent = crossAxisStride * (cols + 1) - crossAxisSpacing;
-    // }
-
-    double _getOffsetFromStartInCrossAxis(double crossAxisStart) {
-      if (reverseCrossAxis) {
-        return crossAxisCount * crossAxisStride -
-            crossAxisStart -
-            childCrossAxisExtent -
-            (crossAxisStride - childCrossAxisExtent);
-      }
-      return crossAxisStart;
-    }
-
-    final double crossAxisStart = (index % crossAxisCount) * crossAxisStride;
+    // offset += $span.col - 1;
+    // row = $span.row;
 
     return SliverGridGeometry(
-      scrollOffset: (index ~/ crossAxisCount) * mainAxisStride,
-      crossAxisOffset: _getOffsetFromStartInCrossAxis(crossAxisStart),
+      scrollOffset: scrollOffset,
+      crossAxisOffset: crossAxisOffset,
       mainAxisExtent: mainAxisExtent,
       crossAxisExtent: crossAxisExtent,
     );
+  }
+
+  double _getOffsetFromStartInCrossAxis(double crossAxisStart) {
+    if (reverseCrossAxis) {
+      return crossAxisCount * crossAxisStride -
+          crossAxisStart -
+          childCrossAxisExtent -
+          (crossAxisStride - childCrossAxisExtent);
+    }
+    return crossAxisStart;
   }
 }

@@ -8,13 +8,21 @@ class Routes {
     page: () => const SettingsPage(),
     binding: SettingsBinding(),
   );
+  static final home = GetPage(
+    popGesture: true,
+    name: "/",
+    page: () => const HomePage(),
+    binding: HomeBinding(),
+    children: [settings],
+  );
   static final dashboard = GetPage(
     popGesture: true,
     name: "/",
     page: () => const DashboardPage(),
     binding: DashboardBinding(),
-    children: [settings],
+    children: [home, settings],
   );
+
   static final games = GetPage(
     popGesture: true,
     name: "/games",
@@ -49,8 +57,8 @@ class Routes {
   );
 
   static List<GetPage> get pages {
-    return [dashboard, games, login, forgot, otp, webview, demo];
+    return [home, games, login, forgot, otp, webview, demo];
   }
 
-  static String get initialRoute => demo.name;
+  static String get initialRoute => home.name;
 }

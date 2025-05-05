@@ -21,8 +21,8 @@ class _DemoState extends State<Demo> {
         crossAxisSpacing: gap,
         mainAxisSpacing: gap,
         span: (index) {
-          if (index == 0) {
-            return Span(row: 2);
+          if (index == 1) {
+            return Span(row: 2, col: 2);
           }
         },
       ),
