@@ -52,6 +52,8 @@ dependencies:
   custom_refresh_indicator: ^4.0.1
   rive: ^0.13.20
   cached_network_image: ^3.4.1
+  flutter_launcher_icons: ^0.14.3
+  flutter_native_splash: ^2.4.6
 
 dev_dependencies:
   flutter_test:
