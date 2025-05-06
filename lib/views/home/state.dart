@@ -6,14 +6,14 @@ class User {
   final String jobTitle;
   final String email;
   final String createdAt;
-  final String? avatar;
+  final String avatar;
 
   User({
     required this.name,
     required this.jobTitle,
     required this.email,
     required this.createdAt,
-    this.avatar,
+    required this.avatar,
   });
 }
 
@@ -29,6 +29,7 @@ class HomeState {
       jobTitle: BoneMock.words(2),
       email: BoneMock.email,
       createdAt: BoneMock.date,
+      avatar: 'https://picsum.photos/seed/picsum/200/300',
     ),
   );
 }

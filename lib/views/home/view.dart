@@ -14,33 +14,45 @@ class HomePage extends GetView<HomeController> {
   Widget _buildView() {
     final users = controller.state.fakeUsers;
     return Skeletonizer(
-      enabled: false,
-      ignoreContainers: true,
+      enabled: true,
+      // ignoreContainers: true,
+      containersColor: Colors.grey,
       switchAnimationConfig: SwitchAnimationConfig(
         duration: Duration(seconds: 3),
       ),
       child: GridView.builder(
-        gridDelegate: GridDelegateWithSpan(
-          childAspectRatio: 132 / 146,
+        padding: EdgeInsets.all(16.0.w),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          childAspectRatio: 112 / 165,
           crossAxisCount: 3,
-          crossAxisSpacing: 8.w,
-          mainAxisSpacing: 8.w,
-          span: (index) {
-            if (index == 0) {
-              return Span(col: 2);
-            }
-            return null;
-          },
+          crossAxisSpacing: 16.w,
+          mainAxisSpacing: 16.w,
         ),
         itemCount: users.length,
         itemBuilder: (context, index) {
-          return ListTile(
-            splashColor: Colors.amber,
-            title: Text(
-              'The title goes here',
-              style: TextStyle(color: Colors.red),
+          final user = users[index];
+          return Material(
+            borderRadius: BorderRadius.circular(16.0.w),
+            clipBehavior: Clip.hardEdge,
+            child: ListTile(
+              minVerticalPadding: 0,
+              contentPadding: EdgeInsets.zero,
+              tileColor: Colors.transparent,
+              title: Image.network(
+                user.avatar ?? '',
+                fit: BoxFit.cover,
+                // width: double.infinity,
+                height: 280.w,
+              ),
+              subtitle: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0.w),
+                child: Text(
+                  'Subtitle',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
             ),
-            subtitle: Text('Subtitle here'),
           );
         },
       ),
@@ -53,31 +65,85 @@ class HomePage extends GetView<HomeController> {
       init: HomeController(),
       id: "home",
       builder: (_) {
-        return Scaffold(
-          extendBodyBehindAppBar: true,
-          appBar: AppBar(
-            leading: Assets.images.logo.svg(),
-            leadingWidth: 400.w,
-
-            surfaceTintColor: Colors.transparent, // 设置表面颜色为透明
-            scrolledUnderElevation: 0.0, // 去除滚动时的阴影
-            forceMaterialTransparency: true,
-            systemOverlayStyle: SystemUiOverlayStyle(
-              statusBarColor: Colors.transparent, // 设置状态栏背景颜色
-              statusBarIconBrightness: Brightness.light, // 设置状态栏图标颜色为白色
-              statusBarBrightness: Brightness.dark, // 设置状态栏文字颜色为深色（仅适用于iOS）
-            ),
+        return DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: RadialGradient(
+              colors: [Color(0xff044a48), Color(0xff1a1859)],
+              center: Alignment.topCenter,
+              radius: 1.0,
+              stops: const [0.0, 1.0],
+            ), // 渐变背景
           ),
-          body: Container(
-            decoration: BoxDecoration(
-              gradient: RadialGradient(
-                colors: [Color(0xff044a48), Color(0xff1a1859)],
-                center: Alignment.topCenter,
-                radius: 1.0,
-                stops: const [0.0, 1.0],
-              ), // 渐变背景
+          child: Scaffold(
+            backgroundColor: Colors.transparent,
+            extendBodyBehindAppBar: false,
+            appBar: PreferredSize(
+              preferredSize: Size.fromHeight(76.w),
+              child: Padding(
+                padding: EdgeInsets.only(
+                  left: 16.0.w,
+                  right: 16.0.w,
+                  bottom: 16.0.w,
+                ),
+                child: AppBar(
+                  leading: Assets.images.logo.svg(),
+                  leadingWidth: 400.w,
+                  surfaceTintColor: Colors.transparent, // 设置表面颜色为透明
+                  scrolledUnderElevation: 0.0, // 去除滚动时的阴影
+                  forceMaterialTransparency: true,
+                  systemOverlayStyle: SystemUiOverlayStyle(
+                    statusBarColor: Colors.transparent, // 设置状态栏背景颜色
+                    statusBarIconBrightness: Brightness.light, // 设置状态栏图标颜色为白色
+                    statusBarBrightness:
+                        Brightness.dark, // 设置状态栏文字颜色为深色（仅适用于iOS）
+                  ),
+
+                  actions: [
+                    SizedBox(
+                      height: 60.w,
+                      child: OutlinedButton(
+                        onPressed: () {},
+                        child: Text("Sign In"),
+                        style: ButtonStyle(
+                          padding: WidgetStatePropertyAll(EdgeInsets.zero),
+                          shape: WidgetStatePropertyAll(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(100.0),
+                              side: BorderSide(color: Colors.red),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 60.w,
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(100.0),
+                          gradient: LinearGradient(
+                            colors: [Color(0xffff2700), Color(0xffff00ba)],
+                          ),
+                        ),
+                        child: TextButton(
+                          onPressed: () {},
+                          child: Text("Sign In"),
+                          style: ButtonStyle(
+                            padding: WidgetStatePropertyAll(EdgeInsets.zero),
+                            shape: WidgetStatePropertyAll(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(100.0),
+                                side: BorderSide(color: Colors.red),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
-            child: SafeArea(child: _buildView()),
+            body: RefreshIndicator(onRefresh: () async {}, child: _buildView()),
           ),
         );
       },
