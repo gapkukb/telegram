@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:telegram/services/app_service.dart';
 import 'application.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitDown,
-    DeviceOrientation.portraitUp,
-  ]).then((_) {
+  Get.put<AppService>(AppService(), permanent: true);
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown]).then((_) {
     runApp(const Application());
   });
 }

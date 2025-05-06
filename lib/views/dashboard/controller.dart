@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:telegram/services/app_service.dart';
 import 'package:telegram/views/home/bindings.dart';
 import 'package:telegram/views/home/index.dart';
 import 'package:telegram/views/me/index.dart';
@@ -12,6 +13,7 @@ class DashboardController extends GetxController {
   final state = DashboardState();
   final current = 0.obs;
   final pages = <String>["/", "/promo", "/me"];
+  final appService = Get.find<AppService>();
 
   void changePage(int index) {
     if (current.value == index) return;
@@ -62,6 +64,7 @@ class DashboardController extends GetxController {
   @override
   void onReady() {
     super.onReady();
+    appService.openDrawer();
   }
 
   /// 在 [onDelete] 方法之前调用。
