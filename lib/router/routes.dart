@@ -10,7 +10,7 @@ class Routes {
   );
   static final home = GetPage(
     popGesture: true,
-    name: "/",
+    name: "/home",
     page: () => const HomePage(),
     binding: HomeBinding(),
     children: [settings],
@@ -20,7 +20,7 @@ class Routes {
     name: "/",
     page: () => const DashboardPage(),
     binding: DashboardBinding(),
-    children: [home, settings],
+    // children: [home, settings, games],
   );
 
   static final games = GetPage(
@@ -57,8 +57,8 @@ class Routes {
   );
 
   static List<GetPage> get pages {
-    return [home, games, login, forgot, otp, webview, demo];
+    return [dashboard, home, games, login, forgot, otp, webview, demo];
   }
 
-  static String get initialRoute => home.name;
+  static String get initialRoute => dashboard.name;
 }

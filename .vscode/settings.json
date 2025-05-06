@@ -1,3 +1,4 @@
 {
-  "dart.cliAdditionalArgs": ["--enable-experiment=macros"]
+  "dart.cliAdditionalArgs": ["--enable-experiment=macros"],
+  "dart.lineLength": 240
 }
