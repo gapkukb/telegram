@@ -25,7 +25,7 @@ String _sign(String qid, Map data, TokenManager manger) {
   return md5.convert(utf8.encode(ss)).toString();
 }
 
-class Bizinterceptor extends Interceptor {
+class BizInterceptor extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     final qid = _qid();

@@ -8,21 +8,21 @@
       "name": "telegram",
       "request": "launch",
       "type": "dart",
-      "args": ["--enable-experiment=macros"]
+      // "args": ["--enable-experiment=macros"]
     },
     {
       "name": "telegram (profile mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "profile",
-      "args": ["--enable-experiment=macros"]
+      // "args": ["--enable-experiment=macros"]
     },
     {
       "name": "telegram (release mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "release",
-      "args": ["--enable-experiment=macros"]
+      // "args": ["--enable-experiment=macros"]
     }
   ]
 }

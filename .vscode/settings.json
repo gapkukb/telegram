@@ -5,8 +5,8 @@
     "source.fixAll": "always"
   },
 
-  "code-runner.executorMap": {
-    "dart": "dart --enable-experiment=macros"
-  },
+  // "code-runner.executorMap": {
+  //   "dart": "dart --enable-experiment=macros"
+  // },
   
 }

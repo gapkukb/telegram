@@ -25,8 +25,8 @@ class WebTokenInterceptor extends Interceptor {
     if (options.extra['__webToken'] == webTokenOptions.extra!['__webToken']) {
       return handler.next(options);
     }
-    final resp = await webToken();
-    _tokenManager.setToken(resp.data['info']);
+    final resp = await queryWebToken();
+    _tokenManager.setToken(resp['info']);
 
     return handler.next(options);
   }

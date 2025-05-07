@@ -7,4 +7,10 @@ class TestInterceptor extends Interceptor {
 
     handler.next(response);
   }
+
+  @override
+  void onError(DioException err, ErrorInterceptorHandler handler) {
+    print('errrrrrrrrrrrrrrrrrr');
+    super.onError(err, handler);
+  }
 }
