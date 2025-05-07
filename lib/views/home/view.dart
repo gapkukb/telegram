@@ -5,9 +5,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-import 'package:telegram/const/gutter.dart';
-import 'package:telegram/gen/assets.gen.dart';
-import 'package:telegram/widgets/gridview/GridDelegateWithSpan.dart';
+import 'package:super_plus/const/gutter.dart';
+import 'package:super_plus/gen/assets.gen.dart';
+import 'package:super_plus/widgets/gridview/GridDelegateWithSpan.dart';
 import 'index.dart';
 
 class HomePage extends GetView<HomeController> {

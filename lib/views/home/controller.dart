@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:telegram/views/home/state.dart';
+import 'package:super_plus/views/home/state.dart';
 
 class HomeController extends GetxController {
   HomeController();

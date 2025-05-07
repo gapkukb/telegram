@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:telegram/router/router.dart';
+import 'package:super_plus/router/router.dart';
 
 import 'index.dart';
 
@@ -12,8 +12,7 @@ class ForgotPasswordPage extends StatefulWidget {
   State<ForgotPasswordPage> createState() => _ForgotPasswordPageState();
 }
 
-class _ForgotPasswordPageState extends State<ForgotPasswordPage>
-    with AutomaticKeepAliveClientMixin {
+class _ForgotPasswordPageState extends State<ForgotPasswordPage> with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true;
 
@@ -47,13 +46,7 @@ class _ForgotPasswordViewGetX extends GetView<ForgotPasswordController> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    TextField(
-                      autofocus: true,
-                      decoration: InputDecoration(
-                        label: Text("Phone/Email/Account"),
-                        floatingLabelBehavior: FloatingLabelBehavior.always,
-                      ),
-                    ),
+                    TextField(autofocus: true, decoration: InputDecoration(label: Text("Phone/Email/Account"), floatingLabelBehavior: FloatingLabelBehavior.always)),
                     SizedBox(height: 100.0.w),
                     SizedBox(
                       width: double.infinity,

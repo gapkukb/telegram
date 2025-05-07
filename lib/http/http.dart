@@ -4,8 +4,8 @@ import 'dart:math';
 
 import 'package:crypto/crypto.dart';
 import 'package:dio/dio.dart';
-import 'package:telegram/api/app.dart';
-import 'package:telegram/helpers/string.dart';
+import 'package:super_plus/api/app.dart';
+import 'package:super_plus/helpers/string.dart';
 
 part 'base_options.dart';
 part 'biz_interceptor.dart';

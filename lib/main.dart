@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:telegram/services/app_service.dart';
+import 'package:super_plus/services/app_service.dart';
 import 'application.dart';
 
 void main() {

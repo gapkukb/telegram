@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:telegram/router/router.dart';
+import 'package:super_plus/router/router.dart';
 
 import '../index.dart';
 

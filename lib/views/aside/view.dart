@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:telegram/gen/assets.gen.dart';
+import 'package:super_plus/gen/assets.gen.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'index.dart';
 

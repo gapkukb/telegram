@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:telegram/services/app_service.dart';
-import 'package:telegram/views/home/bindings.dart';
-import 'package:telegram/views/home/index.dart';
-import 'package:telegram/views/me/index.dart';
-import 'package:telegram/views/promo/index.dart';
+import 'package:super_plus/services/app_service.dart';
+import 'package:super_plus/views/home/bindings.dart';
+import 'package:super_plus/views/home/index.dart';
+import 'package:super_plus/views/me/index.dart';
+import 'package:super_plus/views/promo/index.dart';
 import 'index.dart';
 
 class DashboardController extends GetxController {
@@ -23,28 +23,13 @@ class DashboardController extends GetxController {
 
   Route? onGenerateRoute(RouteSettings settings) {
     if (settings.name == "/") {
-      return GetPageRoute(
-        popGesture: true,
-        settings: settings,
-        page: () => const HomePage(),
-        binding: HomeBinding(),
-      );
+      return GetPageRoute(popGesture: true, settings: settings, page: () => const HomePage(), binding: HomeBinding());
     }
     if (settings.name == "/promo") {
-      return GetPageRoute(
-        popGesture: true,
-        settings: settings,
-        page: () => const PromoPage(),
-        binding: PromoBinding(),
-      );
+      return GetPageRoute(popGesture: true, settings: settings, page: () => const PromoPage(), binding: PromoBinding());
     }
     if (settings.name == "/me") {
-      return GetPageRoute(
-        popGesture: true,
-        settings: settings,
-        page: () => const MePage(),
-        binding: MeBinding(),
-      );
+      return GetPageRoute(popGesture: true, settings: settings, page: () => const MePage(), binding: MeBinding());
     }
     return null;
   }
