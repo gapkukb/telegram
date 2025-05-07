@@ -1,16 +1,21 @@
-import 'package:dio/dio.dart';
-import 'package:super_plus/http/http.dart';
+import 'dart:developer';
 
-Future<dynamic> webToken() => http.post("/_glaxy_c66_/webToken", options: webTokenOptions);
+import 'package:super_plus/http/http.dart';
+import 'package:super_plus/models/game.dart';
+
+dynamic webToken() => http.post("/_glaxy_c66_/webToken", options: webTokenOptions) as dynamic;
 Future<dynamic> siteinfo() => http.post("/_glaxy_c66_/front/siteinfo");
-Future<Response<dynamic>> queryCompressedMatchList() => http.post("/_front_api_/saba/queryCompressedMatchList", data: {"matchListDate": "in-play", "sportTypeId": "2"}, options: Options(responseType: ResponseType.bytes));
+Future<dynamic> queryGameCategory() => http.post("/_front_api_/game/info");
 
 void main(List<String> args) {
-  queryCompressedMatchList()
-      .then((response) {
-        print(response.data);
+  queryGameCategory()
+      .then((value) {
+        final data = GameCategory.fromJson({});
+
+        print(data.toJson());
+        print(data.gameKey);
       })
-      .catchError((error) {
-        print(error);
+      .catchError((e) {
+        print(e);
       });
 }
