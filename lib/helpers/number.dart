@@ -1,11 +1,23 @@
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+const locale = "fil_PH";
 // 固定两位小数
-final _f1 = NumberFormat("#,###.00", "en_PH");
+final _f1 = NumberFormat("#,###.00", locale);
 // 最多两位小数
-final _f2 = NumberFormat("#,###.##", "en_PH");
+final _f2 = NumberFormat("#,###.##", locale);
 // 没有小数
-final _f3 = NumberFormat("#,###", "en_PH");
+final _f3 = NumberFormat("#,###", locale);
+
+/// 货币英文缩写
+/// @example USD
+final currencySymbol = _f1.currencySymbol;
+
+final _c1 = NumberFormat.simpleCurrency(locale: locale);
+
+/// 货币符号
+/// @example $
+final simpleCurrencySymbol = _c1.currencySymbol;
 
 num _parse([final dynamic value = 0]) {
   if (value is num) return value;
@@ -21,10 +33,7 @@ String amountize([dynamic value = 0, final int decimal = 2, final bool fixedLeng
   return _f2.format(value);
 }
 
-final _c1 = NumberFormat.simpleCurrency(locale: "en_PH", name: '₱');
-
-String currencize([dynamic value = 0, final int decimal = 2, final bool fixedLength = true, int gap = 0]) {
+String currencize(dynamic value, {final int decimal = 2, final bool fixedLength = true, final int gap = 0}) {
   value = _parse(value);
-
-  return _c1.format(value).replaceAll('₱', '₱${' ' * gap}');
+  return _c1.format(value).replaceAll(simpleCurrencySymbol, '$simpleCurrencySymbol${' ' * gap}');
 }

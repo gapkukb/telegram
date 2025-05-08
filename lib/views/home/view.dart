@@ -137,7 +137,7 @@ class HomePage extends GetView<HomeController> {
                     ),
                   ),
                   Obx(() => CountUp(value: controller.state.countup.value)),
-                  FilledButton(onPressed: controller.countup, child: Text(currencize(controller.state.countup.value))),
+                  FilledButton(onPressed: controller.countup, child: Text(currencize(controller.state.countup.value, gap: 2))),
                 ],
               ),
             ),
