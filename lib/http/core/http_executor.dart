@@ -5,7 +5,7 @@ class HTTPExecutor<T> {
   final String method;
   final Dio dio;
   final String path;
-  final cancelToken = CancelToken();
+  CancelToken? _cancelToken;
   final bool? cancellable;
   final bool? loading;
   final bool? silent;
@@ -18,20 +18,24 @@ class HTTPExecutor<T> {
     final params = body == null ? data : null;
 
     final finals = _assign(this.options, options);
-    final extra = {"cancellable": cancellable ?? this.cancellable, "loading": loading ?? this.loading, "silent": silent ?? this.silent};
+    final extra = {cancellableKey: cancellable ?? this.cancellable, loadingKey: loading ?? this.loading, silentKey: silent ?? this.silent};
 
     finals.method = method;
     finals.extra?.addAll(extra);
     finals.extra ??= extra;
 
-    return dio.request(path, data: body, queryParameters: params, onReceiveProgress: onReceiveProgress, cancelToken: cancelToken, onSendProgress: onSendProgress, options: finals).then((value) {
+    if (extra[cancellableKey] == true) {
+      _cancelToken = CancelToken();
+    }
+
+    return dio.request(path, data: body, queryParameters: params, onReceiveProgress: onReceiveProgress, cancelToken: _cancelToken, onSendProgress: onSendProgress, options: finals).then((value) {
       if (model == null) return value.data;
       return model!(value.data);
     });
   }
 
   abort([Object? reson]) {
-    cancelToken.cancel(reson);
+    _cancelToken?.cancel(reson);
   }
 
   Options _assign(Options? outer, Options? inner) {

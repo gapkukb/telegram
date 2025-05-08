@@ -1,8 +1,5 @@
 part of '../http.dart';
 
-typedef Dictionary<T> = Map<String, T>;
-typedef ResponseModel<T> = T Function(Map<String, dynamic>);
-
 class _HTTP {
   late final Dio _dio;
   late final HTTPMethod get;
@@ -13,11 +10,12 @@ class _HTTP {
   _HTTP() {
     _dio = Dio(baseOptions);
     _dio.interceptors
+      ..add(HttpInterceptorLoading())
       // ..add(WebTokenInterceptor())
       ..add(HttpInterceptorBiz())
       ..add(HttpInterceptorInflate())
       ..add(HttpInterceptorNormalizer())
-      ..add(TestInterceptor());
+      ..add(HttpInterceptorErrorToast());
 
     get = HTTPMethod("GET", _dio);
     post = HTTPMethod("POST", _dio);

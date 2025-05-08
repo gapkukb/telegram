@@ -1,18 +1,12 @@
 part of '../http.dart';
 
-const String _loadingKey = "__loading";
-
 class HttpInterceptorLoading extends Interceptor {
   int loadingCount = 0;
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    if (options.extra[_loadingKey] == true) {
-      loadingCount++;
-      if (loadingCount == 1) {
-        // Show loading indicator
-        print("Loading...");
-      }
+    if (options.extra[loadingKey] == true && ++loadingCount == 1) {
+      print("Loading...");
     }
     super.onRequest(options, handler);
   }
@@ -30,7 +24,7 @@ class HttpInterceptorLoading extends Interceptor {
   }
 
   _handler(RequestOptions requestOptions) {
-    if (requestOptions.extra[_loadingKey] == true) {
+    if (requestOptions.extra[loadingKey] == true) {
       loadingCount--;
       if (loadingCount == 0) {
         // Hide loading indicator

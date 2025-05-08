@@ -1,5 +1,8 @@
 part of '../http.dart';
 
+typedef Dictionary<T> = Map<String, T>;
+typedef ResponseModel<T> = T Function(Map<String, dynamic>);
+
 final baseOptions = BaseOptions(
   baseUrl: 'https://autotest.arenaplus.ph',
   connectTimeout: Duration(seconds: 5),
