@@ -14,7 +14,7 @@ class TokenManager {
   }
 }
 
-final webTokenOptions = Options(extra: {"__webToken": true});
+final webTokenOptions = HttpOtpions(extra: {"__webToken": true});
 
 final _tokenManager = TokenManager();
 
