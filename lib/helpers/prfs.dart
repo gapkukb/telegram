@@ -74,7 +74,7 @@ class GetterSetter<T> {
   }
 }
 
-abstract class LocalStoreage {
+abstract class ls {
   static Future<void> initlize() async {
     prefs = await SharedPreferences.getInstance();
   }

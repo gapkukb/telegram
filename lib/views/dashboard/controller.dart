@@ -49,7 +49,6 @@ class DashboardController extends GetxController {
   @override
   void onReady() {
     super.onReady();
-    appService.openDrawer();
   }
 
   /// 在 [onDelete] 方法之前调用。
