@@ -1,6 +1,6 @@
-part of 'http.dart';
+part of '../http.dart';
 
-class NormalizeResponseInterceptor extends Interceptor {
+class HttpInterceptorNormalizer extends Interceptor {
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     if (response.data['head']?['errCode'] == '0000') {

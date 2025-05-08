@@ -1,4 +1,4 @@
-part of 'http.dart';
+part of '../http.dart';
 
 class TokenManager {
   static String? _token;
@@ -14,11 +14,11 @@ class TokenManager {
   }
 }
 
-final webTokenOptions = HttpOtpions(extra: {"__webToken": true});
+final webTokenOptions = Options(extra: {"__webToken": true});
 
 final _tokenManager = TokenManager();
 
-class WebTokenInterceptor extends Interceptor {
+class HttpInterceptorWebToken extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
     if (_tokenManager.token != null) return handler.next(options);

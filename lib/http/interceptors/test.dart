@@ -1,4 +1,4 @@
-part of 'http.dart';
+part of '../http.dart';
 
 class TestInterceptor extends Interceptor {
   @override

@@ -1,6 +1,6 @@
-part of 'http.dart';
+part of '../http.dart';
 
-class InflateInterceptor extends Interceptor {
+class HttpInterceptorInflate extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     if (options.responseType == ResponseType.bytes) {}

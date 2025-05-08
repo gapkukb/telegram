@@ -1,4 +1,4 @@
-part of 'http.dart';
+part of '../http.dart';
 
 final _common = {"productId": "C66", "tenant": "AP", "client": "h5"};
 
@@ -25,7 +25,7 @@ String _sign(String qid, Map data, TokenManager manger) {
   return md5.convert(utf8.encode(ss)).toString();
 }
 
-class BizInterceptor extends Interceptor {
+class HttpInterceptorBiz extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     final qid = _qid();

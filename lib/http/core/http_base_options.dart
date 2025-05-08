@@ -1,4 +1,4 @@
-part of 'http.dart';
+part of '../http.dart';
 
 final baseOptions = BaseOptions(
   baseUrl: 'https://autotest.arenaplus.ph',
