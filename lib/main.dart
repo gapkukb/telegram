@@ -6,8 +6,8 @@ import 'package:super_plus/services/app_service.dart';
 import 'application.dart';
 
 void main() async {
-  await ls.initlize();
   WidgetsFlutterBinding.ensureInitialized();
+  await ls.initlize();
   Get.put<AppService>(AppService(), permanent: true);
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
     runApp(const Application());

@@ -5,14 +5,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-import 'package:stop_watch_timer/stop_watch_timer.dart';
-import 'package:super_plus/const/gutter.dart';
 import 'package:super_plus/gen/assets.gen.dart';
-import 'package:super_plus/helpers/number.dart';
-import 'package:super_plus/widgets/count_up.dart';
-import 'package:super_plus/widgets/gridview/GridDelegateWithSpan.dart';
+import 'package:super_plus/locales/locales.dart';
+import 'package:super_plus/widgets/count_down_timer.dart';
 import 'index.dart';
-import 'dart:math' as math;
 
 class HomePage extends GetView<HomeController> {
   const HomePage({super.key});
@@ -107,37 +103,10 @@ class HomePage extends GetView<HomeController> {
                           ),
                         ),
                   ),
-                  Center(
-                    child: DefaultTextStyle(
-                      style: TextStyle(fontSize: 14, color: Colors.white),
-                      child: StreamBuilder<int>(
-                        stream: controller.timer.secondTime,
-                        initialData: 0,
-                        builder: (context, snap) {
-                          final value = snap.data!;
-                          final displayTime = StopWatchTimer.getDisplayTime(value * 1000, milliSecond: false).characters.toList();
-                          return Row(
-                            children: List.generate(displayTime.length, (index) {
-                              final widget = AnimatedSwitcher(
-                                duration: Duration(milliseconds: 300),
-                                switchInCurve: Curves.easeIn,
-                                switchOutCurve: Curves.easeOut,
-                                transitionBuilder: (child, animation) {
-                                  final dir = animation.status == AnimationStatus.dismissed ? -1.0 : 1.0;
+                  Obx(() => Text(controller.state.countup.value.toString(), style: TextStyle(color: Colors.white, fontSize: 20.w))),
+                  Center(child: DefaultTextStyle(style: TextStyle(fontSize: 14, color: Colors.white), child: Obx(() => CountDownTimer(current: controller.state.countup.value)))),
 
-                                  return FadeTransition(opacity: animation, child: SlideTransition(position: Tween<Offset>(begin: Offset(0, 0.7 * dir), end: const Offset(0, 0)).animate(animation), child: child));
-                                },
-                                child: Text(displayTime[index], key: ValueKey(displayTime[index])),
-                              );
-                              return widget;
-                            }),
-                          );
-                        },
-                      ),
-                    ),
-                  ),
-                  Obx(() => CountUp(value: controller.state.countup.value)),
-                  FilledButton(onPressed: controller.countup, child: Text(currencize(controller.state.countup.value, gap: 2))),
+                  FilledButton(onPressed: controller.countup, child: Text(LocalesKey.appAbout.tr)),
                 ],
               ),
             ),
