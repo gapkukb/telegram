@@ -1,7 +1,4 @@
-import 'package:intl/intl.dart';
-
 import '../day.dart';
-import 'package:convert/convert.dart';
 
 void all() {
   dynamic d;
@@ -108,6 +105,13 @@ void all() {
 }
 
 void main(List<String> args) {
-  final date2 = day('2025-10-13T15:30:00.000Z');
-  print(date2.add(100, 'hour').toString());
+  // all();
+
+  final d = DateTime.now().toString();
+
+  print("-------------$d+++++++++++++++");
+  print(day(d).YYYYMMDD);
+  print(day(d).YYYYMM);
+  print(day(d).MMDD);
+  print(day(d).HHMMSS);
 }

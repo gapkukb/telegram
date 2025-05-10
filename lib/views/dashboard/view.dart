@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:super_plus/router/router.dart';
 import 'package:super_plus/services/app_service.dart';
 import 'package:super_plus/views/aside/index.dart';
 import 'package:super_plus/views/dashboard/widgets/footer.dart';
@@ -30,7 +31,7 @@ class DashboardPage extends GetView<DashboardController> {
           body: Navigator(key: Get.nestedKey(1), initialRoute: '/', onGenerateRoute: controller.onGenerateRoute),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              controller.appService.dashboradKey.currentState?.openDrawer();
+              Get.toNamed(Routes.login.name);
             },
             shape: const CircleBorder(),
             child: const Icon(Icons.menu),

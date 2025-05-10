@@ -19,6 +19,19 @@ class LoginPage extends GetView<LoginController> {
     return GetBuilder<LoginController>(
       builder: (_) {
         return Scaffold(
+          floatingActionButton: Transform.translate(
+            offset: Offset(0, 20.w),
+            child: FloatingActionButton.small(
+              heroTag: null,
+              onPressed: () {
+                // Navigator.pop(context);
+                Get.back(result: false, closeOverlays: true);
+              },
+              shape: const CircleBorder(),
+              child: const Icon(Icons.close),
+            ),
+          ),
+          floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
           body: SingleChildScrollView(
             physics: ClampingScrollPhysics(),
             child: Container(
