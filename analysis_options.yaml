@@ -37,5 +37,3 @@ analyzer:
 #     - enhanced-parts
 
 formatter:  
-  page_width: 500
-  require_trailing_commas: true

@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import "package:nil/nil.dart";
 
-class DashboardState {
+class FavoriteState {
   // title
   final _title = "".obs;
   set title(value) => _title.value = value;

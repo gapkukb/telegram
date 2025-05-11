@@ -25,20 +25,22 @@ class DashboardPage extends GetView<DashboardController> {
     return GetBuilder<DashboardController>(
       builder: (_) {
         return Scaffold(
-          extendBody: true,
+          // extendBody: true,
           key: controller.appService.dashboradKey,
-          appBar: AppBar(title: const Text("dashboard")),
-          body: Navigator(key: Get.nestedKey(1), initialRoute: '/', onGenerateRoute: controller.onGenerateRoute),
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              Get.toNamed(Routes.login.name);
-            },
-            shape: const CircleBorder(),
-            child: const Icon(Icons.menu),
+          // appBar: AppBar(title: const Text("dashboard")),
+          body: Navigator(
+            key: Get.nestedKey(1),
+            initialRoute: controller.pages.elementAt(0).name,
+            onGenerateRoute: controller.onGenerateRoute,
           ),
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
           bottomNavigationBar: const DashboardFooterWidget(),
-          drawer: BackdropFilter(filter: ImageFilter.blur(sigmaX: blur, sigmaY: blur), child: const Drawer(backgroundColor: Color(0xffeeeeee), child: AsidePage())),
+          drawer: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: blur, sigmaY: blur),
+            child: const Drawer(
+              backgroundColor: Color(0xffeeeeee),
+              child: AsidePage(),
+            ),
+          ),
         );
       },
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:super_plus/router/router.dart';
 import 'package:super_plus/services/app_service.dart';
 import 'package:super_plus/views/home/bindings.dart';
 import 'package:super_plus/views/home/index.dart';
@@ -12,24 +13,57 @@ class DashboardController extends GetxController {
 
   final state = DashboardState();
   final current = 0.obs;
-  final pages = <String>["/", "/promo", "/me"];
+  final pages = <GetPage>[
+    Routes.home,
+    Routes.promo,
+    Routes.games,
+    Routes.favorite,
+    Routes.me,
+  ];
   final appService = Get.find<AppService>();
 
-  void changePage(int index) {
-    if (current.value == index) return;
+  bool changePage(int index) {
+    if (current.value == index) return false;
     current.value = index;
-    Get.offAndToNamed(pages[index], id: 1);
+    Get.toNamed(pages[index].name, id: 1);
+    return true;
   }
 
   Route? onGenerateRoute(RouteSettings settings) {
-    if (settings.name == "/") {
-      return GetPageRoute(popGesture: true, settings: settings, page: () => const HomePage(), binding: HomeBinding());
+    final page = pages.firstWhere(
+      (page) => page.name == settings.name,
+      orElse: () => pages[0],
+    );
+
+    print(page);
+
+    return GetPageRoute(
+      settings: settings,
+      page: page.page,
+      binding: page.binding,
+    );
+    if (settings.name == Routes.home.name) {
+      return GetPageRoute(
+        popGesture: true,
+        settings: settings,
+        page: Routes.home.page,
+      );
     }
     if (settings.name == "/promo") {
-      return GetPageRoute(popGesture: true, settings: settings, page: () => const PromoPage(), binding: PromoBinding());
+      return GetPageRoute(
+        popGesture: true,
+        settings: settings,
+        page: () => const PromoPage(),
+        binding: PromoBinding(),
+      );
     }
     if (settings.name == "/me") {
-      return GetPageRoute(popGesture: true, settings: settings, page: () => const MePage(), binding: MeBinding());
+      return GetPageRoute(
+        popGesture: true,
+        settings: settings,
+        page: () => const MePage(),
+        binding: MeBinding(),
+      );
     }
     return null;
   }

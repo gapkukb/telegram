@@ -1,15 +1,51 @@
+import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:super_plus/const/gutter.dart';
+import 'package:iconify_flutter/icons/quill.dart';
+import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 import '../index.dart';
+// import './test.dart';
 
 class DashboardFooterWidget extends GetView<DashboardController> {
   const DashboardFooterWidget({super.key});
   @override
   Widget build(BuildContext context) {
-    final children = [controller.state.a, controller.state.b, controller.state.c, controller.state.d];
-
-    return Obx(() => BottomAppBar(height: 130.w, shape: CircularNotchedRectangle(), notchMargin: 6, clipBehavior: Clip.antiAlias, padding: EdgeInsets.zero, color: Colors.blue, child: BottomNavigationBar(type: BottomNavigationBarType.fixed, elevation: 0, currentIndex: controller.current.value, onTap: controller.changePage, backgroundColor: Theme.of(context).primaryColor.withAlpha(0), unselectedItemColor: Colors.amber, selectedItemColor: Colors.pink, items: children)));
+    return DefaultTextStyle(
+      style: TextStyle(fontSize: 24.w, color: Colors.black),
+      child: CurvedNavigationBar(
+        // backgroundColor: Colors.blueAccent,
+        height: 112.w,
+        iconPadding: 8,
+        letIndexChange: controller.changePage,
+        items: [
+          CurvedNavigationBarItem(
+            child: Badge(label: Text('999'), child: Icon(Icons.home_outlined)),
+            label: 'Home',
+          ),
+          CurvedNavigationBarItem(
+            child: Iconify(Quill.gift),
+            label: 'Promotions',
+          ),
+          CurvedNavigationBarItem(
+            child: Icon(Icons.sports_esports_outlined),
+            label: 'Games',
+          ),
+          CurvedNavigationBarItem(
+            child: Icon(Icons.loyalty_outlined),
+            label: 'Favorite',
+          ),
+          CurvedNavigationBarItem(
+            child: Icon(Icons.person_outline),
+            label: 'Me',
+          ),
+        ],
+        onTap: (index) {
+          // Handle button tap
+        },
+      ),
+    );
   }
 }

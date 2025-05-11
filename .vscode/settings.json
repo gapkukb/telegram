@@ -1,12 +1,9 @@
 {
   "dart.cliAdditionalArgs": ["--enable-experiment=macros"],
-  "dart.lineLength": 160,
   "editor.codeActionsOnSave": {
     "source.fixAll": "always"
   },
-
   // "code-runner.executorMap": {
   //   "dart": "dart --enable-experiment=macros"
   // },
-  
 }

@@ -15,7 +15,25 @@ class Application extends StatelessWidget {
       designSize: const Size(750, 1336),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: QueryClientProvider(queryClient: queryClient, child: GetMaterialApp(debugShowCheckedModeBanner: false, defaultTransition: Transition.cupertino, title: 'Flutter Demo', popGesture: true, theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue), useMaterial3: true), translations: LocaleTranslations(), locale: Get.deviceLocale, fallbackLocale: LocaleTranslations.zh, initialRoute: Routes.initialRoute, getPages: Routes.pages)),
+      child: QueryClientProvider(
+        queryClient: queryClient,
+        child: GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          defaultTransition: Transition.cupertino,
+          title: 'Flutter Demo',
+          popGesture: true,
+          theme: ThemeData(
+            fontFamily: 'Boxed',
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+            useMaterial3: true,
+          ),
+          translations: LocaleTranslations(),
+          locale: Get.deviceLocale,
+          fallbackLocale: LocaleTranslations.zh,
+          initialRoute: Routes.initialRoute,
+          getPages: Routes.pages,
+        ),
+      ),
     );
   }
 }

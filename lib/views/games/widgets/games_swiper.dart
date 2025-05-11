@@ -13,10 +13,18 @@ class GamesSwiper extends GetView<GamesController> {
 
   @override
   Widget build(BuildContext context) {
-    print('games swiper');
     return CarouselSlider.builder(
       itemCount: 20,
-      options: CarouselOptions(aspectRatio: 8 / 3, enlargeFactor: 0.4, enlargeStrategy: CenterPageEnlargeStrategy.zoom, enlargeCenterPage: true, viewportFraction: 0.8, enableInfiniteScroll: 1 > 0, autoPlay: true, height: 200.w),
+      options: CarouselOptions(
+        aspectRatio: 8 / 3,
+        enlargeFactor: 0.4,
+        enlargeStrategy: CenterPageEnlargeStrategy.zoom,
+        enlargeCenterPage: true,
+        viewportFraction: 0.8,
+        enableInfiniteScroll: 1 > 0,
+        autoPlay: true,
+        height: 200.w,
+      ),
       itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) {
         return Padding(
           padding: Gutter.horizontal.xs,
@@ -28,7 +36,7 @@ class GamesSwiper extends GetView<GamesController> {
               width: double.infinity,
               height: double.infinity,
               placeholder: (context, url) {
-                return Ink(color: Colors.red);
+                return Ink(color: Colors.grey);
               },
             ),
           ),
