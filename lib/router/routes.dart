@@ -3,10 +3,10 @@ part of './router.dart';
 class Routes {
   Routes._();
   static final dashboard = GetPage(
-    name: "/",
+    name: "/dashboard",
     page: () => const DashboardPage(),
     binding: DashboardBinding(),
-    children: [home, promo, games, favorite, me],
+    // children: [home, promo, games, favorite, me],
   );
 
   static final settings = GetPage(
@@ -66,7 +66,17 @@ class Routes {
   );
 
   static List<GetPage> get pages {
-    return [dashboard, home, games, login, forgot, otp, webview, demo];
+    return [
+      dashboard,
+      home,
+      games,
+      login,
+      forgot,
+      otp,
+      webview,
+      demo,
+      settings,
+    ];
   }
 
   static String get initialRoute => dashboard.name;

@@ -1,133 +1,25 @@
-flutter_native_splash:
-  # 该插件会生成原生代码，用于自定义 Flutter 默认的白色原生启动页（Splash Screen），
-  # 可设置背景色和启动图片。
-  # 自定义下面的参数后，在终端运行以下命令：
-  # dart run flutter_native_splash:create
-  # 若要恢复 Flutter 默认的白色启动页，在终端运行以下命令：
-  # dart run flutter_native_splash:remove
+# flutter_native_splash:
+#   android: true
+#   ios: true
+#   web: false
 
-  # 重要提示：这些参数不会影响 Android 12 及以上版本的配置，
-  # 这些版本的启动页处理方式与之前的 Android 版本不同。
-  # Android 12 及以上版本必须在下方 android_12 部分单独配置。
+#   #common
+#   color: "#d4e4ed"
+#   background_image: "assets/splash/background.png"
+#   image: "assets/splash/logo.png"
+#   branding: "assets/splash/branding.png"
 
-  # color 或 background_image 是唯一必填参数。使用 color 设置启动页的纯色背景。
-  # 使用 background_image 设置启动页的 png 背景图片，适合渐变背景。
-  # 图片会被拉伸至应用大小。color 和 background_image 只能二选一，不能同时设置。
-  color: "#42a5f5"
-  #background_image: "assets/background.png"
+#   #dark mode
+#   color_dark: "#042a49"
+#   background_image_dark: "assets/dark-background.png"
+#   image_dark: assets/logo_lockup_flutter_vertical_wht.png
+#   branding_dark: assets/dart_dark.png
 
-  # 可选参数如下。要启用某个参数，请去掉行首的 # 字符。
-
-  # image 参数允许你指定启动页中使用的图片。必须为 png 文件，建议为 4x 像素密度尺寸。
-  #image: assets/splash.png
-
-  # branding 属性允许你指定启动页中的品牌图片。
-  # 必须为 png 文件。支持 Android、iOS 和 Web。Android 12 见下方 android_12 部分。
-  #branding: assets/dart.png
-
-  # 可通过 bottom、bottomRight、bottomLeft 设置品牌图片在屏幕底部的位置。
-  # 默认值为 bottom。
-  #branding_mode: bottom
-  
-  # 设置品牌图片距离屏幕底部的间距。默认值为 0
-  #（Web 端暂不支持）
-  # branding_bottom_padding: 24
-
-  # color_dark、background_image_dark、image_dark、branding_dark 用于设置设备处于深色模式时的背景和图片。
-  # 如果未指定，将使用上方的参数。如果上方也没有，则使用浅色模式的值。
-  # 如果指定了 image_dark，必须同时指定 color_dark 或 background_image_dark。
-  # color_dark 和 background_image_dark 不能同时设置。
-  #color_dark: "#042a49"
-  #background_image_dark: "assets/dark-background.png"
-  #image_dark: assets/splash-invert.png
-  #branding_dark: assets/dart_dark.png
-
-  # 从 Android 12 开始，启动页的处理方式与之前不同。
-  # 详情请访问 https://developer.android.com/guide/topics/ui/splash-screen
-  # 以下为 Android 12+ 的专用参数。
-  android_12:
-    # image 参数设置启动页图标图片。如果未指定，将使用应用启动图标。
-    # 启动画面会将图片裁剪为屏幕中央的圆形。
-    # 带图标背景的应用图标：应为 960×960 像素，内容放在直径 640 像素的圆内。
-    # 无图标背景的应用图标：应为 1152×1152 像素，内容放在直径 768 像素的圆内。
-    # 若要将 1152x1152 图片内容放在直径 768 的圆内，只需确保主要设计元素位于画布中心的 768 直径圆内。
-    #image: assets/android12splash.png
-
-    # 启动页背景色。
-    #color: "#42a5f5"
-
-    # 应用图标背景色。
-    #icon_background_color: "#111111"
-
-    # branding 属性允许你指定启动页中的品牌图片。
-    #branding: assets/dart.png
-
-    # image_dark、color_dark、icon_background_color_dark、branding_dark 用于深色模式。
-    # 如果未指定，将使用上方的参数。如果上方也没有，则使用浅色模式的值。
-    #image_dark: assets/android12splash-invert.png
-    #color_dark: "#042a49"
-    #icon_background_color_dark: "#eeeeee"
-
-  # android、ios、web 参数可用于禁用某个平台的启动页生成。
-  #android: false
-  #ios: false
-  #web: false
-
-  # 可通过以下参数为不同平台单独指定图片，会覆盖上方对应参数。可全部、部分或不指定。
-  #color_android: "#42a5f5"
-  #color_dark_android: "#042a49"
-  #color_ios: "#42a5f5"
-  #color_dark_ios: "#042a49"
-  #color_web: "#42a5f5"
-  #color_dark_web: "#042a49"
-  #image_android: assets/splash-android.png
-  #image_dark_android: assets/splash-invert-android.png
-  #image_ios: assets/splash-ios.png
-  #image_dark_ios: assets/splash-invert-ios.png
-  #image_web: assets/splash-web.gif
-  #image_dark_web: assets/splash-invert-web.gif
-  #background_image_android: "assets/background-android.png"
-  #background_image_dark_android: "assets/dark-background-android.png"
-  #background_image_ios: "assets/background-ios.png"
-  #background_image_dark_ios: "assets/dark-background-ios.png"
-  #background_image_web: "assets/background-web.png"
-  #background_image_dark_web: "assets/dark-background-web.png"
-  #branding_android: assets/brand-android.png
-  #branding_bottom_padding_android: 24
-  #branding_dark_android: assets/dart_dark-android.png
-  #branding_ios: assets/brand-ios.png
-  #branding_bottom_padding_ios: 24
-  #branding_dark_ios: assets/dart_dark-ios.png
-  #branding_web: assets/brand-web.gif
-  #branding_dark_web: assets/dart_dark-web.gif
-
-  # 可通过 android_gravity、ios_content_mode、web_image_mode 设置启动图片的位置，默认居中。
-  #
-  # android_gravity 可选值见 https://developer.android.com/reference/android/view/Gravity
-  # 如 bottom、center、center_horizontal、center_vertical、clip_horizontal、clip_vertical、end、fill、fill_horizontal、fill_vertical、left、right、start、top。
-  # 可用 | 组合多个效果。例如：
-  # `android_gravity: fill|clip_vertical` - 宽度填充，保持图片垂直比例
-  #android_gravity: center
-  #
-  # ios_content_mode 可选值见 https://developer.apple.com/documentation/uikit/uiview/contentmode
-  # 如 scaleToFill、scaleAspectFit、scaleAspectFill、center、top、bottom、left、right、topLeft、topRight、bottomLeft、bottomRight。
-  #ios_content_mode: center
-  #
-  # web_image_mode 可选值：center、contain、stretch、cover。
-  #web_image_mode: center
-
-  # Android 可通过 android_screen_orientation 设置屏幕方向。
-  # 有效参数见 https://developer.android.com/guide/topics/manifest/activity-element#screen
-  #android_screen_orientation: sensorLandscape
-
-  # 若要隐藏通知栏，使用 fullscreen 参数。Web 端无效，默认 false。
-  # 注意：与 Android 不同，iOS 启动时不会自动显示通知栏。
-  #       若要显示通知栏，请在 Flutter 应用中添加如下代码：
-  #       WidgetsFlutterBinding.ensureInitialized();
-  #       SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top], );
-  #fullscreen: true
-
-  # 如果你更改了 info.plist 文件名，可通过 info_plist_files 参数指定文件名。只需去掉下方三行的 # 字符，不要去掉空格：
-  #info_plist_files:
-  #  - 'ios/Runner/Info-Debug.plist'
-  #  - 'ios/Runner/Info-Release.plist'
+#   #android_12以上需要单独指定
+#   android_12:
+#     color: "#42a5f5"
+#     image: assets/android12splash.png
+#     branding: assets/dart.png
+#     # image_dark: assets/android12splash-invert.png
+#     # color_dark: "#042a49"
+#     # icon_background_color_dark: "#111111" 

@@ -41,7 +41,12 @@ class FavoritePage extends GetView<FavoriteController> {
                   ),
                 ),
                 SliverPadding(
-                  padding: Gutter.horizontal.sm,
+                  padding: EdgeInsets.only(
+                    left: Gutter.sm,
+                    right: Gutter.sm,
+                    top: Gutter.sm,
+                    bottom: Gutter.lg,
+                  ),
                   sliver: SliverToBoxAdapter(
                     child: Text(
                       'HOT GAMES',

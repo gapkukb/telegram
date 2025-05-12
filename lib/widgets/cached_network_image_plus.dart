@@ -11,8 +11,8 @@ Widget placeholder(BuildContext _, String __) => placeholderImage;
 Widget errorWidget(BuildContext _, String __, Object ___) => placeholderImage;
 
 class CachedNetworkImagePlus extends CachedNetworkImage {
-  CachedNetworkImagePlus({
-    required super.imageUrl,
+  CachedNetworkImagePlus(
+    String url, {
     super.key,
     super.httpHeaders,
     super.imageBuilder,
@@ -39,5 +39,5 @@ class CachedNetworkImagePlus extends CachedNetworkImage {
     super.maxWidthDiskCache,
     super.maxHeightDiskCache,
     super.errorListener,
-  }) : super(placeholder: placeholder, errorWidget: errorWidget);
+  }) : super(imageUrl: url, placeholder: placeholder, errorWidget: errorWidget);
 }

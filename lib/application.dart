@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fquery/fquery.dart';
 import 'package:get/route_manager.dart';
+import 'package:scaled_app/scaled_app.dart';
 import 'package:super_plus/router/router.dart';
 import 'package:super_plus/locales/locales.dart';
 
@@ -11,10 +12,8 @@ class Application extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final queryClient = QueryClient();
-    return ScreenUtilInit(
-      designSize: const Size(750, 1336),
-      minTextAdapt: true,
-      splitScreenMode: true,
+    return MediaQuery(
+      data: MediaQuery.of(context).scale(),
       child: QueryClientProvider(
         queryClient: queryClient,
         child: GetMaterialApp(
@@ -30,7 +29,7 @@ class Application extends StatelessWidget {
           translations: LocaleTranslations(),
           locale: Get.deviceLocale,
           fallbackLocale: LocaleTranslations.zh,
-          initialRoute: Routes.initialRoute,
+          initialRoute: Routes.settings.name,
           getPages: Routes.pages,
         ),
       ),

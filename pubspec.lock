@@ -407,7 +407,7 @@ packages:
     source: hosted
     version: "5.0.0"
   flutter_native_splash:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: flutter_native_splash
       sha256: "8321a6d11a8d13977fa780c89de8d257cce3d841eecfb7a4cadffcc4f12d82dc"
@@ -880,6 +880,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.28.0"
+  scaled_app:
+    dependency: "direct main"
+    description:
+      name: scaled_app
+      sha256: a2ad9f22cf2200a5ce455b59c5ea7bfb09a84acfc52452d1db54f4958c99d76a
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.0"
   shared_preferences:
     dependency: "direct main"
     description:

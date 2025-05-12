@@ -30,7 +30,7 @@ class DashboardPage extends GetView<DashboardController> {
           // appBar: AppBar(title: const Text("dashboard")),
           body: Navigator(
             key: Get.nestedKey(1),
-            initialRoute: controller.pages.elementAt(0).name,
+            initialRoute: controller.pages.elementAt(4).name,
             onGenerateRoute: controller.onGenerateRoute,
           ),
           bottomNavigationBar: const DashboardFooterWidget(),

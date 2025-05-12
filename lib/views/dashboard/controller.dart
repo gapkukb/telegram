@@ -35,37 +35,11 @@ class DashboardController extends GetxController {
       orElse: () => pages[0],
     );
 
-    print(page);
-
     return GetPageRoute(
       settings: settings,
       page: page.page,
       binding: page.binding,
     );
-    if (settings.name == Routes.home.name) {
-      return GetPageRoute(
-        popGesture: true,
-        settings: settings,
-        page: Routes.home.page,
-      );
-    }
-    if (settings.name == "/promo") {
-      return GetPageRoute(
-        popGesture: true,
-        settings: settings,
-        page: () => const PromoPage(),
-        binding: PromoBinding(),
-      );
-    }
-    if (settings.name == "/me") {
-      return GetPageRoute(
-        popGesture: true,
-        settings: settings,
-        page: () => const MePage(),
-        binding: MeBinding(),
-      );
-    }
-    return null;
   }
 
   // tap
