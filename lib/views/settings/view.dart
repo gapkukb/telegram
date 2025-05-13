@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:super_plus/widgets/cell.dart';
+import 'package:super_plus/widgets/cell_group.dart';
 
 import 'index.dart';
 
@@ -13,9 +15,33 @@ class SettingsPage extends GetView<SettingsController> {
         return Scaffold(
           backgroundColor: Colors.white,
           // appBar: AppBar(title: const Text("settings")),
-          body: Container(
-            color: Colors.amber,
-            child: SizedBox(width: 100, height: 100),
+          body: ListView(
+            children: [
+              CellGroup(
+                children: [
+                  Cell(
+                    onTap: () {},
+                    iconWidget: Icon(Icons.access_alarm),
+                    title: "设置",
+                    value: "设置",
+                    isLink: true,
+                  ),
+                  Cell(
+                    onTap: () {},
+                    iconWidget: Icon(Icons.access_alarm),
+                    title: "设置",
+                    value: "设置",
+                    isLink: true,
+                  ),
+                  Cell(
+                    onTap: () {},
+                    iconWidget: Icon(Icons.access_alarm),
+                    title: "设置",
+                    isLink: true,
+                  ),
+                ],
+              ),
+            ],
           ),
         );
       },
