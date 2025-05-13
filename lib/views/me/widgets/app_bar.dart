@@ -36,8 +36,7 @@ class MeAppBar extends GetView<MeController> implements PreferredSizeWidget {
         ),
         IconButton(
           onPressed: () {},
-          // icon: Icon(Icons.dark_mode_outlined),
-          icon: Icon(Icons.light_mode_outlined),
+          icon: Badge(smallSize: 8, child: Icon(Icons.notifications_outlined)),
         ),
         IconButton(
           onPressed: () {
