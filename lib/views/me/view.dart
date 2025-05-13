@@ -102,6 +102,7 @@ class MePage extends GetView<MeController> {
               GridView(
                 primary: false,
                 shrinkWrap: true,
+                padding: Gutter.horizontal.xs,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
                   mainAxisExtent: 40,
@@ -116,22 +117,33 @@ class MePage extends GetView<MeController> {
               SizedBox(height: Gutter.xs),
 
               CellGroup(
+                inset: true,
                 children: [
-                  Cell(title: "Invite Friends", isLink: true),
-                  Cell(title: "Invite Friends", isLink: true),
-                  Cell(title: "Invite Friends", isLink: true),
+                  Cell(
+                    onTap: () {
+                      Get.toNamed('/share');
+                    },
+                    title: "邀请好友",
+                    value: "分享有礼",
+                    isLink: true,
+                  ),
+                  Cell(title: "我的权益", isLink: true),
+                  Cell(title: "KYC认证", isLink: true),
                 ],
               ),
 
-              SizedBox(height: Gutter.xs),
+              SizedBox(height: Gutter.xxl),
 
-              GFButton(
-                onPressed: () {},
-                blockButton: true,
-                color: Colors.red,
-                size: 44,
-                shape: GFButtonShape.standard,
-                child: Text("LOG OUT", style: TextStyle(fontSize: 18)),
+              Padding(
+                padding: Gutter.horizontal.xs,
+                child: GFButton(
+                  onPressed: () {},
+                  blockButton: true,
+                  color: Colors.red,
+                  size: 44,
+                  shape: GFButtonShape.standard,
+                  child: Text("LOG OUT", style: TextStyle(fontSize: 18)),
+                ),
               ),
               SizedBox(height: Gutter.xs),
             ],

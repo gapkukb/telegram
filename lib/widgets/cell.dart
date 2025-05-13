@@ -154,7 +154,7 @@ class Cell extends StatelessWidget {
 
     return RotatedBox(
       quarterTurns: angles[arrow]!,
-      child: const Icon(Icons.chevron_left, size: 14, color: Color(0xff999999)),
+      child: const Icon(Icons.chevron_left, size: 18, color: Color(0xff999999)),
     );
   }
 }

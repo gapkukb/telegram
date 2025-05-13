@@ -14,11 +14,11 @@ class DashboardController extends GetxController {
   final state = DashboardState();
   final current = 0.obs;
   final pages = <GetPage>[
-    Routes.home,
-    Routes.promo,
-    Routes.games,
-    Routes.favorite,
-    Routes.me,
+    AppPages.home,
+    AppPages.promo,
+    AppPages.games,
+    AppPages.favorite,
+    AppPages.me,
   ];
   final appService = Get.find<AppService>();
 

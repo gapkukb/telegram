@@ -40,7 +40,7 @@ class MeAppBar extends GetView<MeController> implements PreferredSizeWidget {
         ),
         IconButton(
           onPressed: () {
-            Get.toNamed(Routes.settings.name, preventDuplicates: true);
+            Get.toNamed(AppPages.settings.name, preventDuplicates: true);
           },
           icon: Icon(Icons.settings_outlined),
         ),

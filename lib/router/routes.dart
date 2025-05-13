@@ -1,7 +1,7 @@
 part of './router.dart';
 
-class Routes {
-  Routes._();
+class AppPages {
+  AppPages._();
   static final dashboard = GetPage(
     name: "/dashboard",
     page: () => const DashboardPage(),
@@ -53,10 +53,13 @@ class Routes {
     binding: FavoriteBinding(),
   );
 
+  static final share = GetPage(name: "/share", page: () => const SharePage());
+
   static final me = GetPage(
     name: "/me",
     page: () => const MePage(),
     binding: MeBinding(),
+    children: [share],
   );
 
   static final promo = GetPage(
@@ -64,6 +67,10 @@ class Routes {
     page: () => const PromoPage(),
     binding: PromoBinding(),
   );
+
+  static final kyc = GetPage(name: "/kyc", page: () => const KycPage());
+
+  static final banks = GetPage(name: "/banks", page: () => const BanksPage());
 
   static List<GetPage> get pages {
     return [
@@ -76,8 +83,11 @@ class Routes {
       webview,
       demo,
       settings,
+      share,
+      // kyc,
+      // banks,
     ];
   }
 
-  static String get initialRoute => dashboard.name;
+  static String get initial => dashboard.name;
 }

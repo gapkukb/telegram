@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fquery/fquery.dart';
+import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
 import 'package:scaled_app/scaled_app.dart';
 import 'package:super_plus/router/router.dart';
@@ -19,7 +20,7 @@ class Application extends StatelessWidget {
         child: GetMaterialApp(
           debugShowCheckedModeBanner: false,
           defaultTransition: Transition.cupertino,
-          title: 'Flutter Demo',
+          title: 'Super Plus',
           popGesture: true,
           theme: ThemeData(
             fontFamily: 'Boxed',
@@ -29,8 +30,8 @@ class Application extends StatelessWidget {
           translations: LocaleTranslations(),
           locale: Get.deviceLocale,
           fallbackLocale: LocaleTranslations.zh,
-          initialRoute: Routes.initialRoute,
-          getPages: Routes.pages,
+          initialRoute: AppPages.initial,
+          getPages: AppPages.pages,
         ),
       ),
     );

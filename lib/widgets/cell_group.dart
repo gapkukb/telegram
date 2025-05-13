@@ -47,8 +47,8 @@ class CellGroup extends StatelessWidget {
 
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
-      margin:
-          inset ? Theme.of(context).cardTheme.margin : const EdgeInsets.all(0),
+      color: Colors.white,
+      margin: inset ? Gutter.horizontal.xs : const EdgeInsets.all(0),
       child: Padding(
         padding: Gutter.horizontal.sm,
         child: Column(
