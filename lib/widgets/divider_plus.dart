@@ -25,7 +25,7 @@ class DividerPlus extends StatelessWidget {
       children: [
         Line,
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: gutter ?? 32.w),
+          padding: EdgeInsets.symmetric(horizontal: gutter ?? 32),
           child: child ?? Text(text, style: TextStyle(color: color)),
         ),
         Line,

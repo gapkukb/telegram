@@ -29,7 +29,7 @@ class Application extends StatelessWidget {
           translations: LocaleTranslations(),
           locale: Get.deviceLocale,
           fallbackLocale: LocaleTranslations.zh,
-          initialRoute: Routes.settings.name,
+          initialRoute: Routes.initialRoute,
           getPages: Routes.pages,
         ),
       ),

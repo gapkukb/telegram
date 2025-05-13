@@ -46,16 +46,16 @@ class PromoPage extends GetView<PromoController> {
                   ),
                   SliverFixedExtentList.builder(
                     itemCount: 20,
-                    itemExtent: 320.w,
+                    itemExtent: 320,
                     itemBuilder: buildItem,
                   ),
                   SliverToBoxAdapter(
                     child: SizedBox(
-                      height: 70.w,
+                      height: 70,
                       child: Text(
                         'More',
                         style: TextStyle(
-                          fontSize: 36.w,
+                          fontSize: 36,
                           color: Color(0xff111111),
                           fontWeight: FontWeight.bold,
                         ),
@@ -99,7 +99,7 @@ class PromoPage extends GetView<PromoController> {
                   ? "https://pub.imgscache.com/compic/030f91af-6773-4f2a-9065-72887a07bab8.gif"
                   : "https://pub.imgscache.com/compic/da175b76-7b2a-4323-8f8b-4c2ec5f16e5b.png",
               width: double.infinity,
-              height: 200.w,
+              height: 200,
               fit: BoxFit.cover,
             ),
           ),
@@ -122,7 +122,7 @@ class PromoPage extends GetView<PromoController> {
                 ? "https://pub.imgscache.com/compic/e9784325-7eb1-4b3f-8d02-ec5ac81e8b21.png"
                 : "https://hkp-s3.imgscache.com/5593e635f4cf46c1a3959181dfd4dc31",
             width: double.infinity,
-            height: 310.w,
+            height: 310,
             fit: BoxFit.cover,
           ),
         ),
@@ -141,7 +141,7 @@ class PromoPage extends GetView<PromoController> {
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(
-          fontSize: 28.w,
+          fontSize: 28,
           color: Colors.black,
           fontWeight: FontWeight.bold,
         ),
@@ -150,10 +150,10 @@ class PromoPage extends GetView<PromoController> {
         "Apr 29 2025 - May 31 2025",
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
-        style: TextStyle(fontSize: 20.w, color: Color(0xff8286a3)),
+        style: TextStyle(fontSize: 20, color: Color(0xff8286a3)),
       ),
       trailing: SizedBox(
-        height: 48.w,
+        height: 48,
         child: FilledButton.tonal(
           onPressed: () {},
           child: Text(
@@ -161,7 +161,7 @@ class PromoPage extends GetView<PromoController> {
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
-              fontSize: 24.w,
+              fontSize: 24,
               color: Color(0xffff5800),
               fontWeight: FontWeight.bold,
             ),

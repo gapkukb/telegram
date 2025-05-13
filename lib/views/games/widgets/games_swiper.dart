@@ -23,13 +23,13 @@ class GamesSwiper extends GetView<GamesController> {
         viewportFraction: 0.8,
         enableInfiniteScroll: 1 > 0,
         autoPlay: true,
-        height: 200.w,
+        height: 200,
       ),
       itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) {
         return Padding(
           padding: Gutter.horizontal.xs,
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(8.0.w),
+            borderRadius: BorderRadius.circular(8.0),
             child: CachedNetworkImage(
               imageUrl: "https://picsum.photos/seed/4$itemIndex/600/200",
               fit: BoxFit.cover,

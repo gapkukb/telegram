@@ -30,7 +30,7 @@ class GamesBody extends GetView<GamesController> {
           children: [
             CachedNetworkImage(
               imageUrl: "https://picsum.photos/seed/4$index/600/200",
-              height: 156.w,
+              height: 156,
               fit: BoxFit.cover,
               placeholder:
                   (context, url) => Ink(color: Colors.blueGrey.shade100),
@@ -63,7 +63,7 @@ class GamesBody extends GetView<GamesController> {
                   "ArenaPlus games111",
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(color: Color(0xff8286a3), fontSize: 24.w),
+                  style: TextStyle(color: Color(0xff8286a3), fontSize: 24),
                 ),
               ),
           ],

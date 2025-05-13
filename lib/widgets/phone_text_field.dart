@@ -12,8 +12,8 @@ class PhoneTextField extends StatefulWidget {
 
 class _PhoneTextFieldState extends State<PhoneTextField> {
   static final _style = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(99.w),
-    borderSide: BorderSide(width: 1.w),
+    borderRadius: BorderRadius.circular(99),
+    borderSide: BorderSide(width: 1),
   );
 
   static final maskFormatter = MaskTextInputFormatter(
@@ -50,7 +50,7 @@ class _PhoneTextFieldState extends State<PhoneTextField> {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      cursorWidth: 2.w,
+      cursorWidth: 2,
       keyboardType: TextInputType.numberWithOptions(decimal: false),
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
       autofocus: true,

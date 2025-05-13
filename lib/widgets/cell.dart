@@ -58,7 +58,7 @@ class Cell extends StatelessWidget {
     final left = _buildLeft();
     final value = _buildValue();
     final extra = _buildExtra();
-    final defaultHeight = label == null && labelWidget == null ? 88.0 : 132.0;
+    final defaultHeight = label == null && labelWidget == null ? 44.0 : 66.0;
 
     return SizedBox(
       height: height ?? defaultHeight,
@@ -66,7 +66,7 @@ class Cell extends StatelessWidget {
         onTap: onTap,
         enableFeedback: clickable ?? onTap == null ? false : true,
         child: Flex(
-          spacing: 16,
+          spacing: 8,
           direction: Axis.horizontal,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -86,7 +86,7 @@ class Cell extends StatelessWidget {
   Widget? _buildIcon() {
     if (iconWidget == null && icon == null) return null;
     if (iconWidget != null) return iconWidget;
-    final size = 28.0;
+    final size = 14.0;
     const color = Color(0xff111111);
 
     if (icon is IconData) return Icon(icon!, size: size, color: color);
@@ -111,7 +111,7 @@ class Cell extends StatelessWidget {
     if (titleWidget == null && title == null) return null;
 
     final style = TextStyle(
-      fontSize: 28,
+      fontSize: 14,
       color: const Color(0xff111111),
     ).merge(titleStyle);
 
@@ -125,7 +125,7 @@ class Cell extends StatelessWidget {
         Text(
           value!,
           style: TextStyle(
-            fontSize: 28,
+            fontSize: 14,
             color: const Color(0xff999999),
           ).merge(valueStyle),
         );
@@ -134,7 +134,7 @@ class Cell extends StatelessWidget {
   Widget? _buildLabel() {
     if (labelWidget == null && label == null) return null;
     final style = TextStyle(
-      fontSize: 24,
+      fontSize: 12,
       color: const Color(0xff999999),
     ).merge(valueStyle);
 
@@ -154,7 +154,7 @@ class Cell extends StatelessWidget {
 
     return RotatedBox(
       quarterTurns: angles[arrow]!,
-      child: const Icon(Icons.chevron_left, size: 28, color: Color(0xff999999)),
+      child: const Icon(Icons.chevron_left, size: 14, color: Color(0xff999999)),
     );
   }
 }

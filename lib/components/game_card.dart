@@ -51,7 +51,7 @@ class GameCard extends StatelessWidget {
   Widget get _poster {
     final poster = CachedNetworkImagePlus(
       "https://pub.imgscache.com/compic/8a5fc870-4691-4b38-be87-f75c354c1dfc.jpg",
-      height: 156.w,
+      height: 156,
     );
 
     if (!disabled) {
@@ -65,7 +65,7 @@ class GameCard extends StatelessWidget {
                 child: Iconify(
                   Wpf.maintenance,
                   color: Colors.white.withAlpha(200),
-                  size: 48.w,
+                  size: 48,
                 ), // widget,
               ),
             ),
@@ -82,7 +82,7 @@ class GameCard extends StatelessWidget {
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
       softWrap: false,
-      style: TextStyle(fontSize: 24.w, fontWeight: FontWeight.bold, height: 2),
+      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, height: 2),
     );
   }
 
@@ -92,7 +92,7 @@ class GameCard extends StatelessWidget {
       softWrap: false,
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
-      style: TextStyle(fontSize: 20.w, color: Color(0xff8286a3), height: 1.5),
+      style: TextStyle(fontSize: 20, color: Color(0xff8286a3), height: 1.5),
     );
   }
 
@@ -101,8 +101,8 @@ class GameCard extends StatelessWidget {
     final color = liked ? Colors.red : Colors.grey;
 
     return SizedBox(
-      width: 48.w,
-      height: 48.w,
+      width: 48,
+      height: 48,
       child: IconButton(
         // color: Colors.amber,
         onPressed: () {

@@ -17,15 +17,44 @@ class OAuthWidget extends GetView<LoginController> {
       // shape: CircleBorder(side: BorderSide(color: Colors.grey)),
     );
 
-    final size = 48.w;
+    final size = 48.0;
     final Line = Expanded(child: Divider(color: Colors.grey.shade200));
 
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 48.0.w),
+      padding: EdgeInsets.symmetric(vertical: 48.0),
       child: Column(
         children: [
-          DividerPlus(text: "OR", lineColor: Colors.grey.shade200, color: Colors.grey),
-          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, mainAxisSize: MainAxisSize.max, children: [IconButton(onPressed: () {}, icon: Iconify(Logos.facebook, size: size), style: style), IconButton(onPressed: () {}, icon: Iconify(Logos.apple, size: size), style: style), IconButton(onPressed: () {}, icon: Iconify(Logos.twitter, size: size - 3), style: style), IconButton(onPressed: () {}, icon: Iconify(Logos.google_icon, size: size), style: style)]),
+          DividerPlus(
+            text: "OR",
+            lineColor: Colors.grey.shade200,
+            color: Colors.grey,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: Iconify(Logos.facebook, size: size),
+                style: style,
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Iconify(Logos.apple, size: size),
+                style: style,
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Iconify(Logos.twitter, size: size - 3),
+                style: style,
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Iconify(Logos.google_icon, size: size),
+                style: style,
+              ),
+            ],
+          ),
         ],
       ),
     );

@@ -37,8 +37,8 @@ class EmptyState extends StatelessWidget {
   Widget buildBase(String imageUrl, String text, String buttonText) {
     return Column(
       children: [
-        Image.asset(imageUrl, width: 370.w),
-        Text(text, style: TextStyle(color: Color(0xff8286a3), fontSize: 24.w)),
+        Image.asset(imageUrl, width: 370),
+        Text(text, style: TextStyle(color: Color(0xff8286a3), fontSize: 24)),
         SizedBox(height: Gutter.lg),
         GFButton(
           onPressed: () {},

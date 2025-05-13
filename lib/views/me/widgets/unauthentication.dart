@@ -14,7 +14,7 @@ class Unauthentication extends GetView<MeController> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 600.w,
+      height: 600,
       // color: Colors.amber,
       child: Center(
         child: GFButton(

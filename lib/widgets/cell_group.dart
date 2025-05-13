@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:super_plus/const/gutter.dart';
 import 'package:super_plus/widgets/cell.dart';
 
 class CellGroup extends StatelessWidget {
@@ -44,9 +45,17 @@ class CellGroup extends StatelessWidget {
             })
             : children;
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [if (title != null) title, ...nodes],
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+      margin:
+          inset ? Theme.of(context).cardTheme.margin : const EdgeInsets.all(0),
+      child: Padding(
+        padding: Gutter.horizontal.sm,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [if (title != null) title, ...nodes],
+        ),
+      ),
     );
   }
 

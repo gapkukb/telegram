@@ -12,7 +12,8 @@ class ForgotPasswordPage extends StatefulWidget {
   State<ForgotPasswordPage> createState() => _ForgotPasswordPageState();
 }
 
-class _ForgotPasswordPageState extends State<ForgotPasswordPage> with AutomaticKeepAliveClientMixin {
+class _ForgotPasswordPageState extends State<ForgotPasswordPage>
+    with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true;
 
@@ -42,15 +43,21 @@ class _ForgotPasswordViewGetX extends GetView<ForgotPasswordController> {
           body: SafeArea(
             child: Center(
               child: Padding(
-                padding: EdgeInsets.all(32.0.w),
+                padding: EdgeInsets.all(32.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    TextField(autofocus: true, decoration: InputDecoration(label: Text("Phone/Email/Account"), floatingLabelBehavior: FloatingLabelBehavior.always)),
-                    SizedBox(height: 100.0.w),
+                    TextField(
+                      autofocus: true,
+                      decoration: InputDecoration(
+                        label: Text("Phone/Email/Account"),
+                        floatingLabelBehavior: FloatingLabelBehavior.always,
+                      ),
+                    ),
+                    SizedBox(height: 100.0),
                     SizedBox(
                       width: double.infinity,
-                      height: 96.w,
+                      height: 96,
                       child: FilledButton.icon(
                         onPressed: () {
                           // Get.offAndToNamed(Routes.)

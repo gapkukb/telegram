@@ -36,8 +36,15 @@ class SettingsPage extends GetView<SettingsController> {
                   Cell(
                     onTap: () {},
                     iconWidget: Icon(Icons.access_alarm),
-                    title: "设置",
-                    isLink: true,
+                    title: "通知",
+                    // isLink: true,
+                    valueWidget: Theme(
+                      data: ThemeData(platform: TargetPlatform.iOS),
+                      child: Switch.adaptive(
+                        onChanged: (value) {},
+                        value: true,
+                      ),
+                    ),
                   ),
                 ],
               ),

@@ -51,7 +51,7 @@ class FavoritePage extends GetView<FavoriteController> {
                     child: Text(
                       'HOT GAMES',
                       style: TextStyle(
-                        fontSize: 36.w,
+                        fontSize: 36,
                         color: Color(0xff111111),
                         fontWeight: FontWeight.bold,
                       ),

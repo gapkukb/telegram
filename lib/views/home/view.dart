@@ -20,15 +20,22 @@ class HomePage extends GetView<HomeController> {
       enabled: true,
       // ignoreContainers: true,
       containersColor: Colors.grey,
-      switchAnimationConfig: SwitchAnimationConfig(duration: Duration(seconds: 3)),
+      switchAnimationConfig: SwitchAnimationConfig(
+        duration: Duration(seconds: 3),
+      ),
       child: GridView.builder(
-        padding: EdgeInsets.all(16.0.w),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(childAspectRatio: 112 / 165, crossAxisCount: 3, crossAxisSpacing: 16.w, mainAxisSpacing: 16.w),
+        padding: EdgeInsets.all(16.0),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          childAspectRatio: 112 / 165,
+          crossAxisCount: 3,
+          crossAxisSpacing: 16,
+          mainAxisSpacing: 16,
+        ),
         itemCount: users.length,
         itemBuilder: (context, index) {
           final user = users[index];
           return Material(
-            borderRadius: BorderRadius.circular(16.0.w),
+            borderRadius: BorderRadius.circular(16.0),
             clipBehavior: Clip.hardEdge,
             child: ListTile(
               minVerticalPadding: 0,
@@ -38,9 +45,16 @@ class HomePage extends GetView<HomeController> {
                 user.avatar ?? '',
                 fit: BoxFit.cover,
                 // width: double.infinity,
-                height: 280.w,
+                height: 280,
               ),
-              subtitle: Padding(padding: EdgeInsets.symmetric(horizontal: 8.0.w), child: Text('Subtitle', maxLines: 1, overflow: TextOverflow.ellipsis)),
+              subtitle: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                child: Text(
+                  'Subtitle',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
             ),
           );
         },
@@ -56,30 +70,74 @@ class HomePage extends GetView<HomeController> {
       builder: (_) {
         return DecoratedBox(
           decoration: BoxDecoration(
-            gradient: RadialGradient(colors: [Color(0xff044a48), Color(0xff1a1859)], center: Alignment.topCenter, radius: 1.0, stops: const [0.0, 1.0]), // 渐变背景
+            gradient: RadialGradient(
+              colors: [Color(0xff044a48), Color(0xff1a1859)],
+              center: Alignment.topCenter,
+              radius: 1.0,
+              stops: const [0.0, 1.0],
+            ), // 渐变背景
           ),
           child: Scaffold(
             backgroundColor: Colors.transparent,
             extendBodyBehindAppBar: false,
             appBar: PreferredSize(
-              preferredSize: Size.fromHeight(76.w),
+              preferredSize: Size.fromHeight(76),
               child: Padding(
-                padding: EdgeInsets.only(left: 16.0.w, right: 16.0.w, bottom: 16.0.w),
+                padding: EdgeInsets.only(left: 16.0, right: 16.0, bottom: 16.0),
                 child: AppBar(
                   leading: Assets.images.logo.svg(),
-                  leadingWidth: 400.w,
+                  leadingWidth: 400,
                   surfaceTintColor: Colors.transparent, // 设置表面颜色为透明
                   scrolledUnderElevation: 0.0, // 去除滚动时的阴影
                   forceMaterialTransparency: true,
                   systemOverlayStyle: SystemUiOverlayStyle(
                     statusBarColor: Colors.transparent, // 设置状态栏背景颜色
                     statusBarIconBrightness: Brightness.light, // 设置状态栏图标颜色为白色
-                    statusBarBrightness: Brightness.dark, // 设置状态栏文字颜色为深色（仅适用于iOS）
+                    statusBarBrightness:
+                        Brightness.dark, // 设置状态栏文字颜色为深色（仅适用于iOS）
                   ),
 
                   actions: [
-                    SizedBox(height: 60.w, child: OutlinedButton(onPressed: () {}, style: ButtonStyle(padding: WidgetStatePropertyAll(EdgeInsets.zero), shape: WidgetStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(100.0), side: BorderSide(color: Colors.red)))), child: Text("Sign In"))),
-                    SizedBox(height: 60.w, child: DecoratedBox(decoration: BoxDecoration(borderRadius: BorderRadius.circular(100.0), gradient: LinearGradient(colors: [Color(0xffff2700), Color(0xffff00ba)])), child: TextButton(onPressed: () {}, style: ButtonStyle(padding: WidgetStatePropertyAll(EdgeInsets.zero), shape: WidgetStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(100.0), side: BorderSide(color: Colors.red)))), child: Text("Sign In")))),
+                    SizedBox(
+                      height: 60,
+                      child: OutlinedButton(
+                        onPressed: () {},
+                        style: ButtonStyle(
+                          padding: WidgetStatePropertyAll(EdgeInsets.zero),
+                          shape: WidgetStatePropertyAll(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(100.0),
+                              side: BorderSide(color: Colors.red),
+                            ),
+                          ),
+                        ),
+                        child: Text("Sign In"),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 60,
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(100.0),
+                          gradient: LinearGradient(
+                            colors: [Color(0xffff2700), Color(0xffff00ba)],
+                          ),
+                        ),
+                        child: TextButton(
+                          onPressed: () {},
+                          style: ButtonStyle(
+                            padding: WidgetStatePropertyAll(EdgeInsets.zero),
+                            shape: WidgetStatePropertyAll(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(100.0),
+                                side: BorderSide(color: Colors.red),
+                              ),
+                            ),
+                          ),
+                          child: Text("Sign In"),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -90,12 +148,23 @@ class HomePage extends GetView<HomeController> {
                 children: [
                   CarouselSlider.builder(
                     itemCount: 5,
-                    options: CarouselOptions(aspectRatio: 8 / 3, enlargeFactor: 0.2, enlargeCenterPage: true, viewportFraction: 0.8, enableInfiniteScroll: 1 > 0),
+                    options: CarouselOptions(
+                      aspectRatio: 8 / 3,
+                      enlargeFactor: 0.2,
+                      enlargeCenterPage: true,
+                      viewportFraction: 0.8,
+                      enableInfiniteScroll: 1 > 0,
+                    ),
                     itemBuilder:
-                        (BuildContext context, int itemIndex, int pageViewIndex) => ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0.w),
+                        (
+                          BuildContext context,
+                          int itemIndex,
+                          int pageViewIndex,
+                        ) => ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
                           child: CachedNetworkImage(
-                            imageUrl: "https://picsum.photos/seed/4$itemIndex/600/200",
+                            imageUrl:
+                                "https://picsum.photos/seed/4$itemIndex/600/200",
                             fit: BoxFit.cover,
                             placeholder: (context, url) {
                               return Container(color: Colors.grey.shade200);
@@ -103,10 +172,27 @@ class HomePage extends GetView<HomeController> {
                           ),
                         ),
                   ),
-                  Obx(() => Text(controller.state.countup.value.toString(), style: TextStyle(color: Colors.white, fontSize: 20.w))),
-                  Center(child: DefaultTextStyle(style: TextStyle(fontSize: 14, color: Colors.white), child: Obx(() => CountDownTimer(current: controller.state.countup.value)))),
+                  Obx(
+                    () => Text(
+                      controller.state.countup.value.toString(),
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
+                  ),
+                  Center(
+                    child: DefaultTextStyle(
+                      style: TextStyle(fontSize: 14, color: Colors.white),
+                      child: Obx(
+                        () => CountDownTimer(
+                          current: controller.state.countup.value,
+                        ),
+                      ),
+                    ),
+                  ),
 
-                  FilledButton(onPressed: controller.countup, child: Text(LocalesKey.appAbout.tr)),
+                  FilledButton(
+                    onPressed: controller.countup,
+                    child: Text(LocalesKey.appAbout.tr),
+                  ),
                 ],
               ),
             ),

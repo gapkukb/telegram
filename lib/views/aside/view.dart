@@ -8,13 +8,14 @@ import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'index.dart';
 
 class AsidePage extends StatefulWidget {
-  const AsidePage({Key? key}) : super(key: key);
+  const AsidePage({super.key});
 
   @override
   State<AsidePage> createState() => _AsidePageState();
 }
 
-class _AsidePageState extends State<AsidePage> with AutomaticKeepAliveClientMixin {
+class _AsidePageState extends State<AsidePage>
+    with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true;
 
@@ -26,7 +27,7 @@ class _AsidePageState extends State<AsidePage> with AutomaticKeepAliveClientMixi
 }
 
 class _AsideViewGetX extends GetView<AsideController> {
-  const _AsideViewGetX({Key? key}) : super(key: key);
+  const _AsideViewGetX({super.key});
 
   // 主视图
   Widget _buildView() {
@@ -35,7 +36,7 @@ class _AsideViewGetX extends GetView<AsideController> {
 
   // CachedNetworkImage(
   //                 imageUrl: "https://picsum.photos/seed/abd/300/200",
-  //                 height: 200.w,
+  //                 height: 200,
   //                 fit: BoxFit.cover,
   //               ),
 
@@ -50,17 +51,31 @@ class _AsideViewGetX extends GetView<AsideController> {
             children:
                 controller.menus.map((group) {
                   return Card(
-                    margin: EdgeInsets.all(16.w),
+                    margin: EdgeInsets.all(16),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children:
                           group.map((menu) {
                             return ListTile(
                               // dense: true,
-                              contentPadding: EdgeInsets.only(left: 160.w, right: 8.w),
-                              title: Text(menu.title, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28.w)),
-                              leading: menu.leading ?? Iconify(menu.icon!, size: 48.w),
-                              trailing: Iconify(menu.trailing ?? MaterialSymbols.arrow_forward_ios_rounded, size: 36.w),
+                              contentPadding: EdgeInsets.only(
+                                left: 160,
+                                right: 8,
+                              ),
+                              title: Text(
+                                menu.title,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 28,
+                                ),
+                              ),
+                              leading:
+                                  menu.leading ?? Iconify(menu.icon!, size: 48),
+                              trailing: Iconify(
+                                menu.trailing ??
+                                    MaterialSymbols.arrow_forward_ios_rounded,
+                                size: 36,
+                              ),
                               onTap: menu.onTap,
                             );
                           }).toList(),

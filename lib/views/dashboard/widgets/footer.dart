@@ -14,11 +14,11 @@ class DashboardFooterWidget extends GetView<DashboardController> {
   @override
   Widget build(BuildContext context) {
     return DefaultTextStyle(
-      style: TextStyle(fontSize: 24.w, color: Colors.black),
+      style: TextStyle(fontSize: 12, color: Colors.black),
       child: CurvedNavigationBar(
         // backgroundColor: Colors.blueAccent,
-        height: 112.w,
-        iconPadding: 8,
+        height: 56,
+        iconPadding: 4,
         letIndexChange: controller.changePage,
         items: [
           CurvedNavigationBarItem(

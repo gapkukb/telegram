@@ -10,7 +10,7 @@ import 'package:scaled_app/scaled_app.dart';
 void main() async {
   final widgetsBinding = ScaledWidgetsFlutterBinding.ensureInitialized(
     scaleFactor: (deviceSize) {
-      const double designWidth = 750.0;
+      const double designWidth = 375.0;
       return deviceSize.width / designWidth;
     },
   );

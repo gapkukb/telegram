@@ -20,7 +20,7 @@ class LoginPage extends GetView<LoginController> {
       builder: (_) {
         return Scaffold(
           floatingActionButton: Transform.translate(
-            offset: Offset(0, 20.w),
+            offset: Offset(0, 20),
             child: FloatingActionButton.small(
               heroTag: null,
               onPressed: () {
@@ -36,27 +36,72 @@ class LoginPage extends GetView<LoginController> {
             physics: ClampingScrollPhysics(),
             child: Container(
               width: double.infinity,
-              padding: EdgeInsets.only(top: 350.w),
-              decoration: BoxDecoration(color: Colors.red, image: DecorationImage(image: NetworkImage("https://pub.imgscache.com/compic/73a7a58a-f93d-4050-b419-ac2a61f9ec69.png"), fit: BoxFit.fitWidth, alignment: Alignment.topCenter)),
+              padding: EdgeInsets.only(top: 350),
+              decoration: BoxDecoration(
+                color: Colors.red,
+                image: DecorationImage(
+                  image: NetworkImage(
+                    "https://pub.imgscache.com/compic/73a7a58a-f93d-4050-b419-ac2a61f9ec69.png",
+                  ),
+                  fit: BoxFit.fitWidth,
+                  alignment: Alignment.topCenter,
+                ),
+              ),
               child: SafeArea(
                 child: Material(
                   color: Colors.white,
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(48.w)),
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(48)),
                   child: Padding(
-                    padding: EdgeInsets.all(32.w),
+                    padding: EdgeInsets.all(32),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Welcome to BingoPlus", style: TextStyle(height: 1, color: const Color(0xff111111), fontWeight: FontWeight.w600, fontSize: 30.w)),
-                        SizedBox(height: 16.w),
-                        Text("Lucky Spin: ₱1 for a chance to win the mystery prize and a 1,000,000 Ampao unlimited times. Enjoy lightning fast withdrawals! ", style: TextStyle(height: 1, color: const Color(0xff999999), fontSize: 26.w)),
+                        Text(
+                          "Welcome to BingoPlus",
+                          style: TextStyle(
+                            height: 1,
+                            color: const Color(0xff111111),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 30,
+                          ),
+                        ),
+                        SizedBox(height: 16),
+                        Text(
+                          "Lucky Spin: ₱1 for a chance to win the mystery prize and a 1,000,000 Ampao unlimited times. Enjoy lightning fast withdrawals! ",
+                          style: TextStyle(
+                            height: 1,
+                            color: const Color(0xff999999),
+                            fontSize: 26,
+                          ),
+                        ),
 
-                        SizedBox(height: 64.w),
+                        SizedBox(height: 64),
                         PhoneTextField(),
-                        TextField(obscureText: true, decoration: InputDecoration(labelText: "Password")),
-                        Align(alignment: Alignment.centerRight, child: TextButton(style: ButtonStyle(visualDensity: VisualDensity(vertical: -4)), onPressed: () {}, child: Text("Forgot?", style: TextStyle(fontSize: 24.w)))),
-                        SizedBox(height: 64.w),
-                        SizedBox(width: double.infinity, child: FilledButton(onPressed: () {}, child: Text("Login/Register"))),
+                        TextField(
+                          obscureText: true,
+                          decoration: InputDecoration(labelText: "Password"),
+                        ),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: TextButton(
+                            style: ButtonStyle(
+                              visualDensity: VisualDensity(vertical: -4),
+                            ),
+                            onPressed: () {},
+                            child: Text(
+                              "Forgot?",
+                              style: TextStyle(fontSize: 24),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 64),
+                        SizedBox(
+                          width: double.infinity,
+                          child: FilledButton(
+                            onPressed: () {},
+                            child: Text("Login/Register"),
+                          ),
+                        ),
                         OAuthWidget(),
                         TermsWidget(),
                       ],

@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:super_plus/widgets/gridview/GridDelegateWithSpan.dart';
 
 class Demo extends StatefulWidget {
-  const Demo({Key? key}) : super(key: key);
+  const Demo({super.key});
 
   @override
   _DemoState createState() => _DemoState();
@@ -12,7 +12,7 @@ class Demo extends StatefulWidget {
 class _DemoState extends State<Demo> {
   @override
   Widget build(BuildContext context) {
-    final gap = 8.w;
+    final gap = 8.0;
     return GridView.builder(
       itemCount: 38,
       gridDelegate: GridDelegateWithSpan(
@@ -24,10 +24,16 @@ class _DemoState extends State<Demo> {
           if (index == 1) {
             return Span(row: 2, col: 2);
           }
+          return null;
         },
       ),
       itemBuilder: (context, index) {
-        return Container(color: Colors.red, child: Center(child: Text("$index", style: TextStyle(color: Colors.white))));
+        return Container(
+          color: Colors.red,
+          child: Center(
+            child: Text("$index", style: TextStyle(color: Colors.white)),
+          ),
+        );
       },
     );
   }
