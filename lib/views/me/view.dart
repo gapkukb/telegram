@@ -21,6 +21,7 @@ import 'package:iconify_flutter/icons/octicon.dart';
 import 'package:iconify_flutter/icons/ic.dart';
 import 'package:iconify_flutter/icons/carbon.dart';
 import 'package:iconify_flutter/icons/ri.dart';
+import 'package:super_plus/widgets/button.dart';
 import 'package:super_plus/widgets/cell.dart';
 import 'package:super_plus/widgets/cell_group.dart';
 import 'package:super_plus/widgets/chip_button.dart';
@@ -69,7 +70,13 @@ class MePage extends GetView<MeController> {
               ),
 
               SizedBox(height: Gutter.xs),
-
+              Button(
+                label: "阿西吧",
+                icon: Icons.zoom_in_map_outlined,
+                color: Colors.red,
+                iconPosition: ButtonIconPosition.BOTTOM,
+                radius: 10,
+              ),
               const MePromo(),
 
               SizedBox(height: Gutter.xs),
