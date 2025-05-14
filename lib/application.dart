@@ -6,6 +6,7 @@ import 'package:get/route_manager.dart';
 import 'package:scaled_app/scaled_app.dart';
 import 'package:super_plus/router/router.dart';
 import 'package:super_plus/locales/locales.dart';
+import 'package:super_plus/views/exception/not_found.dart';
 
 class Application extends StatelessWidget {
   const Application() : super(key: const Key('Application'));
@@ -32,6 +33,12 @@ class Application extends StatelessWidget {
           fallbackLocale: LocaleTranslations.zh,
           initialRoute: AppPages.initial,
           getPages: AppPages.pages,
+          unknownRoute: GetPage(
+            name: '/404',
+            page: () => NotFound(),
+            // fullscreenDialog: true,
+            transition: Transition.cupertino,
+          ),
         ),
       ),
     );

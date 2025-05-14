@@ -6,7 +6,7 @@ class AppPages {
     name: "/dashboard",
     page: () => const DashboardPage(),
     binding: DashboardBinding(),
-    // children: [home, promo, games, favorite, me],
+    children: [profile],
   );
 
   static final settings = GetPage(
@@ -71,6 +71,10 @@ class AppPages {
   static final kyc = GetPage(name: "/kyc", page: () => const KycPage());
 
   static final banks = GetPage(name: "/banks", page: () => const BanksPage());
+  static final profile = GetPage(
+    name: "/profile",
+    page: () => const ProfilePage(),
+  );
 
   static List<GetPage> get pages {
     return [
@@ -84,6 +88,7 @@ class AppPages {
       demo,
       settings,
       share,
+      // profile,
       // kyc,
       // banks,
     ];

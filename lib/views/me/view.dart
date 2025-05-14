@@ -10,6 +10,7 @@ import 'package:super_plus/const/gutter.dart';
 import 'package:super_plus/router/router.dart';
 import 'package:super_plus/views/me/widgets/app_bar.dart';
 import 'package:super_plus/views/me/widgets/balance.dart';
+import 'package:super_plus/views/me/widgets/me_promo.dart';
 import 'package:super_plus/views/me/widgets/synopsis.dart';
 import 'package:super_plus/views/me/widgets/main_menu.dart';
 import 'package:super_plus/views/me/widgets/unauthentication.dart';
@@ -66,6 +67,10 @@ class MePage extends GetView<MeController> {
                   ),
                 ),
               ),
+
+              SizedBox(height: Gutter.xs),
+
+              const MePromo(),
 
               SizedBox(height: Gutter.xs),
 

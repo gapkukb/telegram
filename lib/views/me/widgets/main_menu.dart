@@ -12,12 +12,12 @@ class MeMainMenu extends GetView<MeController> {
     final navList = [
       {"icon": "assets/icons/icon_1.png", "name": "Funds"},
       {"icon": "assets/icons/icon_2.png", "name": "Transcations"},
-      {"icon": "assets/icons/icon_3.png", "name": "Rewards"},
+      {"icon": "assets/icons/icon_14.png", "name": "Rewards"},
       {"icon": "assets/icons/icon_4.png", "name": "Points"},
     ];
 
     return Card(
-      color: Colors.white.withAlpha(220),
+      color: Colors.white.withAlpha(200),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(Gutter.xxs),
       ),

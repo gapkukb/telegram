@@ -11,6 +11,7 @@ import 'package:super_plus/views/home/index.dart';
 import 'package:super_plus/views/kyc/view.dart';
 import 'package:super_plus/views/login/index.dart';
 import 'package:super_plus/views/me/index.dart';
+import 'package:super_plus/views/profile/view.dart';
 import 'package:super_plus/views/promo/index.dart';
 import 'package:super_plus/views/settings/index.dart';
 import 'package:super_plus/views/share/share.dart';

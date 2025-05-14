@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:super_plus/const/gutter.dart';
-import 'package:super_plus/router/router.dart';
 
 import '../index.dart';
 
@@ -15,8 +14,14 @@ class MeBalance extends GetView<MeController> {
     return Container(
       height: 98,
       decoration: BoxDecoration(
-        color: Colors.black.withAlpha(50),
+        color: Colors.black.withAlpha(80),
         borderRadius: BorderRadius.circular(Gutter.xxs),
+        image: DecorationImage(
+          image: AssetImage("assets/images/me_balance_bg.png"),
+          fit: BoxFit.none,
+          scale: 3,
+          opacity: 0.4,
+        ),
       ),
 
       child: Padding(

@@ -13,6 +13,9 @@ class MeSynopsis extends GetView<MeController> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: () {
+        Get.toNamed('${AppPages.profile.name}sdf');
+      },
       contentPadding: Gutter.zero,
       minLeadingWidth: 60,
       leading: CircleAvatar(
@@ -31,6 +34,7 @@ class MeSynopsis extends GetView<MeController> {
         "上次登录时间：2020-12-12 10:00:00",
         style: TextStyle(color: Colors.white.withAlpha(125)),
       ),
+      trailing: Icon(Icons.arrow_forward_ios_outlined, color: Colors.white),
     );
   }
 }
