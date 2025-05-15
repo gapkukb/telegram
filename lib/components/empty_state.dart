@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:nil/nil.dart';
 import 'package:super_plus/const/gutter.dart';
@@ -37,8 +36,8 @@ class EmptyState extends StatelessWidget {
   Widget buildBase(String imageUrl, String text, String buttonText) {
     return Column(
       children: [
-        Image.asset(imageUrl, width: 370),
-        Text(text, style: TextStyle(color: Color(0xff8286a3), fontSize: 24)),
+        Image.asset(imageUrl, width: 185),
+        Text(text, style: TextStyle(color: Color(0xff8286a3), fontSize: 12)),
         SizedBox(height: Gutter.lg),
         GFButton(
           onPressed: () {},

@@ -1,10 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-final placeholderImage = Image.asset(
-  "assets/images/empty_states/placeholder.png",
-  width: double.infinity,
-  fit: BoxFit.contain,
+const bg = Color(0xffededf2);
+final placeholderImage = DecoratedBox(
+  decoration: BoxDecoration(color: bg),
+  child: Image.asset(
+    "assets/images/empty_states/placeholder.png",
+    width: double.infinity,
+    height: double.infinity,
+    fit: BoxFit.contain,
+    opacity: AlwaysStoppedAnimation(0.1),
+  ),
 );
 
 Widget placeholder(BuildContext _, String __) => placeholderImage;
@@ -12,7 +18,7 @@ Widget errorWidget(BuildContext _, String __, Object ___) => placeholderImage;
 
 class CachedNetworkImagePlus extends CachedNetworkImage {
   CachedNetworkImagePlus(
-    String url, {
+    final String url, {
     super.key,
     super.httpHeaders,
     super.imageBuilder,
@@ -23,13 +29,13 @@ class CachedNetworkImagePlus extends CachedNetworkImage {
     super.fadeInCurve = Curves.easeIn,
     super.width = double.infinity,
     super.height,
-    super.fit,
+    super.fit = BoxFit.cover,
     super.alignment = Alignment.center,
     super.repeat = ImageRepeat.noRepeat,
     super.matchTextDirection = false,
     super.cacheManager,
     super.useOldImageOnUrlChange = false,
-    super.color,
+    super.color = bg,
     super.filterQuality = FilterQuality.low,
     super.colorBlendMode,
     super.placeholderFadeInDuration,

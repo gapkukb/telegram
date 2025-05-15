@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fquery/fquery.dart';
 import 'package:get/get.dart';
-import 'package:get/route_manager.dart';
 import 'package:scaled_app/scaled_app.dart';
-import 'package:super_plus/router/router.dart';
 import 'package:super_plus/locales/locales.dart';
-import 'package:super_plus/views/exception/not_found.dart';
+import 'package:super_plus/router/app_pages.dart';
+import 'package:super_plus/services/auth_service.dart';
 
 class Application extends StatelessWidget {
   const Application() : super(key: const Key('Application'));
@@ -19,6 +17,7 @@ class Application extends StatelessWidget {
       child: QueryClientProvider(
         queryClient: queryClient,
         child: GetMaterialApp(
+          binds: [Bind.put(AuthService())],
           debugShowCheckedModeBanner: false,
           defaultTransition: Transition.cupertino,
           title: 'Super Plus',
@@ -32,13 +31,7 @@ class Application extends StatelessWidget {
           locale: Get.deviceLocale,
           fallbackLocale: LocaleTranslations.zh,
           initialRoute: AppPages.initial,
-          getPages: AppPages.pages,
-          unknownRoute: GetPage(
-            name: '/404',
-            page: () => NotFound(),
-            // fullscreenDialog: true,
-            transition: Transition.cupertino,
-          ),
+          getPages: AppPages.routes,
         ),
       ),
     );

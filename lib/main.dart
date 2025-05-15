@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:super_plus/helpers/prfs.dart';
 import 'package:super_plus/services/app_service.dart';
 import 'application.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:scaled_app/scaled_app.dart';
 
 void main() async {
@@ -14,10 +13,10 @@ void main() async {
       return deviceSize.width / designWidth;
     },
   );
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await ls.initlize();
   Get.put<AppService>(AppService(), permanent: true);
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  FlutterNativeSplash.remove();
+  // FlutterNativeSplash.remove();
   runApp(const Application());
 }

@@ -19,18 +19,20 @@ class GameGrid extends StatelessWidget {
     final dynamic builder = sliver ? SliverGrid.builder : GridView.builder;
 
     return builder(
-      itemCount: 10,
+      itemCount: 100,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
-        crossAxisSpacing: Gutter.sm,
-        mainAxisSpacing: Gutter.sm,
-        childAspectRatio: 112 / 124,
+        childAspectRatio: 112 / 132,
+        crossAxisSpacing: Gutter.xs,
+        mainAxisSpacing: Gutter.xs,
       ),
       itemBuilder: (context, index) {
         return GameCard(
           onTapLike: (bool liked) {},
           liked: liked,
           showLike: showLike,
+          imageUrl: "https://picsum.photos/seed/4$index/600/200",
+          name: "阿西吧啊",
         );
       },
     );
