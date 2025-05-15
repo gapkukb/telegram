@@ -5,24 +5,14 @@ class WebviewView extends GetView<WebviewController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("WebviewPage"),
-    );
+    return const Center(child: Text("WebviewPage"));
   }
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<WebviewController>(
-      init: WebviewController(),
-      id: "webview",
-      builder: (_) {
-        return Scaffold(
-          appBar: AppBar(title: const Text("Webview")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
-        );
-      },
+    return Scaffold(
+      appBar: AppBar(title: const Text("Webview")),
+      body: SafeArea(child: _buildView()),
     );
   }
 }

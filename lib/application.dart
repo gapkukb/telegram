@@ -18,7 +18,8 @@ class Application extends StatelessWidget {
         queryClient: queryClient,
         child: GetMaterialApp(
           binds: [Bind.put(AuthService())],
-          debugShowCheckedModeBanner: false,
+          // debugShowCheckedModeBanner: true会导致windows安卓子系统初始化黑屏,
+          // debugShowCheckedModeBanner: false,
           defaultTransition: Transition.cupertino,
           title: 'Super Plus',
           popGesture: true,

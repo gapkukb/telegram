@@ -19,7 +19,8 @@ part 'app_routes.dart';
 abstract class AppPages {
   AppPages._();
 
-  static const initial = Routes.login;
+  // static const initial = Routes.dashboard;
+  static const initial = Routes.dashboard;
 
   static final routes = [
     GetPage(
@@ -42,7 +43,6 @@ abstract class AppPages {
           page: () => const DashboardView(),
           binding: DashboardBinding(),
           preventDuplicates: true,
-          participatesInRootNavigator: true,
           children: [
             GetPage(
               name: _Paths.home,

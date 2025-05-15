@@ -5,24 +5,14 @@ class SettingsView extends GetView<SettingsController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("SettingsPage"),
-    );
+    return const Center(child: Text("SettingsPage"));
   }
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<SettingsController>(
-      init: SettingsController(),
-      id: "settings",
-      builder: (_) {
-        return Scaffold(
-          appBar: AppBar(title: const Text("Settings")),
-          body: SafeArea(
-            child: _buildView(),
-          ),
-        );
-      },
+    return Scaffold(
+      appBar: AppBar(title: const Text("Settings")),
+      body: SafeArea(child: _buildView()),
     );
   }
 }

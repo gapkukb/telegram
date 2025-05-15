@@ -13,7 +13,7 @@ class DashboardView extends GetView<DashboardController> {
             initialRoute: Routes.home,
             anchorRoute: Routes.dashboard,
           ),
-          // bottomNavigationBar: DashboardFooter(),
+          bottomNavigationBar: DashboardFooter(),
         );
       },
     );
