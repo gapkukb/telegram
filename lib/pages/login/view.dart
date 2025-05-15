@@ -8,6 +8,7 @@ class LoginView extends GetView<LoginController> {
     const radius = Radius.circular(16);
 
     return Scaffold(
+      backgroundColor: Colors.white,
       extendBodyBehindAppBar: false,
       floatingActionButton: DialogPageBackButton(
         dy: 10,
@@ -15,52 +16,40 @@ class LoginView extends GetView<LoginController> {
         backgroundColor: Colors.black.withAlpha(88),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
-      body: Container(
-        height: Get.height + kToolbarHeight,
-        padding: EdgeInsets.only(top: 210),
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.fitWidth,
-            alignment: Alignment.topLeft,
-            image: CachedNetworkImageProvider(
-              "https://pub.imgscache.com/compic/73a7a58a-f93d-4050-b419-ac2a61f9ec69.png",
+      body: CustomScrollView(
+        physics: BouncingScrollPhysics(),
+        slivers: [
+          SliverAppBar(
+            pinned: true,
+            floating: false,
+            snap: false,
+            stretch: true,
+            collapsedHeight: 160,
+            expandedHeight: 260,
+            flexibleSpace: LayoutBuilder(
+              builder: (context, constraints) {
+                print(constraints..maxHeight);
+                return CachedNetworkImage(
+                  width: constraints.maxWidth,
+                  height: constraints.maxHeight - 60,
+                  imageUrl:
+                      "https://pub.imgscache.com/compic/73a7a58a-f93d-4050-b419-ac2a61f9ec69.png",
+                  fit: BoxFit.cover,
+                  // scale: 0.1,
+                  alignment: Alignment.center,
+                );
+              },
             ),
+            bottom: const LoginWelcome(),
           ),
-        ),
-        child: Material(
-          color: Colors.white,
-          borderRadius: const BorderRadius.only(
-            topLeft: radius,
-            topRight: radius,
-          ),
-          child: Padding(
+          SliverPadding(
             padding: EdgeInsets.only(
               left: Gutter.sm,
               right: Gutter.sm,
-              top: Gutter.sm,
+              // top: Gutter.sm,
             ),
-            child: ListView(
-              padding: EdgeInsets.zero,
+            sliver: SliverList.list(
               children: [
-                Text(
-                  "Welcome to BingoPlus",
-                  style: TextStyle(
-                    height: 1,
-                    color: const Color(0xff111111),
-                    fontWeight: FontWeight.w600,
-                    fontSize: 15,
-                  ),
-                ),
-                SizedBox(height: 8),
-                Text(
-                  "Lucky Spin: ₱1 for a chance to win the mystery prize and a 1,000,000 Ampao unlimited times. Enjoy lightning fast withdrawals! ",
-                  style: TextStyle(
-                    height: 1,
-                    color: const Color(0xff999999),
-                    fontSize: 12,
-                  ),
-                ),
-                SizedBox(height: 16),
                 PhoneTextField(),
                 TextField(
                   obscureText: true,
@@ -94,7 +83,7 @@ class LoginView extends GetView<LoginController> {
               ],
             ),
           ),
-        ),
+        ],
       ),
     );
   }

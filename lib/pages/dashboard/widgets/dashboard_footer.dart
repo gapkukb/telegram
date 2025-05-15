@@ -9,9 +9,14 @@ import 'package:super_plus/const/gutter.dart';
 import 'package:iconify_flutter/icons/quill.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 
-class DashboardFooter extends StatelessWidget {
+class DashboardFooter extends StatefulWidget {
   const DashboardFooter({super.key});
 
+  @override
+  State<DashboardFooter> createState() => _DashboardFooterState();
+}
+
+class _DashboardFooterState extends State<DashboardFooter> {
   static const routes = [
     Routes.home,
     Routes.promos,

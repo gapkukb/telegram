@@ -21,87 +21,89 @@ abstract class AppPages {
 
   static const initial = Routes.login;
 
-  static final _root = GetPage(
-    name: '/',
-    page: () => const RootView(),
-    binding: RootBinding(),
-    participatesInRootNavigator: true,
-    preventDuplicates: true,
-    children: [terms],
-  );
+  static final routes = [
+    GetPage(
+      name: '/',
+      page: () => const RootView(),
+      binding: RootBinding(),
+      participatesInRootNavigator: true,
+      preventDuplicates: true,
+      children: [
+        GetPage(
+          name: _Paths.login,
+          page: () => const LoginView(),
+          binding: LoginBinding(),
+          fullscreenDialog: true,
+          arguments: {"header": false},
+          middlewares: [EnsureNotAuthedMiddleware()],
+        ),
+        GetPage(
+          name: _Paths.dashboard,
+          page: () => const DashboardView(),
+          binding: DashboardBinding(),
+          preventDuplicates: true,
+          participatesInRootNavigator: true,
+          children: [
+            GetPage(
+              name: _Paths.home,
+              page: () => const HomeView(),
+              binding: HomeBinding(),
+            ),
 
-  static final home = GetPage(
-    name: _Paths.home,
-    page: () => const HomeView(),
-    binding: HomeBinding(),
-  );
+            GetPage(
+              name: _Paths.promos,
+              page: () => const PromosView(),
+              binding: PromosBinding(),
+            ),
 
-  static final promos = GetPage(
-    name: _Paths.promos,
-    page: () => const PromosView(),
-    binding: PromosBinding(),
-  );
+            GetPage(
+              name: _Paths.games,
+              page: () => const GamesView(),
+              binding: GamesBinding(),
+            ),
 
-  static final games = GetPage(
-    name: _Paths.games,
-    page: () => const GamesView(),
-    binding: GamesBinding(),
-  );
+            GetPage(
+              name: _Paths.favorites,
+              page: () => const FavoritesView(),
+              binding: FavoritesBinding(),
+            ),
 
-  static final favorites = GetPage(
-    name: _Paths.favorites,
-    page: () => const FavoritesView(),
-    binding: FavoritesBinding(),
-  );
+            GetPage(
+              name: _Paths.me,
+              page: () => const MeView(),
+              binding: MeBinding(),
+            ),
+          ],
+        ),
+      ],
+    ),
+  ];
 
-  static final me = GetPage(
-    name: _Paths.me,
-    page: () => const MeView(),
-    binding: MeBinding(),
-  );
+  // static final webview = GetPage(
+  //   name: _Paths.webview,
+  //   page: () => const WebviewView(),
+  //   binding: WebviewBinding(),
+  // );
 
-  static final _dashboard = GetPage(
-    name: _Paths.dashboard,
-    page: () => const DashboardView(),
-    binding: DashboardBinding(),
-    preventDuplicates: true,
-    children: [home, promos, games, favorites, me],
-  );
+  // static final setting = GetPage(
+  //   name: _Paths.settings,
+  //   page: () => const SettingsView(),
+  //   binding: SettingsBinding(),
+  //   title: 'Settings',
+  // );
 
-  static final login = GetPage(
-    name: _Paths.login,
-    page: () => const LoginView(),
-    binding: LoginBinding(),
-    fullscreenDialog: true,
-    arguments: {"header": false},
-    middlewares: [EnsureNotAuthedMiddleware()],
-  );
+  // static final share = GetPage(
+  //   name: _Paths.share,
+  //   page: () => const ShareView(),
+  //   binding: ShareBinding(),
+  //   title: 'share',
+  // );
 
-  static final webview = GetPage(
-    name: _Paths.webview,
-    page: () => const WebviewView(),
-    binding: WebviewBinding(),
-  );
+  // static final terms = GetPage(
+  //   name: _Paths.terms,
+  //   page: () => const TermsView(),
+  //   title: 'share',
+  // );
 
-  static final setting = GetPage(
-    name: _Paths.settings,
-    page: () => const SettingsView(),
-    binding: SettingsBinding(),
-    title: 'Settings',
-  );
-
-  static final share = GetPage(
-    name: _Paths.share,
-    page: () => const ShareView(),
-    binding: ShareBinding(),
-    title: 'share',
-  );
-
-  static final terms = GetPage(
-    name: _Paths.terms,
-    page: () => const TermsView(),
-    title: 'share',
-  );
-
-  static final routes = [_root, _dashboard, login, setting, webview, share];
+  // static final routes = [_root];
 }

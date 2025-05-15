@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:super_plus/components/dialog_page_back_button.dart';
 import 'package:super_plus/const/gutter.dart';
+import 'package:super_plus/pages/login/widgets/login_welcome.dart';
 import 'package:super_plus/pages/login/widgets/o_auth.dart';
 import 'package:super_plus/pages/login/widgets/terms.dart';
 import 'package:super_plus/pages/login/widgets/terms_private.dart';
