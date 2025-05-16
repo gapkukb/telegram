@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:super_plus/const/gutter.dart';
 
 class LoginWelcome extends StatelessWidget implements PreferredSizeWidget {
   const LoginWelcome({super.key});
@@ -7,6 +8,8 @@ class LoginWelcome extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      // height: 16,
+      padding: Gutter.all.sm,
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),

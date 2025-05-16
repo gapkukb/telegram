@@ -11,7 +11,7 @@ class IconPlus extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (icon is String) return Iconify(icon, size: size, color: color);
-    if (icon is IconData) return Icon(icon);
+    if (icon is IconData) return Icon(icon, size: size, color: color);
     if (icon is Widget) return icon;
     throw "Paramter \"icon\" must kinds of string,iconData,Widget";
   }

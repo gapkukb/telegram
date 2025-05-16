@@ -24,7 +24,7 @@ class RootView extends GetView<RootController> {
 
         return Scaffold(
           backgroundColor: Colors.blue,
-          appBar: isDashboard ? null : _appBar,
+          // appBar: isDashboard ? null : _appBar,
           body: GetRouterOutlet(
             initialRoute: AppPages.initial,
             anchorRoute: '/',

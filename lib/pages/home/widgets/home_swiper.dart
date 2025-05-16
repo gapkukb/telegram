@@ -12,8 +12,8 @@ class HomeSwiper extends GetView<HomeController> {
     return CarouselSlider.builder(
       itemCount: 5,
       options: CarouselOptions(
-        aspectRatio: 8 / 3,
-        enlargeFactor: 0.4,
+        aspectRatio: 3,
+        enlargeFactor: 0.46,
         enlargeCenterPage: true,
         viewportFraction: 0.8,
         enableInfiniteScroll: 1 > 0,
@@ -23,8 +23,11 @@ class HomeSwiper extends GetView<HomeController> {
       itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) {
         return ClipRRect(
           borderRadius: BorderRadius.circular(8.0),
-          child: CachedNetworkImagePlus(
-            "https://picsum.photos/seed/4$itemIndex/600/200",
+          child: Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: CachedNetworkImagePlus(
+              "https://picsum.photos/seed/4$itemIndex/600/200",
+            ),
           ),
         );
       },

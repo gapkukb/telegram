@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:super_plus/components/empty_state.dart';
 import 'package:super_plus/components/game_grid.dart';
 import 'package:super_plus/const/gutter.dart';
+import 'package:super_plus/router/app_pages.dart';
 
 part './controller.dart';
 part './binding.dart';

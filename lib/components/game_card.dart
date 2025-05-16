@@ -37,7 +37,7 @@ class GameCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CachedNetworkImagePlus(imageUrl, height: 92, fit: BoxFit.cover),
+            CachedNetworkImagePlus(imageUrl, height: 90, fit: BoxFit.cover),
             // SizedBox(height: 8),
             Padding(
               padding: Gutter.horizontal.xs,

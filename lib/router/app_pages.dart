@@ -9,6 +9,7 @@ import 'package:super_plus/pages/root/index.dart';
 import 'package:super_plus/pages/home/index.dart';
 import 'package:super_plus/pages/settings/index.dart';
 import 'package:super_plus/pages/terms/terms.dart';
+import 'package:super_plus/pages/verification_code/verification_code.dart';
 import 'package:super_plus/pages/webview/index.dart';
 import 'package:super_plus/pages/share/index.dart';
 import 'package:super_plus/router/middleware/auth_middleware.dart';
@@ -75,35 +76,40 @@ abstract class AppPages {
             ),
           ],
         ),
+        GetPage(
+          name: _Paths.webview,
+          page: () => const WebviewView(),
+          binding: WebviewBinding(),
+        ),
+
+        GetPage(
+          name: _Paths.settings,
+          page: () => const SettingsView(),
+          binding: SettingsBinding(),
+          title: 'Settings',
+        ),
+
+        GetPage(
+          name: _Paths.share,
+          page: () => const ShareView(),
+          binding: ShareBinding(),
+          title: 'share',
+        ),
+
+        GetPage(
+          name: _Paths.terms,
+          page: () => const TermsView(),
+          title: 'share',
+        ),
+
+        GetPage(
+          name: _Paths.code,
+          page: () => const VerificationCodeView(),
+          fullscreenDialog: true,
+        ),
       ],
     ),
   ];
-
-  // static final webview = GetPage(
-  //   name: _Paths.webview,
-  //   page: () => const WebviewView(),
-  //   binding: WebviewBinding(),
-  // );
-
-  // static final setting = GetPage(
-  //   name: _Paths.settings,
-  //   page: () => const SettingsView(),
-  //   binding: SettingsBinding(),
-  //   title: 'Settings',
-  // );
-
-  // static final share = GetPage(
-  //   name: _Paths.share,
-  //   page: () => const ShareView(),
-  //   binding: ShareBinding(),
-  //   title: 'share',
-  // );
-
-  // static final terms = GetPage(
-  //   name: _Paths.terms,
-  //   page: () => const TermsView(),
-  //   title: 'share',
-  // );
 
   // static final routes = [_root];
 }

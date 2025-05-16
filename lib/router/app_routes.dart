@@ -18,6 +18,7 @@ abstract class Routes {
   static const webview = _Paths.webview;
   static const share = _Paths.share;
   static const terms = _Paths.terms;
+  static const code = _Paths.code;
   static const privatePolicy = _Paths.privatePolicy;
 
   static String LOGIN_THEN(String afterSuccessfulLogin) {
@@ -41,5 +42,6 @@ abstract class _Paths {
   static const webview = '/webview';
   static const share = '/share';
   static const terms = '/terms';
+  static const code = '/code';
   static const privatePolicy = '/private_policy';
 }

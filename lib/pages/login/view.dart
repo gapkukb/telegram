@@ -24,14 +24,13 @@ class LoginView extends GetView<LoginController> {
             floating: false,
             snap: false,
             stretch: true,
-            collapsedHeight: 160,
-            expandedHeight: 260,
+            collapsedHeight: 190,
+            expandedHeight: 280,
             flexibleSpace: LayoutBuilder(
               builder: (context, constraints) {
-                print(constraints..maxHeight);
                 return CachedNetworkImage(
                   width: constraints.maxWidth,
-                  height: constraints.maxHeight - 60,
+                  height: constraints.maxHeight - 80,
                   imageUrl:
                       "https://pub.imgscache.com/compic/73a7a58a-f93d-4050-b419-ac2a61f9ec69.png",
                   fit: BoxFit.cover,
@@ -50,36 +49,25 @@ class LoginView extends GetView<LoginController> {
             ),
             sliver: SliverList.list(
               children: [
-                PhoneTextField(),
-                TextField(
-                  obscureText: true,
-                  decoration: InputDecoration(labelText: "Password"),
-                ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: TextButton(
-                    style: ButtonStyle(
-                      visualDensity: VisualDensity(vertical: -4),
-                    ),
-                    onPressed: () {},
-                    child: Text(
-                      "Forgot Password?",
-                      style: TextStyle(fontSize: 12),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16),
-                SizedBox(
-                  width: double.infinity,
-                  child: FilledButton(
-                    onPressed: () {},
-                    child: Text("SIGN IN | SIGN UP"),
-                  ),
-                ),
-                TermsPrivate(),
-                OAuthWidget(),
-                TermsWidget(),
+                Obx(() {
+                  if (controller.isAccountMode.value) return LoginAccountForm();
+                  return LoginPhoneForm();
+                }),
+
                 SizedBox(height: 32),
+                LoginAgreement(),
+                LoginOauth(),
+                LoginTerms(),
+                SizedBox(height: 32),
+                GFButton(
+                  onPressed: () async {
+                    final agreement = await dialog<bool?>(
+                      LoginAgreementConfirmation(),
+                    );
+                    controller.agreement.value = agreement ?? false;
+                  },
+                  text: "测试",
+                ),
               ],
             ),
           ),

@@ -13,7 +13,9 @@ class FavoritesView extends GetView<FavoritesController> {
             SliverToBoxAdapter(
               child: EmptyState(
                 state: Empty_State_Type.UNAUTHENTICATED,
-                onTap: () {},
+                onTap: () {
+                  Get.toNamed(Routes.login);
+                },
               ),
             ),
             SliverToBoxAdapter(

@@ -1,6 +1,8 @@
 part of 'index.dart';
 
 class LoginController extends GetxController {
+  final agreement = false.obs;
+  final isAccountMode = false.obs;
   final pixel = 210.0.obs;
 
   LoginController();
