@@ -6,12 +6,14 @@ class GameGrid extends StatelessWidget {
   final bool sliver;
   final bool liked;
   final bool showLike;
+  final bool scorllable;
 
   const GameGrid({
     super.key,
     this.sliver = true,
     this.liked = false,
     this.showLike = true,
+    this.scorllable = true,
   });
 
   @override
@@ -20,6 +22,9 @@ class GameGrid extends StatelessWidget {
 
     return builder(
       itemCount: 100,
+      shrinkWrap: !scorllable,
+      physics: scorllable ? null : NeverScrollableScrollPhysics(),
+
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
         childAspectRatio: 112 / 132,

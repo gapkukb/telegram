@@ -1,11 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-// import 'package:carousel_slider/carousel_state.dart';
-// export 'package:carousel_slider/carousel_controller.dart';
-// export 'package:carousel_slider/carousel_options.dart';
+part of 'index.dart';
 
-class SwiperPlus extends CarouselSlider {
+class Swiper extends CarouselSlider {
   final Widget? Function(double offset, Widget child)? animationBuilder;
+  final SwiperIndicator? indicator;
 
   /// The widget item builder that will be used to build item on demand
   /// The third argument is the PageView's real index, can be used to cooperate
@@ -19,13 +16,14 @@ class SwiperPlus extends CarouselSlider {
   @override
   final int? itemCount;
 
-  SwiperPlus({
+  Swiper({
     required super.items,
     required super.options,
     super.disableGesture,
     super.carouselController,
     super.key,
     this.animationBuilder,
+    this.indicator,
   }) : itemBuilder = null,
        itemCount = items != null ? items.length : 0,
        _carouselController =
@@ -35,7 +33,7 @@ class SwiperPlus extends CarouselSlider {
        super();
 
   /// The on demand item builder constructor
-  SwiperPlus.builder({
+  Swiper.builder({
     required this.itemCount,
     required this.itemBuilder,
     required super.options,
@@ -43,6 +41,7 @@ class SwiperPlus extends CarouselSlider {
     CarouselSliderController? carouselController,
     super.key,
     this.animationBuilder,
+    this.indicator,
   }) : _carouselController =
            carouselController != null
                ? carouselController as CarouselSliderControllerImpl
@@ -50,11 +49,11 @@ class SwiperPlus extends CarouselSlider {
        super(items: null);
 
   @override
-  SwiperPlusState createState() => SwiperPlusState(_carouselController);
+  _SwiperState createState() => _SwiperState(_carouselController);
 }
 
-class SwiperPlusState extends CarouselSliderState {
-  SwiperPlusState(super.carouselController);
+class _SwiperState extends CarouselSliderState {
+  _SwiperState(super.carouselController);
   @override
   Widget getEnlargeWrapper(
     Widget? child, {
@@ -71,7 +70,35 @@ class SwiperPlusState extends CarouselSliderState {
       itemOffset: itemOffset,
     );
 
-    return (widget as SwiperPlus).animationBuilder?.call(itemOffset, wrapper) ??
+    return (widget as Swiper).animationBuilder?.call(itemOffset, wrapper) ??
         wrapper;
+  }
+
+  @override
+  void changeMode(CarouselPageChangedReason mode) {
+    super.changeMode(mode);
+    if (mode == CarouselPageChangedReason.timed) {
+      print(carouselState!.pageController!.page!);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final body = super.build(context);
+    final widget_ = (widget as Swiper);
+    final indicator = widget_.indicator;
+    if (indicator == null) return body;
+    final children = List.generate(
+      widget_.itemCount!,
+      (index) => indicator.itemBuilder(context, index),
+    );
+    final indicatorWidget = indicator.builder(context, children);
+
+    return Flex(
+      spacing: indicator.spacing ?? 0,
+      direction: Axis.vertical,
+      mainAxisSize: MainAxisSize.min,
+      children: [body, indicatorWidget],
+    );
   }
 }
