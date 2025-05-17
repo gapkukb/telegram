@@ -26,6 +26,26 @@ class TextPlus extends Text {
     this.bold = false,
   });
 
+  const TextPlus.bold(
+    super.data, {
+    super.key,
+    super.maxLines,
+    super.locale,
+    super.selectionColor,
+    super.semanticsLabel,
+    super.softWrap,
+    super.strutStyle,
+    super.style,
+    super.textAlign,
+    super.textDirection,
+    super.textHeightBehavior,
+    super.textScaleFactor,
+    super.textScaler,
+    super.textWidthBasis,
+    this.fontSize,
+    this.color,
+  }) : bold = true;
+
   @override
   Widget build(BuildContext context) {
     return Text(

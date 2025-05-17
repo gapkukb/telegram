@@ -1,6 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:super_plus/const/gutter.dart';
+import 'package:super_plus/helpers/number.dart';
+import 'package:super_plus/widgets/text_plus.dart';
 
 class HomeBroadcast extends StatelessWidget {
   static const height = 52.0;
@@ -50,8 +53,15 @@ class HomeBroadcast extends StatelessWidget {
             width: 28,
             height: 28,
           ),
+          TextPlus('xxxxxxxx', color: Colors.white, fontSize: 12),
+          TextPlus('8:06:07 AM', color: Colors.white, fontSize: 12),
           Spacer(),
-          Text("123123"),
+          Image.asset("assets/images/balance-peso.webp", width: 20, height: 20),
+          TextPlus.bold(
+            amountize(123123, 0),
+            color: Color(0xffebf740),
+            fontSize: 16,
+          ),
         ],
       ),
     );
