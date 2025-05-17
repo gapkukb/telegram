@@ -2,7 +2,7 @@ part of 'index.dart';
 
 class HomeController extends GetxController {
   HomeController();
-
+  final swiperController = CarouselSliderController();
   // tap
   void handleTap(int index) {
     Get.snackbar("标题", "消息");

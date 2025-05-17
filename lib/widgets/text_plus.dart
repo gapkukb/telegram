@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class TextPlus extends Text {
   final double? fontSize;
   final Color? color;
+  final bool bold;
 
   const TextPlus(
     super.data, {
@@ -22,6 +23,7 @@ class TextPlus extends Text {
     super.textWidthBasis,
     this.fontSize,
     this.color,
+    this.bold = false,
   });
 
   @override
@@ -36,7 +38,11 @@ class TextPlus extends Text {
       semanticsLabel: semanticsLabel,
       softWrap: softWrap,
       strutStyle: strutStyle,
-      style: TextStyle(fontSize: fontSize, color: color).merge(style),
+      style: TextStyle(
+        fontSize: fontSize,
+        color: color,
+        fontWeight: bold ? FontWeight.bold : null,
+      ).merge(style),
       textAlign: textAlign,
       textDirection: textDirection,
       textHeightBehavior: textHeightBehavior,

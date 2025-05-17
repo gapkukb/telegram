@@ -1,13 +1,17 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:super_plus/const/gutter.dart';
 
 class HomeBroadcast extends StatelessWidget {
+  static const height = 52.0;
+
   const HomeBroadcast({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 40,
+    return Container(
+      height: height,
+      padding: EdgeInsets.only(top: 8, left: 8, right: 8),
       child: Row(
         children: [
           Expanded(
@@ -22,7 +26,7 @@ class HomeBroadcast extends StatelessWidget {
                 itemCount: 10,
                 itemBuilder: _buildItem,
                 options: CarouselOptions(
-                  height: 40,
+                  height: height,
                   autoPlay: true,
                   scrollDirection: Axis.vertical,
                 ),
@@ -54,18 +58,18 @@ class HomeBroadcast extends StatelessWidget {
   }
 
   static Widget get suffix {
-    return SizedBox(
-      width: 60,
-      height: 40,
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: Color(0xff7922c2),
-          borderRadius: BorderRadius.horizontal(right: Radius.circular(4)),
-        ),
-        child: Image.network(
-          "https://bingoplus.com/assets/casino-rwXn6Em4.png",
-          width: 20,
-          height: 20,
+    return Container(
+      width: 50,
+      height: height,
+      decoration: BoxDecoration(
+        color: Color(0xff7922c2),
+        borderRadius: BorderRadius.horizontal(right: Radius.circular(4)),
+        image: DecorationImage(
+          scale: 2.2,
+          fit: BoxFit.none,
+          image: NetworkImage(
+            "https://bingoplus.com/assets/casino-rwXn6Em4.png",
+          ),
         ),
       ),
     );
