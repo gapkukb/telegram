@@ -16,6 +16,7 @@ class HomeView extends GetView<HomeController> {
           body: TabBarView(
             children: [
               GridView.builder(
+                itemCount: 40,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
                   childAspectRatio: 1,

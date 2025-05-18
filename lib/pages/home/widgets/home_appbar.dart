@@ -38,16 +38,8 @@ class HomeAppBar extends GetView<HomeController>
               child: TextPlus('SIGN IN', bold: true),
             ),
             Spacer(),
-            GFButton(
-              onPressed: () {},
-              shape: GFButtonShape.square,
-              type: GFButtonType.transparent,
-              // size: 36,
-              icon: IconPlus(
-                Icons.support_agent_outlined,
-                color: Color(0xffffffff),
-              ),
-            ),
+            actionButton(() {}, Icons.support_agent),
+            actionButton(() {}, Icons.search),
           ],
         ),
       ),
@@ -64,4 +56,14 @@ class HomeAppBar extends GetView<HomeController>
 
   @override
   Size get preferredSize => Size.fromHeight(38);
+
+  Widget actionButton(void Function() onPressed, dynamic icon) {
+    return IconButton(
+      onPressed: onPressed,
+      icon: IconPlus(icon, color: Color(0xff5f4e41)),
+      style: ButtonStyle(
+        backgroundColor: WidgetStatePropertyAll(Colors.black.withAlpha(13)),
+      ),
+    );
+  }
 }
