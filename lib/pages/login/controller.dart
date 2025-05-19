@@ -4,12 +4,19 @@ class LoginController extends GetxController {
   final agreement = false.obs;
   final isAccountMode = false.obs;
   final pixel = 210.0.obs;
+  final formKey = GlobalKey<FormState>();
+  final payload = LoginQO();
 
   LoginController();
 
-  // tap
-  void handleTap(int index) {
-    Get.snackbar("标题", "消息");
+  void login() async {
+    return Get.showOverlay(
+      asyncFunction: () async {
+        if (!formKey.currentState!.validate()) return;
+        await Future.delayed(Duration(seconds: 2));
+      },
+      loadingWidget: const CircularProgressIndicator(),
+    );
   }
 
   /// 在 widget 内存中分配后立即调用。

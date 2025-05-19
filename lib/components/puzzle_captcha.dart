@@ -28,7 +28,7 @@ Future<T?> dialogPuzzleCaptcha<T>() {
       colorCaptChar: Colors.blue,
       onConfirm: (scucessful) async {
         if (scucessful) {
-          Get.close(closeAll: false, id: id, result: true);
+          Get.closeDialog(result: true);
         } else {
           controller.create.call();
         }

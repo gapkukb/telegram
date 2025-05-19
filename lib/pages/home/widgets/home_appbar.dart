@@ -9,6 +9,7 @@ import 'package:super_plus/pages/home/index.dart';
 import 'package:super_plus/pages/home/widgets/home_broadcast.dart';
 import 'package:super_plus/pages/home/widgets/home_header.dart';
 import 'package:super_plus/pages/home/widgets/home_tabbar.dart';
+import 'package:super_plus/router/app_pages.dart';
 import 'package:super_plus/widgets/icon_plus.dart';
 import 'package:super_plus/widgets/text_plus.dart';
 
@@ -30,7 +31,9 @@ class HomeAppBar extends GetView<HomeController>
         child: Row(
           children: [
             GFButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.toNamed(Routes.login);
+              },
               shape: GFButtonShape.pills,
               size: 36,
               color: Color(0xffd8cef2),

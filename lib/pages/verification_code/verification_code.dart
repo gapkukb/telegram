@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
-import 'package:getwidget/components/button/gf_button.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:getwidget/size/gf_size.dart';
 import 'package:pinput/pinput.dart';
 import 'package:super_plus/components/back_button_plus.dart';
 import 'package:super_plus/const/gutter.dart';
 import 'package:super_plus/widgets/icon_plus.dart';
-import 'package:iconify_flutter/icons/icon_park_outline.dart';
 
 final style = const TextStyle(color: Colors.white, fontSize: 14);
 
@@ -26,8 +22,15 @@ final defaultPinTheme = PinTheme(
   ),
 );
 
-class VerificationCodeView extends StatelessWidget {
+class VerificationCodeView extends StatefulWidget {
   const VerificationCodeView({super.key});
+
+  @override
+  State<VerificationCodeView> createState() => _VerificationCodeViewState();
+}
+
+class _VerificationCodeViewState extends State<VerificationCodeView> {
+  final phone = Get.arguments as String;
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +74,7 @@ class VerificationCodeView extends StatelessWidget {
                       text: "Please type the verification code set to ",
                       children: [
                         TextSpan(
-                          text: "09054160106",
+                          text: phone,
                           style: style.copyWith(fontWeight: FontWeight.bold),
                         ),
                       ],

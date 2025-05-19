@@ -21,7 +21,7 @@ abstract class AppPages {
   AppPages._();
 
   // static const initial = Routes.dashboard;
-  static const initial = Routes.dashboard;
+  static const initial = Routes.login;
 
   static final routes = [
     GetPage(

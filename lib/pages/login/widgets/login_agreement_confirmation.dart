@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:super_plus/components/puzzle_captcha.dart';
 import 'package:super_plus/pages/login/widgets/login_agreement.dart';
 import 'package:super_plus/widgets/icon_plus.dart';
 import 'package:iconify_flutter/icons/eos_icons.dart';
@@ -24,8 +23,7 @@ class LoginAgreementConfirmation extends LoginAgreement {
         SizedBox(height: 16),
         GFButton(
           onPressed: () {
-            // Get.closeDialog(result: true);
-            dialogPuzzleCaptcha();
+            Get.closeDialog(result: true);
           },
           fullWidthButton: true,
           text: "AGREE",
