@@ -1,8 +1,9 @@
 part of 'index.dart';
 
-class GamesController extends GetxController {
+class GamesController extends GetxController with GetTickerProviderStateMixin {
   GamesController();
-
+  late final TabController ctrl;
+  final tabs = const GamegTabs();
   final scrollable = false.obs;
 
   // tap
@@ -14,6 +15,7 @@ class GamesController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    ctrl = TabController(length: tabs.tabs.length, vsync: this);
   }
 
   /// 在 onInit() 之后调用 1 帧。这是进入的理想场所

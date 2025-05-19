@@ -2,12 +2,34 @@ part of 'index.dart';
 
 class LoginController extends GetxController {
   final agreement = false.obs;
-  final isAccountMode = false.obs;
+  final isVerifyMode = true.obs;
   final pixel = 210.0.obs;
   final formKey = GlobalKey<FormState>();
   final payload = LoginQO();
 
   LoginController();
+
+  void toggleMode() {
+    isVerifyMode.value = !isVerifyMode.value;
+  }
+
+  Future<bool> prevalidate() async {
+    final state = formKey.currentState!;
+    if (!state.validate()) return false;
+    state.save();
+    if (!agreement.value) {
+      final confirmed = await dialog<bool?>(LoginAgreementConfirmation());
+      agreement.value = confirmed ?? false;
+    }
+
+    if (!agreement.value) return false;
+
+    final ok = await dialogPuzzleCaptcha<bool?>() ?? false;
+
+    if (!ok) return false;
+
+    return true;
+  }
 
   void login() async {
     return Get.showOverlay(

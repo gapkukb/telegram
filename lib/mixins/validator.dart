@@ -12,6 +12,12 @@ class _Validators {
     if (value == null) return msg;
     return RegExps.phone.hasMatch(value) ? null : msg;
   }
+
+  String? password(String? value) {
+    const msg = "Invalid Phone Number";
+    if (value == null) return msg;
+    return RegExps.phone.hasMatch(value) ? null : msg;
+  }
 }
 
 mixin Validators {

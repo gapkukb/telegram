@@ -51,11 +51,12 @@ class LoginView extends GetView<LoginController> {
               ),
               sliver: SliverList.list(
                 children: [
-                  Obx(() {
-                    if (controller.isAccountMode.value)
-                      return LoginAccountForm();
-                    return LoginPhoneForm();
-                  }),
+                  Obx(
+                    () =>
+                        controller.isVerifyMode.value
+                            ? LoginPhone()
+                            : LoginAccount(),
+                  ),
 
                   SizedBox(height: 32),
                   LoginAgreement(),

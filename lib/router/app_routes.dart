@@ -19,6 +19,7 @@ abstract class Routes {
   static const share = _Paths.share;
   static const terms = _Paths.terms;
   static const code = _Paths.code;
+  static const recover = _Paths.recover;
   static const privatePolicy = _Paths.privatePolicy;
 
   static String LOGIN_THEN(String afterSuccessfulLogin) {
@@ -43,5 +44,6 @@ abstract class _Paths {
   static const share = '/share';
   static const terms = '/terms';
   static const code = '/code';
+  static const recover = '/recover';
   static const privatePolicy = '/private_policy';
 }
