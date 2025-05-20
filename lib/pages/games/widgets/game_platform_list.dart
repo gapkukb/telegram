@@ -15,6 +15,11 @@ class GamePlatformList extends StatefulWidget {
 
 class _GamePlatformListState extends State<GamePlatformList> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return QueryBuilder(
       ["game_platform_list", widget.detail.allFile ?? 1],
@@ -22,20 +27,23 @@ class _GamePlatformListState extends State<GamePlatformList> {
       () => queryGameByPlatform(data: {"allFile": widget.detail.allFile}),
       retryCount: 0,
       builder: (context, snapshot) {
-        print(snapshot.data);
+        if (snapshot.isError) return Text("no data");
 
         return Skeletonizer(
           enabled: widget.loading || snapshot.isLoading,
           containersColor: Colors.grey,
           child: GridView.builder(
-            itemCount: snapshot.isLoading ? null : null,
+            itemCount: snapshot.isLoading ? null : snapshot.data!.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3,
               mainAxisSpacing: 8,
               crossAxisSpacing: 8,
             ),
             itemBuilder: (context, index) {
-              return Container(color: Colors.red);
+              return Container(
+                color: Colors.red,
+                child: Text(snapshot.data![index].gameName ?? "123"),
+              );
             },
           ),
         );

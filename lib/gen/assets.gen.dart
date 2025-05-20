@@ -237,9 +237,6 @@ class $AssetsImagesGen {
   AssetGenImage get homeVideoBg =>
       const AssetGenImage('assets/images/home_video_bg.png');
 
-  /// File path: assets/images/loading.svg
-  SvgGenImage get loading => const SvgGenImage('assets/images/loading.svg');
-
   /// File path: assets/images/logo.svg
   SvgGenImage get logo => const SvgGenImage('assets/images/logo.svg');
 
@@ -274,7 +271,6 @@ class $AssetsImagesGen {
     homTabSlot,
     homTabSport,
     homeVideoBg,
-    loading,
     logo,
     mail,
     meBalanceBg,

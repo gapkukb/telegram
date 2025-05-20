@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:super_plus/http/http.dart';
 import 'package:super_plus/models/game.dart';
 import 'package:super_plus/models/list.dart';
@@ -9,6 +12,9 @@ final queryGameCategory = http.post(
 
 final queryGameByPlatform = http.get(
   "/staticJs/game/{allFile}",
-  model: listModel(GamePlatformModel.fromJson),
+  model: (String data) {
+    final json = List<Map<String, dynamic>>.from(jsonDecode(data) as List);
+    return json.map(GamePlatformModel.fromJson).toList();
+  },
   raw: true,
 );

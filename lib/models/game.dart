@@ -87,315 +87,252 @@ class Detail {
   Map<String, dynamic> toJson() => _$DetailToJson(this);
 }
 
-@JsonSerializable()
 class GamePlatformModel {
-  @JsonKey(name: "badge")
-  String badge;
-  @JsonKey(name: "badgeBgColor")
-  String badgeBgColor;
-  @JsonKey(name: "badgeTextColor")
-  String badgeTextColor;
-  @JsonKey(name: "bigPictureFlag")
-  dynamic bigPictureFlag;
-  @JsonKey(name: "exCode")
-  String exCode;
-  @JsonKey(name: "flag")
-  int flag;
-  @JsonKey(name: "forYouRecBadge")
-  String forYouRecBadge;
-  @JsonKey(name: "forYouRecDesc")
-  String forYouRecDesc;
-  @JsonKey(name: "gameDesc")
-  String gameDesc;
-  @JsonKey(name: "gameFree")
-  int gameFree;
-  @JsonKey(name: "gameHotValue")
-  String gameHotValue;
-  @JsonKey(name: "gameId")
-  String gameId;
-  @JsonKey(name: "gameImage")
-  String gameImage;
-  @JsonKey(name: "gameImageBig")
-  String gameImageBig;
-  @JsonKey(name: "gameImageBigNew")
-  String gameImageBigNew;
-  @JsonKey(name: "gameImageBigNewPlayerFlag")
-  int gameImageBigNewPlayerFlag;
-  @JsonKey(name: "gameImageLive")
-  String gameImageLive;
-  @JsonKey(name: "gameImageNew")
-  String gameImageNew;
-  @JsonKey(name: "gameImageNewPlayerFlag")
-  int gameImageNewPlayerFlag;
-  @JsonKey(name: "gameKind")
-  String gameKind;
-  @JsonKey(name: "gameName")
-  String gameName;
-  @JsonKey(name: "gameNameEn")
-  dynamic gameNameEn;
-  @JsonKey(name: "gamePreImage")
-  String gamePreImage;
-  @JsonKey(name: "gameType")
-  int gameType;
-  @JsonKey(name: "gdGameId")
-  String gdGameId;
-  @JsonKey(name: "historyRec")
-  bool historyRec;
-  @JsonKey(name: "historyRecBadge")
-  String historyRecBadge;
-  @JsonKey(name: "historyRecDesc")
-  String historyRecDesc;
-  @JsonKey(name: "historyRecSort")
-  dynamic historyRecSort;
-  @JsonKey(name: "hotFlag")
-  int hotFlag;
-  @JsonKey(name: "id")
-  int id;
-  @JsonKey(name: "isFavorite")
-  dynamic isFavorite;
-  @JsonKey(name: "isGlbr")
-  int isGlbr;
-  @JsonKey(name: "isUpHot")
-  dynamic isUpHot;
-  @JsonKey(name: "jackpotId")
-  String jackpotId;
-  @JsonKey(name: "jackpotValue")
-  dynamic jackpotValue;
-  @JsonKey(name: "jsonParam")
-  String jsonParam;
-  @JsonKey(name: "localFlag")
-  int localFlag;
-  @JsonKey(name: "maintenanceFlag")
-  int maintenanceFlag;
-  @JsonKey(name: "maxWinMultiple")
-  int maxWinMultiple;
-  @JsonKey(name: "newFlag")
-  int newFlag;
-  @JsonKey(name: "payLine")
-  int payLine;
-  @JsonKey(name: "payoutFlag")
-  int payoutFlag;
-  @JsonKey(name: "pictureFlag")
-  dynamic pictureFlag;
-  @JsonKey(name: "platformCode")
-  String platformCode;
-  @JsonKey(name: "platformId")
-  String platformId;
-  @JsonKey(name: "platformName")
-  String platformName;
-  @JsonKey(name: "playerType")
-  int playerType;
-  @JsonKey(name: "poolFlag")
-  int poolFlag;
-  @JsonKey(name: "popularity")
-  int popularity;
-  @JsonKey(name: "preferenceFlag")
-  int preferenceFlag;
-  @JsonKey(name: "publishDate")
-  DateTime publishDate;
-  @JsonKey(name: "recommendFlag")
-  int recommendFlag;
-  @JsonKey(name: "rtp")
-  String rtp;
-  @JsonKey(name: "serverGameId")
-  String serverGameId;
-  @JsonKey(name: "showArea")
-  int showArea;
-  @JsonKey(name: "sortNo")
-  int sortNo;
-  @JsonKey(name: "tryFlag")
-  int tryFlag;
-  @JsonKey(name: "typeUrl")
-  String typeUrl;
+  String? badge;
+  String? badgeBgColor;
+  String? badgeTextColor;
+  Null bigPictureFlag;
+  String? exCode;
+  int? flag;
+  String? forYouRecBadge;
+  String? forYouRecDesc;
+  String? gameDesc;
+  int? gameFree;
+  String? gameHotValue;
+  String? gameId;
+  String? gameImage;
+  String? gameImageBig;
+  String? gameImageBigNew;
+  int? gameImageBigNewPlayerFlag;
+  String? gameImageLive;
+  String? gameImageNew;
+  int? gameImageNewPlayerFlag;
+  String? gameKind;
+  String? gameName;
+  Null gameNameEn;
+  String? gamePreImage;
+  int? gameType;
+  String? gdGameId;
+  bool? historyRec;
+  String? historyRecBadge;
+  String? historyRecDesc;
+  Null historyRecSort;
+  int? hotFlag;
+  int? id;
+  Null isFavorite;
+  int? isGlbr;
+  int? isUpHot;
+  String? jackpotId;
+  Null jackpotValue;
+  String? jsonParam;
+  int? localFlag;
+  int? maintenanceFlag;
+  int? maxWinMultiple;
+  int? newFlag;
+  int? payLine;
+  int? payoutFlag;
+  Null pictureFlag;
+  String? platformCode;
+  String? platformId;
+  String? platformName;
+  int? playerType;
+  int? poolFlag;
+  int? popularity;
+  int? preferenceFlag;
+  String? publishDate;
+  int? recommendFlag;
+  String? rtp;
+  String? serverGameId;
+  int? showArea;
+  int? sortNo;
+  int? tryFlag;
+  String? typeUrl;
 
   GamePlatformModel({
-    required this.badge,
-    required this.badgeBgColor,
-    required this.badgeTextColor,
-    required this.bigPictureFlag,
-    required this.exCode,
-    required this.flag,
-    required this.forYouRecBadge,
-    required this.forYouRecDesc,
-    required this.gameDesc,
-    required this.gameFree,
-    required this.gameHotValue,
-    required this.gameId,
-    required this.gameImage,
-    required this.gameImageBig,
-    required this.gameImageBigNew,
-    required this.gameImageBigNewPlayerFlag,
-    required this.gameImageLive,
-    required this.gameImageNew,
-    required this.gameImageNewPlayerFlag,
-    required this.gameKind,
-    required this.gameName,
-    required this.gameNameEn,
-    required this.gamePreImage,
-    required this.gameType,
-    required this.gdGameId,
-    required this.historyRec,
-    required this.historyRecBadge,
-    required this.historyRecDesc,
-    required this.historyRecSort,
-    required this.hotFlag,
-    required this.id,
-    required this.isFavorite,
-    required this.isGlbr,
-    required this.isUpHot,
-    required this.jackpotId,
-    required this.jackpotValue,
-    required this.jsonParam,
-    required this.localFlag,
-    required this.maintenanceFlag,
-    required this.maxWinMultiple,
-    required this.newFlag,
-    required this.payLine,
-    required this.payoutFlag,
-    required this.pictureFlag,
-    required this.platformCode,
-    required this.platformId,
-    required this.platformName,
-    required this.playerType,
-    required this.poolFlag,
-    required this.popularity,
-    required this.preferenceFlag,
-    required this.publishDate,
-    required this.recommendFlag,
-    required this.rtp,
-    required this.serverGameId,
-    required this.showArea,
-    required this.sortNo,
-    required this.tryFlag,
-    required this.typeUrl,
+    this.badge,
+    this.badgeBgColor,
+    this.badgeTextColor,
+    this.bigPictureFlag,
+    this.exCode,
+    this.flag,
+    this.forYouRecBadge,
+    this.forYouRecDesc,
+    this.gameDesc,
+    this.gameFree,
+    this.gameHotValue,
+    this.gameId,
+    this.gameImage,
+    this.gameImageBig,
+    this.gameImageBigNew,
+    this.gameImageBigNewPlayerFlag,
+    this.gameImageLive,
+    this.gameImageNew,
+    this.gameImageNewPlayerFlag,
+    this.gameKind,
+    this.gameName,
+    this.gameNameEn,
+    this.gamePreImage,
+    this.gameType,
+    this.gdGameId,
+    this.historyRec,
+    this.historyRecBadge,
+    this.historyRecDesc,
+    this.historyRecSort,
+    this.hotFlag,
+    this.id,
+    this.isFavorite,
+    this.isGlbr,
+    this.isUpHot,
+    this.jackpotId,
+    this.jackpotValue,
+    this.jsonParam,
+    this.localFlag,
+    this.maintenanceFlag,
+    this.maxWinMultiple,
+    this.newFlag,
+    this.payLine,
+    this.payoutFlag,
+    this.pictureFlag,
+    this.platformCode,
+    this.platformId,
+    this.platformName,
+    this.playerType,
+    this.poolFlag,
+    this.popularity,
+    this.preferenceFlag,
+    this.publishDate,
+    this.recommendFlag,
+    this.rtp,
+    this.serverGameId,
+    this.showArea,
+    this.sortNo,
+    this.tryFlag,
+    this.typeUrl,
   });
 
-  GamePlatformModel copyWith({
-    String? badge,
-    String? badgeBgColor,
-    String? badgeTextColor,
-    dynamic bigPictureFlag,
-    String? exCode,
-    int? flag,
-    String? forYouRecBadge,
-    String? forYouRecDesc,
-    String? gameDesc,
-    int? gameFree,
-    String? gameHotValue,
-    String? gameId,
-    String? gameImage,
-    String? gameImageBig,
-    String? gameImageBigNew,
-    int? gameImageBigNewPlayerFlag,
-    String? gameImageLive,
-    String? gameImageNew,
-    int? gameImageNewPlayerFlag,
-    String? gameKind,
-    String? gameName,
-    dynamic gameNameEn,
-    String? gamePreImage,
-    int? gameType,
-    String? gdGameId,
-    bool? historyRec,
-    String? historyRecBadge,
-    String? historyRecDesc,
-    dynamic historyRecSort,
-    int? hotFlag,
-    int? id,
-    dynamic isFavorite,
-    int? isGlbr,
-    dynamic isUpHot,
-    String? jackpotId,
-    dynamic jackpotValue,
-    String? jsonParam,
-    int? localFlag,
-    int? maintenanceFlag,
-    int? maxWinMultiple,
-    int? newFlag,
-    int? payLine,
-    int? payoutFlag,
-    dynamic pictureFlag,
-    String? platformCode,
-    String? platformId,
-    String? platformName,
-    int? playerType,
-    int? poolFlag,
-    int? popularity,
-    int? preferenceFlag,
-    DateTime? publishDate,
-    int? recommendFlag,
-    String? rtp,
-    String? serverGameId,
-    int? showArea,
-    int? sortNo,
-    int? tryFlag,
-    String? typeUrl,
-  }) => GamePlatformModel(
-    badge: badge ?? this.badge,
-    badgeBgColor: badgeBgColor ?? this.badgeBgColor,
-    badgeTextColor: badgeTextColor ?? this.badgeTextColor,
-    bigPictureFlag: bigPictureFlag ?? this.bigPictureFlag,
-    exCode: exCode ?? this.exCode,
-    flag: flag ?? this.flag,
-    forYouRecBadge: forYouRecBadge ?? this.forYouRecBadge,
-    forYouRecDesc: forYouRecDesc ?? this.forYouRecDesc,
-    gameDesc: gameDesc ?? this.gameDesc,
-    gameFree: gameFree ?? this.gameFree,
-    gameHotValue: gameHotValue ?? this.gameHotValue,
-    gameId: gameId ?? this.gameId,
-    gameImage: gameImage ?? this.gameImage,
-    gameImageBig: gameImageBig ?? this.gameImageBig,
-    gameImageBigNew: gameImageBigNew ?? this.gameImageBigNew,
-    gameImageBigNewPlayerFlag:
-        gameImageBigNewPlayerFlag ?? this.gameImageBigNewPlayerFlag,
-    gameImageLive: gameImageLive ?? this.gameImageLive,
-    gameImageNew: gameImageNew ?? this.gameImageNew,
-    gameImageNewPlayerFlag:
-        gameImageNewPlayerFlag ?? this.gameImageNewPlayerFlag,
-    gameKind: gameKind ?? this.gameKind,
-    gameName: gameName ?? this.gameName,
-    gameNameEn: gameNameEn ?? this.gameNameEn,
-    gamePreImage: gamePreImage ?? this.gamePreImage,
-    gameType: gameType ?? this.gameType,
-    gdGameId: gdGameId ?? this.gdGameId,
-    historyRec: historyRec ?? this.historyRec,
-    historyRecBadge: historyRecBadge ?? this.historyRecBadge,
-    historyRecDesc: historyRecDesc ?? this.historyRecDesc,
-    historyRecSort: historyRecSort ?? this.historyRecSort,
-    hotFlag: hotFlag ?? this.hotFlag,
-    id: id ?? this.id,
-    isFavorite: isFavorite ?? this.isFavorite,
-    isGlbr: isGlbr ?? this.isGlbr,
-    isUpHot: isUpHot ?? this.isUpHot,
-    jackpotId: jackpotId ?? this.jackpotId,
-    jackpotValue: jackpotValue ?? this.jackpotValue,
-    jsonParam: jsonParam ?? this.jsonParam,
-    localFlag: localFlag ?? this.localFlag,
-    maintenanceFlag: maintenanceFlag ?? this.maintenanceFlag,
-    maxWinMultiple: maxWinMultiple ?? this.maxWinMultiple,
-    newFlag: newFlag ?? this.newFlag,
-    payLine: payLine ?? this.payLine,
-    payoutFlag: payoutFlag ?? this.payoutFlag,
-    pictureFlag: pictureFlag ?? this.pictureFlag,
-    platformCode: platformCode ?? this.platformCode,
-    platformId: platformId ?? this.platformId,
-    platformName: platformName ?? this.platformName,
-    playerType: playerType ?? this.playerType,
-    poolFlag: poolFlag ?? this.poolFlag,
-    popularity: popularity ?? this.popularity,
-    preferenceFlag: preferenceFlag ?? this.preferenceFlag,
-    publishDate: publishDate ?? this.publishDate,
-    recommendFlag: recommendFlag ?? this.recommendFlag,
-    rtp: rtp ?? this.rtp,
-    serverGameId: serverGameId ?? this.serverGameId,
-    showArea: showArea ?? this.showArea,
-    sortNo: sortNo ?? this.sortNo,
-    tryFlag: tryFlag ?? this.tryFlag,
-    typeUrl: typeUrl ?? this.typeUrl,
-  );
+  GamePlatformModel.fromJson(Map<String, dynamic> json) {
+    badge = json['badge'];
+    badgeBgColor = json['badgeBgColor'];
+    badgeTextColor = json['badgeTextColor'];
+    bigPictureFlag = json['bigPictureFlag'];
+    exCode = json['exCode'];
+    flag = json['flag'];
+    forYouRecBadge = json['forYouRecBadge'];
+    forYouRecDesc = json['forYouRecDesc'];
+    gameDesc = json['gameDesc'];
+    gameFree = json['gameFree'];
+    gameHotValue = json['gameHotValue'];
+    gameId = json['gameId'];
+    gameImage = json['gameImage'];
+    gameImageBig = json['gameImageBig'];
+    gameImageBigNew = json['gameImageBigNew'];
+    gameImageBigNewPlayerFlag = json['gameImageBigNewPlayerFlag'];
+    gameImageLive = json['gameImageLive'];
+    gameImageNew = json['gameImageNew'];
+    gameImageNewPlayerFlag = json['gameImageNewPlayerFlag'];
+    gameKind = json['gameKind'];
+    gameName = json['gameName'];
+    gameNameEn = json['gameNameEn'];
+    gamePreImage = json['gamePreImage'];
+    gameType = json['gameType'];
+    gdGameId = json['gdGameId'];
+    historyRec = json['historyRec'];
+    historyRecBadge = json['historyRecBadge'];
+    historyRecDesc = json['historyRecDesc'];
+    historyRecSort = json['historyRecSort'];
+    hotFlag = json['hotFlag'];
+    id = json['id'];
+    isFavorite = json['isFavorite'];
+    isGlbr = json['isGlbr'];
+    isUpHot = json['isUpHot'];
+    jackpotId = json['jackpotId'];
+    jackpotValue = json['jackpotValue'];
+    jsonParam = json['jsonParam'];
+    localFlag = json['localFlag'];
+    maintenanceFlag = json['maintenanceFlag'];
+    maxWinMultiple = json['maxWinMultiple'];
+    newFlag = json['newFlag'];
+    payLine = json['payLine'];
+    payoutFlag = json['payoutFlag'];
+    pictureFlag = json['pictureFlag'];
+    platformCode = json['platformCode'];
+    platformId = json['platformId'];
+    platformName = json['platformName'];
+    playerType = json['playerType'];
+    poolFlag = json['poolFlag'];
+    popularity = json['popularity'];
+    preferenceFlag = json['preferenceFlag'];
+    publishDate = json['publishDate'];
+    recommendFlag = json['recommendFlag'];
+    rtp = json['rtp'];
+    serverGameId = json['serverGameId'];
+    showArea = json['showArea'];
+    sortNo = json['sortNo'];
+    tryFlag = json['tryFlag'];
+    typeUrl = json['typeUrl'];
+  }
 
-  factory GamePlatformModel.fromJson(Map<String, dynamic> json) =>
-      _$GamePlatformModelFromJson(json);
-
-  Map<String, dynamic> toJson() => _$GamePlatformModelToJson(this);
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['badge'] = badge;
+    data['badgeBgColor'] = badgeBgColor;
+    data['badgeTextColor'] = badgeTextColor;
+    data['bigPictureFlag'] = bigPictureFlag;
+    data['exCode'] = exCode;
+    data['flag'] = flag;
+    data['forYouRecBadge'] = forYouRecBadge;
+    data['forYouRecDesc'] = forYouRecDesc;
+    data['gameDesc'] = gameDesc;
+    data['gameFree'] = gameFree;
+    data['gameHotValue'] = gameHotValue;
+    data['gameId'] = gameId;
+    data['gameImage'] = gameImage;
+    data['gameImageBig'] = gameImageBig;
+    data['gameImageBigNew'] = gameImageBigNew;
+    data['gameImageBigNewPlayerFlag'] = gameImageBigNewPlayerFlag;
+    data['gameImageLive'] = gameImageLive;
+    data['gameImageNew'] = gameImageNew;
+    data['gameImageNewPlayerFlag'] = gameImageNewPlayerFlag;
+    data['gameKind'] = gameKind;
+    data['gameName'] = gameName;
+    data['gameNameEn'] = gameNameEn;
+    data['gamePreImage'] = gamePreImage;
+    data['gameType'] = gameType;
+    data['gdGameId'] = gdGameId;
+    data['historyRec'] = historyRec;
+    data['historyRecBadge'] = historyRecBadge;
+    data['historyRecDesc'] = historyRecDesc;
+    data['historyRecSort'] = historyRecSort;
+    data['hotFlag'] = hotFlag;
+    data['id'] = id;
+    data['isFavorite'] = isFavorite;
+    data['isGlbr'] = isGlbr;
+    data['isUpHot'] = isUpHot;
+    data['jackpotId'] = jackpotId;
+    data['jackpotValue'] = jackpotValue;
+    data['jsonParam'] = jsonParam;
+    data['localFlag'] = localFlag;
+    data['maintenanceFlag'] = maintenanceFlag;
+    data['maxWinMultiple'] = maxWinMultiple;
+    data['newFlag'] = newFlag;
+    data['payLine'] = payLine;
+    data['payoutFlag'] = payoutFlag;
+    data['pictureFlag'] = pictureFlag;
+    data['platformCode'] = platformCode;
+    data['platformId'] = platformId;
+    data['platformName'] = platformName;
+    data['playerType'] = playerType;
+    data['poolFlag'] = poolFlag;
+    data['popularity'] = popularity;
+    data['preferenceFlag'] = preferenceFlag;
+    data['publishDate'] = publishDate;
+    data['recommendFlag'] = recommendFlag;
+    data['rtp'] = rtp;
+    data['serverGameId'] = serverGameId;
+    data['showArea'] = showArea;
+    data['sortNo'] = sortNo;
+    data['tryFlag'] = tryFlag;
+    data['typeUrl'] = typeUrl;
+    return data;
+  }
 }

@@ -64,6 +64,7 @@ dependencies:
   scaled_app: ^2.3.0
   share_plus: ^11.0.0
   slider_captcha: ^1.0.2
+  extended_tabs: ^5.0.0
   
 
 dev_dependencies:
