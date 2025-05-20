@@ -1,11 +1,13 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
+import 'dart:developer';
 import 'package:crypto/crypto.dart';
 import 'package:dio/dio.dart';
 import 'package:super_plus/api/app.dart';
 import 'package:super_plus/helpers/string.dart';
 import 'package:super_plus/http/interceptors/http_errors_text.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 part 'core/http_base_options.dart';
 part 'core/http_const.dart';
@@ -19,3 +21,4 @@ part 'interceptors/http_interceptor_normalizer.dart';
 part 'interceptors/test.dart';
 part 'interceptors/http_interceptor_loading.dart';
 part 'interceptors/http_interceptor_error_toast.dart';
+part 'interceptors/http_path_rewrite.dart';

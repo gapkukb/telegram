@@ -15,7 +15,9 @@ class _HTTP {
       ..add(HttpInterceptorBiz())
       ..add(HttpInterceptorInflate())
       ..add(HttpInterceptorNormalizer())
-      ..add(HttpInterceptorErrorToast());
+      ..add(HttpInterceptorErrorToast())
+      ..add(HttpInterceptorPathRewrite())
+      ..add(PrettyDioLogger(responseBody: true));
 
     get = HTTPMethod("GET", _dio);
     post = HTTPMethod("POST", _dio);

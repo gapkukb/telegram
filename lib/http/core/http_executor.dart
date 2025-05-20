@@ -1,6 +1,6 @@
 part of '../http.dart';
 
-class HTTPExecutor<T> {
+class HTTPExecutor<T, Q> {
   final Options? options;
   final String method;
   final Dio dio;
@@ -9,16 +9,41 @@ class HTTPExecutor<T> {
   final bool? cancellable;
   final bool? loading;
   final bool? silent;
-  final ResponseModel<T>? model;
+  final bool? raw;
+  final Model<T, Q>? model;
 
-  HTTPExecutor({required this.method, required this.dio, required this.path, this.options, this.cancellable, this.loading, this.silent, this.model});
+  HTTPExecutor({
+    required this.method,
+    required this.dio,
+    required this.path,
+    this.options,
+    this.cancellable,
+    this.loading,
+    this.silent,
+    this.model,
+    this.raw,
+  });
 
-  Future<T> call({final Map<String, dynamic>? data, final bool? cancellable, final bool? loading, final bool? silent, final void Function(int, int)? onSendProgress, final void Function(int, int)? onReceiveProgress, final Options? options}) {
+  Future<T> call({
+    final Map<String, dynamic>? data,
+    final bool? cancellable,
+    final bool? loading,
+    final bool? silent,
+    final bool? raw,
+    final void Function(int, int)? onSendProgress,
+    final void Function(int, int)? onReceiveProgress,
+    final Options? options,
+  }) {
     final body = method == "POST" || method == "PUT" ? data : null;
     final params = body == null ? data : null;
 
     final finals = _assign(this.options, options);
-    final extra = {cancellableKey: cancellable ?? this.cancellable, loadingKey: loading ?? this.loading, silentKey: silent ?? this.silent};
+    final extra = {
+      cancellableKey: cancellable ?? this.cancellable,
+      loadingKey: loading ?? this.loading,
+      silentKey: silent ?? this.silent,
+      rawKey: raw ?? this.raw,
+    };
 
     finals.method = method;
     finals.extra?.addAll(extra);
@@ -28,10 +53,20 @@ class HTTPExecutor<T> {
       _cancelToken = CancelToken();
     }
 
-    return dio.request(path, data: body, queryParameters: params, onReceiveProgress: onReceiveProgress, cancelToken: _cancelToken, onSendProgress: onSendProgress, options: finals).then((value) {
-      if (model == null) return value.data;
-      return model!(value.data);
-    });
+    return dio
+        .request(
+          path,
+          data: body,
+          queryParameters: params,
+          onReceiveProgress: onReceiveProgress,
+          cancelToken: _cancelToken,
+          onSendProgress: onSendProgress,
+          options: finals,
+        )
+        .then((value) {
+          if (model == null) return value.data;
+          return model!(value.data);
+        });
   }
 
   abort([Object? reson]) {

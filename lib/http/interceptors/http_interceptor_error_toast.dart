@@ -17,7 +17,7 @@ class HttpInterceptorErrorToast extends Interceptor {
     }
 
     if (message != null) {
-      print('---------错误消息---------');
+      print('---------请求错误消息---------${err.requestOptions.path}');
       print(message);
     }
 

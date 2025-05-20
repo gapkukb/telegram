@@ -1,10 +1,10 @@
 part of 'index.dart';
 
 class GamesController extends GetxController with GetTickerProviderStateMixin {
-  GamesController();
   late final TabController ctrl;
-  final tabs = const GamegTabs();
+  final gameTabs = const GameTabs();
   final scrollable = false.obs;
+  final tabIndex = 0.obs;
 
   // tap
   void handleTap(int index) {
@@ -15,7 +15,8 @@ class GamesController extends GetxController with GetTickerProviderStateMixin {
   @override
   void onInit() {
     super.onInit();
-    ctrl = TabController(length: tabs.tabs.length, vsync: this);
+    ctrl = TabController(length: gameTabs.tabs.length, vsync: this);
+    ctrl.addListener(onchange);
   }
 
   /// 在 onInit() 之后调用 1 帧。这是进入的理想场所
@@ -34,5 +35,9 @@ class GamesController extends GetxController with GetTickerProviderStateMixin {
   @override
   void dispose() {
     super.dispose();
+  }
+
+  onchange() {
+    tabIndex.value = ctrl.index;
   }
 }

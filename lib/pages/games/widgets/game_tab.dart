@@ -5,7 +5,7 @@ class GameTab {
   const GameTab({required this.code, required this.name});
 }
 
-class GamegTabs {
+class GameTabs {
   static const slot = GameTab(code: "3", name: "slot");
   static const poker = GameTab(code: "3", name: "poker");
   static const casino = GameTab(code: "3", name: "casino");
@@ -14,7 +14,7 @@ class GamegTabs {
 
   static const _tabs = [slot, poker, casino, bingo, arcade];
 
-  const GamegTabs();
+  const GameTabs();
 
   List<GameTab> get tabs {
     return _tabs;
