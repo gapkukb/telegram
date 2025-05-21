@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:super_plus/const/gutter.dart';
 import 'package:super_plus/helpers/open_webview.dart';
@@ -26,6 +27,11 @@ class GameCard extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
+    final url =
+        imageUrl.startsWith("http")
+            ? imageUrl
+            : "https://autotest.arenaplus.ph$imageUrl";
+
     return GestureDetector(
       onTap: () {
         openWebview();
@@ -33,11 +39,17 @@ class GameCard extends StatelessWidget {
       child: Material(
         borderRadius: BorderRadius.circular(Gutter.xxs),
         clipBehavior: Clip.hardEdge,
-        color: Color(0xffdddddd),
+        color: const Color(0xfffefefe),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CachedNetworkImagePlus(imageUrl, height: 90, fit: BoxFit.cover),
+            CachedNetworkImagePlus(
+              url,
+              width: double.infinity,
+              height: 90,
+              fit: BoxFit.cover,
+              alignment: Alignment.center,
+            ),
             // SizedBox(height: 8),
             Padding(
               padding: Gutter.horizontal.xs,
@@ -48,7 +60,7 @@ class GameCard extends StatelessWidget {
                       name,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(fontSize: 13),
+                      style: const TextStyle(fontSize: 13),
                     ),
                   ),
                   SizedBox(
@@ -57,7 +69,10 @@ class GameCard extends StatelessWidget {
                     child: IconButton(
                       onPressed: () {},
                       iconSize: 14,
-                      icon: Icon(Icons.favorite_outline, color: Colors.red),
+                      icon: const Icon(
+                        Icons.favorite_outline,
+                        color: Colors.red,
+                      ),
                     ),
                   ),
                 ],
@@ -65,7 +80,7 @@ class GameCard extends StatelessWidget {
             ),
             Padding(
               padding: Gutter.horizontal.xs,
-              child: TextPlus(
+              child: const TextPlus(
                 "游戏供应商游戏供应商",
                 fontSize: 10,
                 color: Colors.grey,

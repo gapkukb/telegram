@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:super_plus/const/gutter.dart';
 import 'package:super_plus/pages/home/index.dart';
 import 'package:super_plus/widgets/swiper/index.dart';
 
@@ -15,8 +14,8 @@ class HomeVideos extends GetView<HomeController> {
     return Container(
       height: 190,
       width: 350,
-      padding: EdgeInsets.only(left: 16, right: 16, top: 32),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.only(left: 16, right: 16, top: 32),
+      decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage("assets/images/home_video_bg.png"),
           fit: BoxFit.fitWidth,

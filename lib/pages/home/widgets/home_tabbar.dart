@@ -9,7 +9,7 @@ class HomeTabbar extends StatefulWidget implements PreferredSizeWidget {
   _HomeTabbarState createState() => _HomeTabbarState();
 
   @override
-  Size get preferredSize => Size.fromHeight(66);
+  Size get preferredSize => const Size.fromHeight(66);
 }
 
 class _HomeTabbarState extends State<HomeTabbar> {

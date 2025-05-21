@@ -7,8 +7,8 @@ class LoginHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.only(top: 350),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.only(top: 350),
+      decoration: const BoxDecoration(
         color: Colors.red,
         image: DecorationImage(
           image: NetworkImage(

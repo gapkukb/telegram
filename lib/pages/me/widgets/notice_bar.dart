@@ -16,21 +16,25 @@ class MeNoticeBar extends GetView<MeController> {
       padding: Gutter.horizontal.xs,
       margin: Gutter.horizontal.xs,
       decoration: BoxDecoration(
-        color: Color(0xffff5800).withAlpha(220),
+        color: const Color(0xffff5800).withAlpha(220),
         borderRadius: BorderRadius.circular(100),
-        border: Border.all(width: 1, color: Color(0xffff5800)),
+        border: Border.all(width: 1, color: const Color(0xffff5800)),
       ),
       child: Row(
         children: [
-          Iconify(Ri.volume_up_line, color: Colors.white, size: 16),
-          SizedBox(width: 8),
+          const Iconify(Ri.volume_up_line, color: Colors.white, size: 16),
+          const SizedBox(width: 8),
           Expanded(
             child: Marquee(
               text: controller.marqueeText.value,
               numberOfRounds: 100,
-              pauseAfterRound: Duration(seconds: 1),
+              pauseAfterRound: const Duration(seconds: 1),
               startPadding: 100,
-              style: TextStyle(fontSize: 12, color: Colors.white, height: 1),
+              style: const TextStyle(
+                fontSize: 12,
+                color: Colors.white,
+                height: 1,
+              ),
             ),
           ),
         ],

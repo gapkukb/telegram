@@ -11,13 +11,13 @@ final style = const TextStyle(color: Colors.white, fontSize: 14);
 final defaultPinTheme = PinTheme(
   width: 56,
   height: 56,
-  textStyle: TextStyle(
+  textStyle: const TextStyle(
     fontSize: 20,
     color: Colors.white,
     fontWeight: FontWeight.w600,
   ),
   decoration: BoxDecoration(
-    border: Border.all(color: Color.fromRGBO(234, 239, 243, 1)),
+    border: Border.all(color: const Color.fromRGBO(234, 239, 243, 1)),
     borderRadius: BorderRadius.circular(8),
   ),
 );
@@ -35,25 +35,25 @@ class _VerificationCodeViewState extends State<VerificationCodeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff5762e5),
+      backgroundColor: const Color(0xff5762e5),
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        leading: BackButtonPlus(),
+        leading: const BackButtonPlus(),
       ),
       body: DefaultTextStyle(
         style: style,
         child: ListView(
           padding: Gutter.all.sm,
           children: [
-            SizedBox(height: 64),
-            Row(
+            const SizedBox(height: 64),
+            const Row(
               children: [
                 IconPlus(Icons.done, color: Colors.white),
                 Text(" CONFIRMATION"),
               ],
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             Row(
               spacing: Gutter.lg,
               children: [
@@ -83,7 +83,7 @@ class _VerificationCodeViewState extends State<VerificationCodeView> {
                 ),
               ],
             ),
-            SizedBox(height: 36),
+            const SizedBox(height: 36),
             Pinput(
               length: 6,
               defaultPinTheme: defaultPinTheme,
@@ -94,7 +94,7 @@ class _VerificationCodeViewState extends State<VerificationCodeView> {
                 return null;
               },
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Align(
               alignment: Alignment.centerRight,
               child: GFButton(
@@ -104,7 +104,7 @@ class _VerificationCodeViewState extends State<VerificationCodeView> {
                 textStyle: style.copyWith(letterSpacing: 1.5, fontSize: 12),
               ),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             GFButton(
               onPressed: () {},
               text: "NEXT",

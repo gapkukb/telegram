@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:super_plus/const/gutter.dart';
-import 'package:super_plus/widgets/button.dart';
 
 import '../index.dart';
 
@@ -43,7 +42,7 @@ class MeBalance extends GetView<MeController> {
                           fontSize: 12,
                         ),
                       ),
-                      icon: Icon(Icons.remove_red_eye_outlined),
+                      icon: const Icon(Icons.remove_red_eye_outlined),
                     ),
                   ),
                   Theme(
@@ -53,14 +52,14 @@ class MeBalance extends GetView<MeController> {
                     child: Chip(
                       padding: Gutter.zero,
                       backgroundColor: Colors.transparent,
-                      shape: StadiumBorder(
+                      shape: const StadiumBorder(
                         side: BorderSide(width: 0, color: Colors.transparent),
                       ),
-                      color: WidgetStatePropertyAll(Colors.transparent),
+                      color: const WidgetStatePropertyAll(Colors.transparent),
                       onDeleted: () {},
-                      deleteIcon: Icon(Icons.refresh),
+                      deleteIcon: const Icon(Icons.refresh),
                       deleteIconColor: Colors.white,
-                      label: Text(
+                      label: const Text(
                         "100,221.01",
                         style: TextStyle(
                           color: Color(0xffffffff),
@@ -88,7 +87,7 @@ class MeBalance extends GetView<MeController> {
                   onPressed: () {},
                   size: 32,
                   text: "提现",
-                  color: Color(0xffff5800),
+                  color: const Color(0xffff5800),
                   type: GFButtonType.outline,
                 ),
               ],

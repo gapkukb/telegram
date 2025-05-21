@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class TextPlus extends Text {
   final double? fontSize;
   final Color? color;
-  final bool bold;
+  final FontWeight weight;
 
   const TextPlus(
     super.data, {
@@ -23,7 +23,7 @@ class TextPlus extends Text {
     super.textWidthBasis,
     this.fontSize,
     this.color,
-    this.bold = false,
+    this.weight = FontWeight.normal,
   });
 
   const TextPlus.bold(
@@ -44,7 +44,7 @@ class TextPlus extends Text {
     super.textWidthBasis,
     this.fontSize,
     this.color,
-  }) : bold = true;
+  }) : weight = FontWeight.bold;
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +61,7 @@ class TextPlus extends Text {
       style: TextStyle(
         fontSize: fontSize,
         color: color,
-        fontWeight: bold ? FontWeight.bold : null,
+        fontWeight: weight,
       ).merge(style),
       textAlign: textAlign,
       textDirection: textDirection,

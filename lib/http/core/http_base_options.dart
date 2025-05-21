@@ -5,9 +5,9 @@ typedef Model<T, Q> = T Function(Q);
 
 final baseOptions = BaseOptions(
   baseUrl: 'https://autotest.arenaplus.ph',
-  connectTimeout: Duration(seconds: 20),
-  receiveTimeout: Duration(seconds: 0),
-  sendTimeout: Duration(seconds: 20),
+  connectTimeout: const Duration(seconds: 20),
+  receiveTimeout: const Duration(seconds: 0),
+  sendTimeout: const Duration(seconds: 20),
   responseType: ResponseType.json,
   followRedirects: false,
   contentType: Headers.jsonContentType,

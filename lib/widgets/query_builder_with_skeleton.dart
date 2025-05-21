@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fquery/fquery.dart';
-import 'package:fquery/src/observer.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class QueryBuilderWithSkeleton<TData, TError> extends StatelessWidget {

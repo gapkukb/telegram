@@ -15,7 +15,7 @@ class GamePlatform extends GetView<GamesController> {
     final tabs_ =
         loading ? [Detail(tabName: "tabName", sort: 1, createAt: 1)] : tabs;
 
-    if (tabs_ == null) return Text("no data");
+    if (tabs_ == null) return const Text("no data");
 
     return DefaultTabController(
       length: tabs_.length,
@@ -24,8 +24,14 @@ class GamePlatform extends GetView<GamesController> {
           TabBar(
             isScrollable: true,
             tabAlignment: TabAlignment.start,
+            labelStyle: const TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+            unselectedLabelStyle: const TextStyle(color: Color(0xff8286a3)),
+            indicatorColor: const Color(0xffff5800),
             tabs: List.generate(tabs_.length, (index) {
-              return Tab(text: tabs_[index].tabName);
+              return Tab(text: tabs_[index].tabName, height: 40);
             }),
           ),
 

@@ -13,18 +13,18 @@ class PromosView extends GetView<PromosController> {
             slivers: [
               SliverAppBar(
                 automaticallyImplyLeading: false,
-                title: Tab(text: "PROMO"),
+                title: const Tab(text: "PROMO"),
                 // pinned: true,
                 floating: true,
                 // bottom: TabBar(tabs: []),
                 actions: [
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(Icons.ac_unit_outlined),
+                    icon: const Icon(Icons.ac_unit_outlined),
                   ),
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(Icons.ac_unit_outlined),
+                    icon: const Icon(Icons.ac_unit_outlined),
                   ),
                 ],
               ),
@@ -33,7 +33,7 @@ class PromosView extends GetView<PromosController> {
                 itemCount: 10,
                 itemBuilder: buildItem,
                 separatorBuilder: (context, index) {
-                  return SizedBox(height: 8);
+                  return const SizedBox(height: 8);
                 },
               ),
 
@@ -42,7 +42,7 @@ class PromosView extends GetView<PromosController> {
               //   itemExtent: 160,
               //   itemBuilder: buildItem,
               // ),
-              SliverToBoxAdapter(
+              const SliverToBoxAdapter(
                 child: SizedBox(
                   height: 36,
                   child: Text(
@@ -127,7 +127,7 @@ class PromosView extends GetView<PromosController> {
       minTileHeight: 0,
       contentPadding: Gutter.horizontal.sm,
       tileColor: Colors.grey.shade200,
-      title: Text(
+      title: const Text(
         "PERA MO BALIK KO",
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
@@ -137,7 +137,7 @@ class PromosView extends GetView<PromosController> {
           fontWeight: FontWeight.bold,
         ),
       ),
-      subtitle: Text(
+      subtitle: const Text(
         "Apr 29 2025 - May 31 2025",
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
@@ -147,7 +147,7 @@ class PromosView extends GetView<PromosController> {
         height: 24,
         child: FilledButton.tonal(
           onPressed: () {},
-          child: Text(
+          child: const Text(
             "GO",
             maxLines: 1,
             overflow: TextOverflow.ellipsis,

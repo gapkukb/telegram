@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:super_plus/const/gutter.dart';
 import 'package:super_plus/pages/games/index.dart';
+import 'package:super_plus/widgets/text_plus.dart';
 
 class GameCategoryTabs extends GetView<GamesController>
     implements PreferredSizeWidget {
@@ -11,31 +11,50 @@ class GameCategoryTabs extends GetView<GamesController>
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      bottom: TabBar(
-        labelColor: Colors.white,
-        unselectedLabelColor: Colors.black,
-        // indicatorSize: TabBarIndicatorSize.tab,
+      floating: true,
+      // pinned: true,
+      titleSpacing: 8.0,
+      title: TabBar(
+        controller: controller.ctrl,
         automaticIndicatorColorAdjustment: false,
-        // indicator: const ColorTabIndicator(Colors.green),
         tabAlignment: TabAlignment.start,
         isScrollable: true,
         padding: Gutter.zero,
         labelPadding: Gutter.horizontal.xxs,
-        tabs:
-            controller.gameTabs.tabs.map((tab) {
-              return Container(
-                padding: EdgeInsets.symmetric(horizontal: 8.0),
-                decoration: BoxDecoration(
-                  color: controller.tabIndex == 0 ? Colors.red : Colors.blue,
-                  borderRadius: BorderRadius.circular(8.0),
+        indicator: BoxDecoration(
+          color: const Color(0xffff5800),
+          borderRadius: BorderRadius.circular(4.0),
+        ),
+        dividerHeight: 0,
+        tabs: List.generate(controller.gameTabs.tabs.length, (index) {
+          final tab = controller.gameTabs.tabs[index];
+
+          return Obx(() {
+            final active = controller.tabIndex.value == index;
+            return Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              decoration: BoxDecoration(
+                color: active ? Colors.transparent : const Color(0xffe7e8f1),
+                borderRadius: BorderRadius.circular(4.0),
+              ),
+              child: Tab(
+                height: 32,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                  child: TextPlus(
+                    tab.name.capitalize,
+                    color: active ? Colors.white : const Color(0xff8286a3),
+                    weight: FontWeight.w500,
+                  ),
                 ),
-                child: Tab(height: 32, child: Text(tab.name)),
-              );
-            }).toList(),
+              ),
+            );
+          });
+        }),
       ),
     );
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(80);
+  Size get preferredSize => const Size.fromHeight(80);
 }

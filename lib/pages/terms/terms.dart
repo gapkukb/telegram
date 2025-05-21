@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -54,8 +53,8 @@ class _TermsViewState extends State<TermsView> {
           },
         ),
         centerTitle: true,
-        title: Text("Terms Of Use and Privacy Policy"),
-        titleTextStyle: TextStyle(fontSize: 18, color: Colors.white),
+        title: const Text("Terms Of Use and Privacy Policy"),
+        titleTextStyle: const TextStyle(fontSize: 18, color: Colors.white),
       ),
       body: WebViewWidget(controller: _controller),
     );

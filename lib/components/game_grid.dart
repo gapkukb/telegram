@@ -23,7 +23,7 @@ class GameGrid extends StatelessWidget {
     return builder(
       itemCount: 100,
       shrinkWrap: !scorllable,
-      physics: scorllable ? null : NeverScrollableScrollPhysics(),
+      physics: scorllable ? null : const NeverScrollableScrollPhysics(),
 
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,

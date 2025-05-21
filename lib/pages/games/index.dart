@@ -4,7 +4,6 @@ import 'package:fquery/fquery.dart';
 import 'package:get/get.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:super_plus/api/game_api.dart';
-import 'package:super_plus/models/game.dart';
 import 'package:super_plus/pages/games/widgets/game_category_tabs.dart';
 import 'package:super_plus/pages/games/widgets/game_tab.dart';
 import 'package:super_plus/pages/games/widgets/game_platform.dart';

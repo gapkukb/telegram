@@ -1,7 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:super_plus/const/gutter.dart';
 import 'package:super_plus/helpers/number.dart';
 import 'package:super_plus/widgets/text_plus.dart';
 
@@ -14,12 +12,12 @@ class HomeBroadcast extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: height,
-      padding: EdgeInsets.only(top: 8, left: 8, right: 8),
+      padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
       child: Row(
         children: [
           Expanded(
             child: DecoratedBox(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.horizontal(left: Radius.circular(4)),
                 gradient: LinearGradient(
                   colors: [Color(0xffc773f3), Color(0xff9c3be8)],
@@ -53,13 +51,13 @@ class HomeBroadcast extends StatelessWidget {
             width: 28,
             height: 28,
           ),
-          TextPlus('xxxxxxxx', color: Colors.white, fontSize: 12),
-          TextPlus('8:06:07 AM', color: Colors.white, fontSize: 12),
-          Spacer(),
+          const TextPlus('xxxxxxxx', color: Colors.white, fontSize: 12),
+          const TextPlus('8:06:07 AM', color: Colors.white, fontSize: 12),
+          const Spacer(),
           Image.asset("assets/images/balance-peso.webp", width: 20, height: 20),
           TextPlus.bold(
             amountize(123123, 0),
-            color: Color(0xffebf740),
+            color: const Color(0xffebf740),
             fontSize: 16,
           ),
         ],
@@ -71,7 +69,7 @@ class HomeBroadcast extends StatelessWidget {
     return Container(
       width: 50,
       height: height,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Color(0xff7922c2),
         borderRadius: BorderRadius.horizontal(right: Radius.circular(4)),
         image: DecorationImage(

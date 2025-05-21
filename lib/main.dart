@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
 import 'package:super_plus/helpers/prfs.dart';
-import 'package:super_plus/services/app_service.dart';
 import 'application.dart';
 import 'package:scaled_app/scaled_app.dart';
 

@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
-import 'dart:developer';
 import 'package:crypto/crypto.dart';
 import 'package:dio/dio.dart';
 import 'package:super_plus/api/app.dart';

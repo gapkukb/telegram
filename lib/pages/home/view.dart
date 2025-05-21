@@ -11,13 +11,13 @@ class HomeView extends GetView<HomeController> {
         length: 8,
         child: NestedScrollView(
           headerSliverBuilder: (context, innerBoxIsScrolled) {
-            return [HomeAppBar()];
+            return [const HomeAppBar()];
           },
           body: TabBarView(
             children: [
               GridView.builder(
                 itemCount: 40,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
                   childAspectRatio: 1,
                   mainAxisSpacing: 8,
@@ -27,13 +27,13 @@ class HomeView extends GetView<HomeController> {
                   return Container(color: Colors.amber);
                 },
               ),
-              GameGrid(),
-              GameGrid(),
-              GameGrid(),
-              GameGrid(),
-              GameGrid(),
-              GameGrid(),
-              GameGrid(),
+              const GameGrid(),
+              const GameGrid(),
+              const GameGrid(),
+              const GameGrid(),
+              const GameGrid(),
+              const GameGrid(),
+              const GameGrid(),
             ],
           ),
           //   slivers: [

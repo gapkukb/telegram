@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:colorful_iconify_flutter/icons/logos.dart';
-import 'package:colorful_iconify_flutter/icons/openmoji.dart';
 import 'package:super_plus/widgets/divider_plus.dart';
 import '../index.dart';
 
@@ -20,7 +19,7 @@ class OAuthWidget extends GetView<LoginController> {
     final Line = Expanded(child: Divider(color: Colors.grey.shade200));
 
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 24.0),
+      padding: const EdgeInsets.symmetric(vertical: 24.0),
       child: Column(
         children: [
           DividerPlus(

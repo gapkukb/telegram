@@ -18,9 +18,9 @@ class LoginAgreementConfirmation extends LoginAgreement {
           size: 100,
           color: Colors.amber,
         ),
-        SizedBox(height: 32),
+        const SizedBox(height: 32),
         content,
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         GFButton(
           onPressed: () {
             Get.closeDialog(result: true);
@@ -29,7 +29,7 @@ class LoginAgreementConfirmation extends LoginAgreement {
           text: "AGREE",
           color: const Color(0xffff5800),
         ),
-        SizedBox(height: 0),
+        const SizedBox(height: 0),
         GFButton(
           onPressed: Get.closeDialog,
           fullWidthButton: true,

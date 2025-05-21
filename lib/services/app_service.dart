@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 
 class AppService extends GetxService {
   final themeMode = ThemeMode.system.obs;
-  final locale = Locale("zh", "CN").obs;
-  final dashboradKey = GlobalKey<ScaffoldState>()!;
+  final locale = const Locale("zh", "CN").obs;
+  final dashboradKey = GlobalKey<ScaffoldState>();
 
   void openDrawer() {
     dashboradKey.currentState!.openDrawer();

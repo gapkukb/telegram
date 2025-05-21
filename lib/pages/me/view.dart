@@ -6,12 +6,12 @@ class MeView extends GetView<MeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MeAppBar(),
+      appBar: const MeAppBar(),
       body: ListView(
         children: [
           DecoratedBox(
             position: DecorationPosition.background,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/images/user_bg.png'),
                 fit: BoxFit.fitWidth,
@@ -29,21 +29,21 @@ class MeView extends GetView<MeController> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   // SliverToBoxAdapter(child: const Unauthentication()),
-                  MeSynopsis(),
+                  const MeSynopsis(),
 
                   SizedBox(height: Gutter.xs),
 
-                  MeBalance(),
+                  const MeBalance(),
 
                   SizedBox(height: Gutter.xs),
 
-                  MeMainMenu(),
+                  const MeMainMenu(),
                 ],
               ),
             ),
           ),
           SizedBox(height: Gutter.xs),
-          MeNoticeBar(),
+          const MeNoticeBar(),
           SizedBox(height: Gutter.xs),
           SizedBox(
             height: 36,
@@ -102,8 +102,8 @@ class MeView extends GetView<MeController> {
                 value: "分享有礼",
                 isLink: true,
               ),
-              Cell(title: "我的权益", isLink: true),
-              Cell(title: "KYC认证", isLink: true),
+              const Cell(title: "我的权益", isLink: true),
+              const Cell(title: "KYC认证", isLink: true),
             ],
           ),
 
@@ -117,7 +117,7 @@ class MeView extends GetView<MeController> {
               color: Colors.red,
               size: 44,
               shape: GFButtonShape.standard,
-              child: Text("LOG OUT", style: TextStyle(fontSize: 18)),
+              child: const Text("LOG OUT", style: TextStyle(fontSize: 18)),
             ),
           ),
           SizedBox(height: Gutter.xs),

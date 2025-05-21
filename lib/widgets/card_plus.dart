@@ -52,7 +52,7 @@ class CardPlus extends StatelessWidget {
         if (imageUrl != null)
           CachedNetworkImage(
             colorBlendMode: BlendMode.dst,
-            color: Color(0xffededf2),
+            color: const Color(0xffededf2),
             imageUrl: imageUrl!,
             width: imageWidth ?? double.infinity,
             height: imageHeight,
@@ -74,6 +74,6 @@ class CardPlus extends StatelessWidget {
   }
 
   Widget _buildActions() {
-    return Flex(direction: Axis.horizontal, children: []);
+    return const Flex(direction: Axis.horizontal, children: []);
   }
 }

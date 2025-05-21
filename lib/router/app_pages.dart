@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:super_plus/pages/dashboard/index.dart';
+import 'package:super_plus/pages/demo/index.dart';
 import 'package:super_plus/pages/favorites/index.dart';
 import 'package:super_plus/pages/games/index.dart';
 import 'package:super_plus/pages/login/index.dart';
@@ -21,7 +22,7 @@ abstract class AppPages {
   AppPages._();
 
   // static const initial = Routes.dashboard;
-  static const initial = Routes.games;
+  static const initial = Routes.demo;
 
   static final routes = [
     GetPage(
@@ -107,6 +108,8 @@ abstract class AppPages {
           page: () => const VerificationCodeView(),
           fullscreenDialog: true,
         ),
+
+        GetPage(name: _Paths.demo, page: () => const DemoPage()),
       ],
     ),
   ];

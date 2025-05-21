@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:super_plus/const/gutter.dart';
 
 class LoginWelcome extends StatelessWidget implements PreferredSizeWidget {
@@ -38,5 +37,5 @@ class LoginWelcome extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(0);
+  Size get preferredSize => const Size.fromHeight(0);
 }

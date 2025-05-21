@@ -34,7 +34,7 @@ class ChipButton extends StatelessWidget {
                 gradient:
                     selected
                         ? LinearGradient(
-                          begin: Alignment(-0.5, -4),
+                          begin: const Alignment(-0.5, -4),
                           end: Alignment.bottomRight,
                           colors: [Colors.transparent, color],
                           stops: [0.85, 0.5],
@@ -43,7 +43,7 @@ class ChipButton extends StatelessWidget {
               ),
               child:
                   selected
-                      ? Align(
+                      ? const Align(
                         alignment: Alignment(1, 1),
                         child: Icon(Icons.check, color: Colors.white, size: 16),
                       )
@@ -51,7 +51,10 @@ class ChipButton extends StatelessWidget {
             ),
           ),
           Center(
-            child: Text(text, style: TextStyle(fontSize: 18).merge(style)),
+            child: Text(
+              text,
+              style: const TextStyle(fontSize: 18).merge(style),
+            ),
           ),
         ],
       ),

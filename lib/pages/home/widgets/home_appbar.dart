@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:getwidget/components/button/gf_button.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:getwidget/types/gf_button_type.dart';
-import 'package:super_plus/gen/assets.gen.dart';
 import 'package:super_plus/pages/home/index.dart';
-import 'package:super_plus/pages/home/widgets/home_broadcast.dart';
 import 'package:super_plus/pages/home/widgets/home_header.dart';
 import 'package:super_plus/pages/home/widgets/home_tabbar.dart';
 import 'package:super_plus/router/app_pages.dart';
@@ -21,13 +17,13 @@ class HomeAppBar extends GetView<HomeController>
   Widget build(BuildContext context) {
     return SliverAppBar(
       leadingWidth: 80,
-      backgroundColor: Color(0xffe2d6ff),
+      backgroundColor: const Color(0xffe2d6ff),
       pinned: true,
       expandedHeight: 564,
       titleSpacing: 0,
       title: Container(
         height: 100,
-        color: Color(0xffe5ddff),
+        color: const Color(0xffe5ddff),
         child: Row(
           children: [
             GFButton(
@@ -36,34 +32,34 @@ class HomeAppBar extends GetView<HomeController>
               },
               shape: GFButtonShape.pills,
               size: 36,
-              color: Color(0xffd8cef2),
-              textColor: Color(0xff5f4e41),
-              child: TextPlus('SIGN IN', bold: true),
+              color: const Color(0xffd8cef2),
+              textColor: const Color(0xff5f4e41),
+              child: const TextPlus.bold('SIGN IN'),
             ),
-            Spacer(),
+            const Spacer(),
             actionButton(() {}, Icons.support_agent),
             actionButton(() {}, Icons.search),
           ],
         ),
       ),
       foregroundColor: Colors.amber,
-      systemOverlayStyle: SystemUiOverlayStyle(
+      systemOverlayStyle: const SystemUiOverlayStyle(
         statusBarColor: Colors.transparent, // 设置状态栏背景颜色
         statusBarIconBrightness: Brightness.light, // 设置状态栏图标颜色为白色
         statusBarBrightness: Brightness.dark, // 设置状态栏文字颜色为深色（仅适用于iOS）
       ),
-      flexibleSpace: FlexibleSpaceBar(background: HomeHeader()),
-      bottom: HomeTabbar(),
+      flexibleSpace: const FlexibleSpaceBar(background: HomeHeader()),
+      bottom: const HomeTabbar(),
     );
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(38);
+  Size get preferredSize => const Size.fromHeight(38);
 
   Widget actionButton(void Function() onPressed, dynamic icon) {
     return IconButton(
       onPressed: onPressed,
-      icon: IconPlus(icon, color: Color(0xff5f4e41)),
+      icon: IconPlus(icon, color: const Color(0xff5f4e41)),
       style: ButtonStyle(
         backgroundColor: WidgetStatePropertyAll(Colors.black.withAlpha(13)),
       ),

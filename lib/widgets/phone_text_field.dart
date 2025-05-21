@@ -12,7 +12,7 @@ class PhoneTextField extends StatefulWidget {
 class _PhoneTextFieldState extends State<PhoneTextField> {
   static final _style = OutlineInputBorder(
     borderRadius: BorderRadius.circular(99),
-    borderSide: BorderSide(width: 1),
+    borderSide: const BorderSide(width: 1),
   );
 
   static final maskFormatter = MaskTextInputFormatter(
@@ -50,10 +50,10 @@ class _PhoneTextFieldState extends State<PhoneTextField> {
   Widget build(BuildContext context) {
     return TextField(
       cursorWidth: 2,
-      keyboardType: TextInputType.numberWithOptions(decimal: false),
+      keyboardType: const TextInputType.numberWithOptions(decimal: false),
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
       autofocus: true,
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         hintText: "09XX XXX XXXX",
         labelText: 'Phone Number',
         // border: _style,

@@ -16,28 +16,26 @@ class GamesView extends GetView<GamesController> {
               // ignorePointers: true,
               containersColor: Colors.grey.shade100,
               enabled: snapshot.isLoading,
-              child: DefaultTabController(
-                length: length,
-                child: NestedScrollView(
-                  headerSliverBuilder: (context, innerBoxIsScrolled) {
-                    return [const GameCategoryTabs()];
-                  },
-                  body: ExtendedTabBarView(
-                    shouldIgnorePointerWhenScrolling: false,
-                    cacheExtent: controller.gameTabs.tabs.length,
-                    children: List.generate(length, (index) {
-                      final current = controller.gameTabs.tabs[index];
+              child: NestedScrollView(
+                headerSliverBuilder: (context, innerBoxIsScrolled) {
+                  return [const GameCategoryTabs()];
+                },
+                body: ExtendedTabBarView(
+                  controller: controller.ctrl,
+                  shouldIgnorePointerWhenScrolling: false,
+                  cacheExtent: controller.gameTabs.tabs.length,
+                  children: List.generate(length, (index) {
+                    final current = controller.gameTabs.tabs[index];
 
-                      final subTabs =
-                          snapshot.data?.gameInfoList
-                              .firstWhereOrNull(
-                                (game) => game.code == current.code,
-                              )
-                              ?.detail;
+                    final subTabs =
+                        snapshot.data?.gameInfoList
+                            .firstWhereOrNull(
+                              (game) => game.code == current.code,
+                            )
+                            ?.detail;
 
-                      return GamePlatform(snapshot.isLoading, subTabs);
-                    }),
-                  ),
+                    return GamePlatform(snapshot.isLoading, subTabs);
+                  }),
                 ),
               ),
             );

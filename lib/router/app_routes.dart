@@ -21,6 +21,7 @@ abstract class Routes {
   static const code = _Paths.code;
   static const recover = _Paths.recover;
   static const privatePolicy = _Paths.privatePolicy;
+  static const demo = _Paths.demo;
 
   static String LOGIN_THEN(String afterSuccessfulLogin) {
     return '$login?then=${Uri.encodeQueryComponent(afterSuccessfulLogin)}';
@@ -46,4 +47,5 @@ abstract class _Paths {
   static const code = '/code';
   static const recover = '/recover';
   static const privatePolicy = '/private_policy';
+  static const demo = '/demo';
 }

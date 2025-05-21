@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:super_plus/const/gutter.dart';
 import 'package:super_plus/widgets/cell.dart';
 
@@ -31,13 +30,10 @@ class CellGroup extends StatelessWidget {
             ? List.generate(len, (index) {
               if (!border || index > len - 2) return children[index];
               return DecoratedBox(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   // color: Colors.red,
                   border: Border(
-                    bottom: BorderSide(
-                      color: const Color(0xffeeeeee),
-                      width: 1,
-                    ),
+                    bottom: BorderSide(color: Color(0xffeeeeee), width: 1),
                   ),
                 ),
                 child: children[index],
@@ -46,7 +42,7 @@ class CellGroup extends StatelessWidget {
             : children;
 
     return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
       color: Colors.white,
       margin: inset ? Gutter.horizontal.xs : const EdgeInsets.all(0),
       child: Padding(

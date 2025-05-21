@@ -33,7 +33,7 @@ class MeMainMenu extends GetView<MeController> {
                   child: Column(
                     children: [
                       Image.asset(nav['icon']!, width: 48, height: 48),
-                      Text(nav['name']!, style: TextStyle(fontSize: 12)),
+                      Text(nav['name']!, style: const TextStyle(fontSize: 12)),
                     ],
                   ),
                 );

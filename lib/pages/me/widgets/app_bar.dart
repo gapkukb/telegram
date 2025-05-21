@@ -13,11 +13,11 @@ class MeAppBar extends GetView<MeController> implements PreferredSizeWidget {
   @override
   AppBar build(BuildContext context) {
     return AppBar(
-      backgroundColor: Color(0xff0e72f0),
+      backgroundColor: const Color(0xff0e72f0),
       scrolledUnderElevation: 0,
-      actionsIconTheme: IconThemeData(color: Colors.white, size: 24),
+      actionsIconTheme: const IconThemeData(color: Colors.white, size: 24),
 
-      systemOverlayStyle: SystemUiOverlayStyle(
+      systemOverlayStyle: const SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
         // andriod
         statusBarIconBrightness: Brightness.light,
@@ -25,11 +25,14 @@ class MeAppBar extends GetView<MeController> implements PreferredSizeWidget {
         statusBarBrightness: Brightness.light,
       ),
       automaticallyImplyLeading: false,
-      title: Text("个人中心", style: TextStyle(fontSize: 18, color: Colors.white)),
+      title: const Text(
+        "个人中心",
+        style: TextStyle(fontSize: 18, color: Colors.white),
+      ),
       actions: [
         IconButton(
           onPressed: () {},
-          icon: Iconify(
+          icon: const Iconify(
             Ri.customer_service_2_line,
             color: Colors.white,
             size: 18,
@@ -37,13 +40,16 @@ class MeAppBar extends GetView<MeController> implements PreferredSizeWidget {
         ),
         IconButton(
           onPressed: () {},
-          icon: Badge(smallSize: 8, child: Icon(Icons.notifications_outlined)),
+          icon: const Badge(
+            smallSize: 8,
+            child: Icon(Icons.notifications_outlined),
+          ),
         ),
         IconButton(
           onPressed: () {
             Get.toNamed(Routes.settings, preventDuplicates: true);
           },
-          icon: Icon(Icons.settings_outlined),
+          icon: const Icon(Icons.settings_outlined),
         ),
       ],
     );

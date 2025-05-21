@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../router/app_pages.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:super_plus/const/gutter.dart';
 import 'package:iconify_flutter/icons/quill.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 
@@ -28,7 +25,7 @@ class _DashboardFooterState extends State<DashboardFooter> {
   @override
   Widget build(BuildContext context) {
     return DefaultTextStyle(
-      style: TextStyle(fontSize: 12, color: Colors.black),
+      style: const TextStyle(fontSize: 12, color: Colors.black),
       child: IndexedRouteBuilder(
         routes: routes,
         builder: (context, routes, index) {

@@ -37,16 +37,16 @@ class EmptyState extends StatelessWidget {
     return Column(
       children: [
         Image.asset(imageUrl, width: 185),
-        Text(text, style: TextStyle(color: Color(0xff8286a3), fontSize: 12)),
+        Text(text, style: const TextStyle(color: Color(0xff8286a3), fontSize: 12)),
         SizedBox(height: Gutter.lg),
         GFButton(
           onPressed: () {},
           shape: GFButtonShape.pills,
-          color: Color(0xffFF5800),
+          color: const Color(0xffFF5800),
           padding: Gutter.horizontal.xxl,
           child: Text(
             buttonText,
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: const TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
         SizedBox(height: Gutter.lg),

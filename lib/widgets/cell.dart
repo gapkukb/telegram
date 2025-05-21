@@ -1,8 +1,6 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:nil/nil.dart';
 
 enum CellArrow { RIGHT, DOWN, UP, LEFT }
 
@@ -98,7 +96,7 @@ class Cell extends StatelessWidget {
     final title = _buildTitle();
     final label = _buildLabel();
 
-    if (label == null && title == null) return SizedBox.shrink();
+    if (label == null && title == null) return const SizedBox.shrink();
     if (label == null) return title!;
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -110,32 +108,32 @@ class Cell extends StatelessWidget {
   Widget? _buildTitle() {
     if (titleWidget == null && title == null) return null;
 
-    final style = TextStyle(
+    final style = const TextStyle(
       fontSize: 14,
-      color: const Color(0xff111111),
+      color: Color(0xff111111),
     ).merge(titleStyle);
 
     return titleWidget ?? Text(title!, style: style);
   }
 
   Widget _buildValue() {
-    if (valueWidget == null && value == null) return SizedBox.shrink();
+    if (valueWidget == null && value == null) return const SizedBox.shrink();
 
     return valueWidget ??
         Text(
           value!,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 14,
-            color: const Color(0xff999999),
+            color: Color(0xff999999),
           ).merge(valueStyle),
         );
   }
 
   Widget? _buildLabel() {
     if (labelWidget == null && label == null) return null;
-    final style = TextStyle(
+    final style = const TextStyle(
       fontSize: 12,
-      color: const Color(0xff999999),
+      color: Color(0xff999999),
     ).merge(valueStyle);
 
     return labelWidget ?? Text(label!, style: style);

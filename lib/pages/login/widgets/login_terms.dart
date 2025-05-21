@@ -10,19 +10,23 @@ class LoginTerms extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return DefaultTextStyle(
-      style: TextStyle(fontSize: 13, color: Color(0xff999999), height: 1.5),
+      style: const TextStyle(
+        fontSize: 13,
+        color: Color(0xff999999),
+        height: 1.5,
+      ),
 
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: EdgeInsets.all(12),
+            padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               border: Border.all(color: Colors.grey.shade200),
             ),
-            child: Column(
+            child: const Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -51,7 +55,7 @@ class LoginTerms extends GetView<LoginController> {
           ),
 
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 8.0),
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -60,7 +64,7 @@ class LoginTerms extends GetView<LoginController> {
               ],
             ),
           ),
-          Center(
+          const Center(
             child: Text(
               "Powered by DigiPlus, a Fortune Southeast Asia 500 company",
               style: TextStyle(fontSize: 10, color: Color(0xffcccccc)),

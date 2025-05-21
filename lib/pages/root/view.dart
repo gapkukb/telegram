@@ -6,7 +6,7 @@ class RootView extends GetView<RootController> {
   static final _appBar = AppBar(
     leading: IconButton(
       onPressed: () => Get.back(),
-      icon: Icon(Icons.arrow_back_ios),
+      icon: const Icon(Icons.arrow_back_ios),
     ),
     centerTitle: true,
     title: RouterListener(

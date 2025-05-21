@@ -14,13 +14,13 @@ class MeSynopsis extends GetView<MeController> {
     return ListTile(
       contentPadding: Gutter.zero,
       minLeadingWidth: 60,
-      leading: CircleAvatar(
+      leading: const CircleAvatar(
         radius: 30,
         backgroundImage: CachedNetworkImageProvider(
           "https://picsum.photos/seed/abd/200/200",
         ),
       ),
-      title: Text(
+      title: const Text(
         "这是一个超级长的用户昵称",
         maxLines: 1,
         overflow: TextOverflow.ellipsis,

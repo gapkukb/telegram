@@ -19,7 +19,7 @@ class LoginView extends GetView<LoginController> {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
         body: CustomScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           slivers: [
             SliverAppBar(
               pinned: true,
@@ -58,11 +58,11 @@ class LoginView extends GetView<LoginController> {
                             : LoginAccount(),
                   ),
 
-                  SizedBox(height: 32),
-                  LoginAgreement(),
-                  LoginOauth(),
-                  LoginTerms(),
-                  SizedBox(height: 32),
+                  const SizedBox(height: 32),
+                  const LoginAgreement(),
+                  const LoginOauth(),
+                  const LoginTerms(),
+                  const SizedBox(height: 32),
                 ],
               ),
             ),

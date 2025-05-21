@@ -45,7 +45,7 @@ class TermsPrivate extends StatelessWidget {
             recognizer: createHandler(Routes.terms),
             style: colorStyle,
           ),
-          TextSpan(text: " and "),
+          const TextSpan(text: " and "),
           TextSpan(
             text: "Privacy policy",
             recognizer: createHandler(Routes.privatePolicy),

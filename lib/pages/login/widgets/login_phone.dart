@@ -1,13 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:super_plus/api/user_api.dart';
-import 'package:super_plus/components/puzzle_captcha.dart';
-import 'package:super_plus/helpers/dialog.dart';
 import 'package:super_plus/mixins/validator.dart';
 import 'package:super_plus/pages/login/index.dart';
-import 'package:super_plus/pages/login/widgets/login_agreement_confirmation.dart';
 import 'package:super_plus/router/app_pages.dart';
 import 'package:super_plus/widgets/text_form_field_plus.dart';
 
@@ -21,14 +17,14 @@ class LoginPhone extends GetView<LoginController> with Validators {
       children: [
         TextFormFieldPlus(
           autofocus: true,
-          placeholder: "09XXXXX090XXXX",
+          placeholder: "09XXXXXXXXX",
           textInputAction: TextInputAction.next,
           icon: Icons.account_box_outlined,
           onSaved: (value) => controller.payload.account = value,
           validator: validators.phone,
         ),
 
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
 
         GFButton(
           onPressed: () async {
@@ -44,7 +40,7 @@ class LoginPhone extends GetView<LoginController> with Validators {
           color: Colors.red,
           text: "NEXT",
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         GFButton(
           onPressed: controller.toggleMode,
           fullWidthButton: true,

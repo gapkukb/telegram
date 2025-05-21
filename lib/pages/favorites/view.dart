@@ -32,7 +32,7 @@ class FavoritesView extends GetView<FavoritesController> {
                 top: Gutter.xs,
                 bottom: Gutter.md,
               ),
-              sliver: SliverToBoxAdapter(
+              sliver: const SliverToBoxAdapter(
                 child: Text(
                   'HOT GAMES',
                   style: TextStyle(
@@ -43,7 +43,7 @@ class FavoritesView extends GetView<FavoritesController> {
                 ),
               ),
             ),
-            SliverPadding(padding: Gutter.horizontal.sm, sliver: GameGrid()),
+            SliverPadding(padding: Gutter.horizontal.sm, sliver: const GameGrid()),
           ],
         ),
       ),

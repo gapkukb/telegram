@@ -15,10 +15,10 @@ class Unauthentication extends GetView<MeController> {
       // color: Colors.amber,
       child: Center(
         child: GFButton(
-          color: Color(0xffff5800),
+          color: const Color(0xffff5800),
           shape: GFButtonShape.pills,
           onPressed: () {},
-          child: Text("SIGN IN | SIGN UP"),
+          child: const Text("SIGN IN | SIGN UP"),
         ),
       ),
     );

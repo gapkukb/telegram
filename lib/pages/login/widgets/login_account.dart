@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:super_plus/components/puzzle_captcha.dart';
+import 'package:super_plus/components/puzzle_captcha/puzzle_captcha.dart';
 import 'package:super_plus/helpers/dialog.dart';
 import 'package:super_plus/mixins/validator.dart';
 import 'package:super_plus/pages/login/index.dart';
@@ -26,7 +26,7 @@ class LoginAccount extends GetView<LoginController> with Validators {
           validator: validators.phone,
         ),
 
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
 
         TextFormFieldPlus(
           obscureText: true,
@@ -47,7 +47,7 @@ class LoginAccount extends GetView<LoginController> with Validators {
               Get.toNamed(Routes.recover);
             },
 
-            child: TextPlus(
+            child: const TextPlus(
               "Forgot Password?",
               fontSize: 12,
               color: Colors.blue,
@@ -62,7 +62,7 @@ class LoginAccount extends GetView<LoginController> with Validators {
             state.save();
             if (!controller.agreement.value) {
               final agreement = await dialog<bool?>(
-                LoginAgreementConfirmation(),
+                const LoginAgreementConfirmation(),
               );
               controller.agreement.value = agreement ?? false;
             }
@@ -84,7 +84,7 @@ class LoginAccount extends GetView<LoginController> with Validators {
           color: Colors.red,
           text: "SIGN IN",
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         GFButton(
           onPressed: controller.toggleMode,
           fullWidthButton: true,

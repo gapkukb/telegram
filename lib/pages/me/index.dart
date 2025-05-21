@@ -9,7 +9,6 @@ import 'package:super_plus/pages/me/widgets/balance.dart';
 import 'package:super_plus/pages/me/widgets/main_menu.dart';
 import 'package:super_plus/pages/me/widgets/notice_bar.dart';
 import 'package:super_plus/pages/me/widgets/synopsis.dart';
-import 'package:super_plus/router/app_pages.dart';
 import 'package:super_plus/widgets/cell.dart';
 import 'package:super_plus/widgets/cell_group.dart';
 import 'package:super_plus/widgets/chip_button.dart';

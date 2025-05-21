@@ -18,7 +18,7 @@ class LoginController extends GetxController {
     if (!state.validate()) return false;
     state.save();
     if (!agreement.value) {
-      final confirmed = await dialog<bool?>(LoginAgreementConfirmation());
+      final confirmed = await dialog<bool?>(const LoginAgreementConfirmation());
       agreement.value = confirmed ?? false;
     }
 
@@ -35,7 +35,7 @@ class LoginController extends GetxController {
     return Get.showOverlay(
       asyncFunction: () async {
         if (!formKey.currentState!.validate()) return;
-        await Future.delayed(Duration(seconds: 2));
+        await Future.delayed(const Duration(seconds: 2));
       },
       loadingWidget: const CircularProgressIndicator(),
     );

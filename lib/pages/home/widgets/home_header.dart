@@ -9,15 +9,15 @@ class HomeHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.topCenter,
-      padding: EdgeInsets.only(top: 60, bottom: 94),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.only(top: 60, bottom: 94),
+      decoration: const BoxDecoration(
         image: DecorationImage(
           alignment: Alignment(0, -1.2),
           fit: BoxFit.fitWidth,
           image: AssetImage("assets/images/unlogin-banner.png"),
         ),
       ),
-      child: Column(children: [HomeBroadcast(), Spacer(), HomeVideos()]),
+      child: const Column(children: [HomeBroadcast(), Spacer(), HomeVideos()]),
     );
   }
 }
