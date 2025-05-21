@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:super_plus/components/puzzle_captcha/puzzle_captcha.dart';
+import 'package:super_plus/components/puzzle_captcha/index.dart';
 import 'package:super_plus/helpers/dialog.dart';
 import 'package:super_plus/mixins/validator.dart';
 import 'package:super_plus/pages/login/index.dart';

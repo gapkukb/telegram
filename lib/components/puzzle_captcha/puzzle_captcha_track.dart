@@ -1,95 +1,9 @@
 part of 'index.dart';
 
-class Pulzz extends StatefulWidget {
-  const Pulzz({super.key});
-
-  @override
-  _PulzzState createState() => _PulzzState();
-}
-
-class _PulzzState extends State<Pulzz> with SingleTickerProviderStateMixin {
-  double offset = 0.0;
-  late final AnimationController _controller;
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        AspectRatio(
-          aspectRatio: 2,
-          child: Container(
-            alignment: Alignment.topLeft,
-            decoration: const BoxDecoration(
-              color: Colors.red,
-              image: DecorationImage(
-                fit: BoxFit.fill,
-                alignment: Alignment.topLeft,
-                image: NetworkImage(
-                  "https://c66hk.s3.ap-east-1.amazonaws.com/5b478f09-d8b5-45f0-b0d7-b83b9f0a3e4a",
-                ),
-              ),
-            ),
-            child: Transform.translate(
-              offset: Offset(offset * 375, 0),
-              child: Image.network(
-                "https://c66hk.s3.ap-east-1.amazonaws.com/cb345165-49ab-48f7-b757-d8860e733553",
-                width: 56,
-                height: double.infinity,
-                fit: BoxFit.fill,
-                alignment: Alignment.topLeft,
-              ),
-            ),
-          ),
-        ),
-        SizedBox(
-          width: double.infinity,
-          height: 30,
-          child: AnimatedBuilder(
-            animation: _controller,
-            builder: (context, animation) {
-              return SliderTheme(
-                data: SliderTheme.of(context).copyWith(
-                  activeTrackColor: Colors.blue,
-                  inactiveTrackColor: Colors.black,
-                  trackHeight: 30,
-                  trackShape: RoundSliderTrackShape(_controller.value),
-                  // thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 4.0),
-                  padding: const EdgeInsets.all(0),
-                ),
-                child: Slider(
-                  value: offset,
-                  onChanged: (value) {
-                    setState(() {
-                      offset = value;
-                    });
-                  },
-                ),
-              );
-            },
-          ),
-        ),
-      ],
-    );
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(vsync: this)
-      ..repeat(period: Duration(seconds: 2));
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-}
-
-class RoundSliderTrackShape extends SliderTrackShape with BaseSliderTrackShape {
-  const RoundSliderTrackShape(this.animationValue) : super();
-
+class PuzzleCaptchaTrack extends SliderTrackShape with BaseSliderTrackShape {
   final double animationValue;
+  final String? text;
+  const PuzzleCaptchaTrack(this.animationValue, this.text) : super();
 
   @override
   void paint(
@@ -140,6 +54,8 @@ class RoundSliderTrackShape extends SliderTrackShape with BaseSliderTrackShape {
     final bool isLTR = textDirection == TextDirection.ltr;
     final bool isRTL = textDirection == TextDirection.rtl;
 
+    _drawTrack(context.canvas, trackRect);
+
     final bool drawInactiveTrack =
         thumbCenter.dx < (trackRect.right - (sliderTheme.trackHeight! / 2));
     if (drawInactiveTrack) {
@@ -158,11 +74,13 @@ class RoundSliderTrackShape extends SliderTrackShape with BaseSliderTrackShape {
         ),
         rightTrackPaint,
       );
-      drawText(
+      drawParttern(
         context.canvas,
         Size(trackRect.right - trackRect.left, trackRect.height),
-        "Drag the slider to fit the puzzle",
-        animationValue,
+      );
+      _drawText(
+        context.canvas,
+        Size(trackRect.right - trackRect.left, trackRect.height),
       );
     }
     final bool drawActiveTrack =
@@ -226,7 +144,12 @@ class RoundSliderTrackShape extends SliderTrackShape with BaseSliderTrackShape {
     }
   }
 
-  drawText(Canvas canvas, Size size, String text, double v) {
+  _drawTrack(Canvas canvas, Rect size) {}
+
+  _drawInactiveTrack(Canvas canvas, Size size) {}
+
+  _drawText(Canvas canvas, Size size) {
+    final v = animationValue;
     final shader = LinearGradient(
       colors: const [Colors.grey, Colors.white, Colors.grey],
       stops: [v - 0.1, v, v + 0.1],
@@ -253,5 +176,35 @@ class RoundSliderTrackShape extends SliderTrackShape with BaseSliderTrackShape {
     final yCenter = (size.height - textPainter.height) / 2;
     final offset = Offset(xCenter, yCenter);
     textPainter.paint(canvas, offset);
+    return textPainter;
+  }
+
+  void drawParttern(Canvas canvas, Size size) {
+    final Path path_0 = Path();
+    Paint paint_0 =
+        Paint()
+          ..color = Color(0xffeeeeee)
+          ..style = PaintingStyle.fill
+          ..strokeWidth = 1;
+
+    final w = 20.0;
+    final h = 30.0;
+    final dis = 20.0;
+    final count = (375.0 / (dis + w)).ceil();
+    double x = 0.0;
+
+    for (var i = 0; i < count; i++) {
+      x = i * (w + dis);
+
+      path_0.moveTo(x, 0);
+      path_0.lineTo(x + w / 2, 0);
+      path_0.lineTo(x + w, h / 2);
+      path_0.lineTo(x + w / 2, h);
+      path_0.lineTo(x, h);
+      path_0.lineTo(x + w / 2, h / 2);
+      path_0.close();
+    }
+
+    canvas.drawPath(path_0, paint_0);
   }
 }

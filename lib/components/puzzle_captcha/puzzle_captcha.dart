@@ -1,24 +1,30 @@
-import 'dart:async';
-import 'dart:convert';
-import 'dart:developer';
-import 'dart:math';
-import 'package:http/http.dart' as http;
+part of 'index.dart';
 
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:slider_captcha/slider_captcha.dart';
-import 'package:super_plus/api/user_api.dart';
-import 'package:super_plus/gen/assets.gen.dart';
-import 'package:super_plus/helpers/dialog.dart';
-import 'package:super_plus/models/user.dart';
-import 'package:super_plus/widgets/card_plus.dart';
+class PuzzleCaptcha extends StatefulWidget {
+  static const id = "PuzzleCaptcha";
 
-part 'puzzle_captcha_widget.dart';
+  const PuzzleCaptcha({super.key});
 
-Future<T?> dialogPuzzleCaptcha<T>() {
-  return dialog(
-    id: _PuzzleCaptchaWidget.id,
-    name: _PuzzleCaptchaWidget.id,
-    const _PuzzleCaptchaWidget(),
-  );
+  @override
+  _PuzzleCaptchaState createState() => _PuzzleCaptchaState();
+}
+
+class _PuzzleCaptchaState extends State<PuzzleCaptcha> {
+  double offset = 0.0;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        PuzzleCaptchaImage(offset),
+        PuzzleCaptchaSlider(onChange: chagneHandler, offset: offset),
+      ],
+    );
+  }
+
+  void chagneHandler(double x) {
+    setState(() {
+      offset = x;
+    });
+  }
 }

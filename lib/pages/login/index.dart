@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:super_plus/components/dialog_page_back_button.dart';
-import 'package:super_plus/components/puzzle_captcha/puzzle_captcha.dart';
+import 'package:super_plus/components/puzzle_captcha/index.dart';
 import 'package:super_plus/const/gutter.dart';
 import 'package:super_plus/helpers/dialog.dart';
 import 'package:super_plus/models/user.dart';

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-part 'pulzz.dart';
+import 'package:super_plus/components/puzzle_captcha/index.dart';
 
 class DemoPage extends StatefulWidget {
   const DemoPage({super.key});
@@ -12,6 +11,6 @@ class DemoPage extends StatefulWidget {
 class _DemoPageState extends State<DemoPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: ListView(children: [const Pulzz()]));
+    return Scaffold(body: ListView(children: [const PuzzleCaptcha()]));
   }
 }
