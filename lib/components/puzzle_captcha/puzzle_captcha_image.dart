@@ -25,15 +25,19 @@ class _PuzzleCaptchaImageState extends State<PuzzleCaptchaImage> {
             ),
           ),
         ),
-        child: Transform.translate(
-          offset: Offset(widget.offset * 375, 0),
-          child: Image.network(
-            "https://c66hk.s3.ap-east-1.amazonaws.com/cb345165-49ab-48f7-b757-d8860e733553",
-            width: 56,
-            height: double.infinity,
-            fit: BoxFit.fill,
-            alignment: Alignment.topLeft,
-          ),
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            return Transform.translate(
+              offset: Offset(widget.offset * (constraints.maxWidth - 56), 0),
+              child: Image.network(
+                "https://c66hk.s3.ap-east-1.amazonaws.com/cb345165-49ab-48f7-b757-d8860e733553",
+                width: 56,
+                height: double.infinity,
+                fit: BoxFit.fill,
+                alignment: Alignment.topLeft,
+              ),
+            );
+          },
         ),
       ),
     );

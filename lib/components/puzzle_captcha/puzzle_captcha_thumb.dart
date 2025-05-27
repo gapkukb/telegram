@@ -1,9 +1,17 @@
 part of 'index.dart';
 
 class PuzzleCaptchaThumb extends SliderComponentShape {
+  final double size;
+  final Radius radius;
+
+  PuzzleCaptchaThumb({
+    this.size = 40,
+    this.radius = const Radius.circular(4.0),
+  });
+
   @override
   ui.Size getPreferredSize(bool isEnabled, bool isDiscrete) {
-    return Size.square(40);
+    return Size.square(size);
   }
 
   @override
@@ -22,24 +30,29 @@ class PuzzleCaptchaThumb extends SliderComponentShape {
     required ui.Size sizeWithOverflow,
   }) {
     final paint = Paint()..color = Colors.black;
+    final dx = center.dx - size / 2;
+
     final rrect = RRect.fromRectAndRadius(
-      Rect.fromLTWH(0, 0, 40, 40),
-      Radius.circular(4),
+      Rect.fromLTWH(dx, 0, size, size),
+      radius,
     );
 
     context.canvas.drawRRect(rrect, paint);
 
+    const fontSize = 32.0;
     final icon = Icons.arrow_forward_ios_outlined;
+    final padding = (size - fontSize) / 2;
+
     TextPainter textPainter = TextPainter(textDirection: TextDirection.rtl);
     textPainter.text = TextSpan(
       text: String.fromCharCode(icon.codePoint),
       style: TextStyle(
-        fontSize: 32.0,
+        fontSize: fontSize,
         fontFamily: icon.fontFamily,
         color: Colors.white,
       ),
     );
     textPainter.layout();
-    textPainter.paint(context.canvas, Offset(4.0, 4.0));
+    textPainter.paint(context.canvas, Offset(dx + padding, padding));
   }
 }

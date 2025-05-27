@@ -4,11 +4,13 @@ class PuzzleCaptchaSlider extends StatefulWidget {
   final double offset;
   final double height;
   final void Function(double offset) onChange;
+  final void Function(double offset) onComplete;
 
   const PuzzleCaptchaSlider({
     super.key,
     this.offset = 0.0,
     this.height = 40,
+    required this.onComplete,
     required this.onChange,
   });
 
@@ -24,10 +26,15 @@ class _PuzzleCaptchaSliderState extends State<PuzzleCaptchaSlider>
   Widget build(BuildContext context) {
     final theme = SliderTheme.of(context).copyWith(
       trackHeight: widget.height,
+      // padding: const EdgeInsets.only(left: 20.0, right: 20.0),
       padding: EdgeInsets.zero,
-      inactiveTrackColor: Color(0xfff2f2f2),
-      activeTrackColor: Color(0xff1aab42),
+      inactiveTrackColor: const Color(0xfff2f2f2),
+      activeTrackColor: const Color(0xff1aab42),
+      allowedInteraction: SliderInteraction.slideThumb,
       thumbShape: PuzzleCaptchaThumb(),
+      thumbSize: const WidgetStatePropertyAll(Size.square(80.0)),
+      overlayColor: Colors.transparent,
+      trackShape: const RoundedRectSliderTrackShape(),
     );
 
     return AnimatedBuilder(
@@ -37,13 +44,17 @@ class _PuzzleCaptchaSliderState extends State<PuzzleCaptchaSlider>
           data: theme.copyWith(
             trackShape: PuzzleCaptchaTrack(
               controller.value,
-              "Drag the slider to fit the puzzle",
+              "Slide to fit the puzzle",
             ),
           ),
           child: child!,
         );
       },
-      child: Slider(value: widget.offset, onChanged: widget.onChange),
+      child: Slider(
+        value: widget.offset,
+        onChanged: widget.onChange,
+        onChangeEnd: widget.onComplete,
+      ),
     );
   }
 
@@ -51,7 +62,7 @@ class _PuzzleCaptchaSliderState extends State<PuzzleCaptchaSlider>
   void initState() {
     super.initState();
     controller = AnimationController(vsync: this)
-      ..repeat(period: Duration(seconds: 2));
+      ..repeat(period: const Duration(seconds: 2));
   }
 
   @override

@@ -12,29 +12,29 @@ class LoginAccountForm extends GetView<LoginController> {
     return Form(
       child: Column(
         children: [
-          PhoneTextField(),
-          SizedBox(height: 32),
-          TextField(
+          const PhoneTextField(),
+          const SizedBox(height: 32),
+          const TextField(
             obscureText: true,
             decoration: InputDecoration(labelText: "Password"),
           ),
           Align(
             alignment: Alignment.centerRight,
             child: TextButton(
-              style: ButtonStyle(visualDensity: VisualDensity(vertical: -4)),
+              style: const ButtonStyle(visualDensity: VisualDensity(vertical: -4)),
               onPressed: () {},
-              child: Text("Forgot Password?", style: TextStyle(fontSize: 12)),
+              child: const Text("Forgot Password?", style: TextStyle(fontSize: 12)),
             ),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           SizedBox(
             width: double.infinity,
             child: FilledButton(
               onPressed: () {},
-              child: Text("SIGN IN | SIGN UP"),
+              child: const Text("SIGN IN | SIGN UP"),
             ),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           GFButton(
             onPressed: controller.isVerifyMode.toggle,
             fullWidthButton: true,

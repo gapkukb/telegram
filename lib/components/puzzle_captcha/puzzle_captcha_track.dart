@@ -34,13 +34,6 @@ class PuzzleCaptchaTrack extends SliderTrackShape with BaseSliderTrackShape {
         Paint()..color = activeTrackColorTween.evaluate(enableAnimation)!;
     final Paint inactivePaint =
         Paint()..color = inactiveTrackColorTween.evaluate(enableAnimation)!;
-    final (
-      Paint leftTrackPaint,
-      Paint rightTrackPaint,
-    ) = switch (textDirection) {
-      TextDirection.ltr => (activePaint, inactivePaint),
-      TextDirection.rtl => (inactivePaint, activePaint),
-    };
 
     final Rect trackRect = getPreferredRect(
       parentBox: parentBox,
@@ -49,122 +42,51 @@ class PuzzleCaptchaTrack extends SliderTrackShape with BaseSliderTrackShape {
       isEnabled: isEnabled,
       isDiscrete: isDiscrete,
     );
-    final Radius trackRadius = const Radius.circular(4.0);
+    const trackRadius = Radius.circular(4.0);
     final Radius activeTrackRadius = trackRadius;
-    final bool isLTR = textDirection == TextDirection.ltr;
-    final bool isRTL = textDirection == TextDirection.rtl;
 
-    _drawTrack(context.canvas, trackRect);
+    context.canvas.drawRRect(
+      RRect.fromLTRBR(
+        thumbCenter.dx - (sliderTheme.trackHeight! / 2),
+        trackRect.top,
+        trackRect.right,
+        trackRect.bottom,
+        trackRadius,
+      ),
+      inactivePaint,
+    );
 
-    final bool drawInactiveTrack =
-        thumbCenter.dx < (trackRect.right - (sliderTheme.trackHeight! / 2));
-    if (drawInactiveTrack) {
-      // Draw the inactive track segment.
-      context.canvas.drawRRect(
-        RRect.fromLTRBR(
-          thumbCenter.dx - (sliderTheme.trackHeight! / 2),
-          isRTL
-              ? trackRect.top - (additionalActiveTrackHeight / 2)
-              : trackRect.top,
-          trackRect.right,
-          isRTL
-              ? trackRect.bottom + (additionalActiveTrackHeight / 2)
-              : trackRect.bottom,
-          isLTR ? trackRadius : activeTrackRadius,
-        ),
-        rightTrackPaint,
-      );
-      drawParttern(
-        context.canvas,
-        Size(trackRect.right - trackRect.left, trackRect.height),
-      );
-      _drawText(
-        context.canvas,
-        Size(trackRect.right - trackRect.left, trackRect.height),
-      );
-    }
-    final bool drawActiveTrack =
-        thumbCenter.dx > (trackRect.left + (sliderTheme.trackHeight! / 2));
-    if (drawActiveTrack) {
-      // Draw the active track segment.
-      context.canvas.drawRRect(
-        RRect.fromLTRBR(
-          trackRect.left,
-          isLTR
-              ? trackRect.top - (additionalActiveTrackHeight / 2)
-              : trackRect.top,
-          thumbCenter.dx + (sliderTheme.trackHeight! / 2),
-          isLTR
-              ? trackRect.bottom + (additionalActiveTrackHeight / 2)
-              : trackRect.bottom,
-          isLTR ? activeTrackRadius : trackRadius,
-        ),
-        leftTrackPaint,
-      );
-    }
+    _drawParttern(
+      context.canvas,
+      Size(trackRect.right - trackRect.left, trackRect.height),
+    );
+    _drawText(
+      context.canvas,
+      Size(trackRect.right - trackRect.left, trackRect.height),
+    );
 
-    final bool showSecondaryTrack =
-        (secondaryOffset != null) &&
-        (isLTR
-            ? (secondaryOffset.dx > thumbCenter.dx)
-            : (secondaryOffset.dx < thumbCenter.dx));
-
-    if (showSecondaryTrack) {
-      final ColorTween secondaryTrackColorTween = ColorTween(
-        begin: sliderTheme.disabledSecondaryActiveTrackColor,
-        end: sliderTheme.secondaryActiveTrackColor,
-      );
-      final Paint secondaryTrackPaint =
-          Paint()..color = secondaryTrackColorTween.evaluate(enableAnimation)!;
-      if (isLTR) {
-        context.canvas.drawRRect(
-          RRect.fromLTRBAndCorners(
-            thumbCenter.dx,
-            trackRect.top,
-            secondaryOffset.dx,
-            trackRect.bottom,
-            topRight: trackRadius,
-            bottomRight: trackRadius,
-          ),
-          secondaryTrackPaint,
-        );
-      } else {
-        context.canvas.drawRRect(
-          RRect.fromLTRBAndCorners(
-            secondaryOffset.dx,
-            trackRect.top,
-            thumbCenter.dx,
-            trackRect.bottom,
-            topLeft: trackRadius,
-            bottomLeft: trackRadius,
-          ),
-          secondaryTrackPaint,
-        );
-      }
-    }
+    context.canvas.drawRRect(
+      RRect.fromLTRBR(
+        trackRect.left,
+        trackRect.top - (additionalActiveTrackHeight / 2),
+        thumbCenter.dx,
+        trackRect.bottom + (additionalActiveTrackHeight / 2),
+        activeTrackRadius,
+      ),
+      activePaint,
+    );
   }
 
-  _drawTrack(Canvas canvas, Rect size) {}
-
-  _drawInactiveTrack(Canvas canvas, Size size) {}
-
-  _drawText(Canvas canvas, Size size) {
+  void _drawText(Canvas canvas, Size size) {
     final v = animationValue;
     final shader = LinearGradient(
       colors: const [Colors.grey, Colors.white, Colors.grey],
       stops: [v - 0.1, v, v + 0.1],
-    ).createShader(Rect.fromLTWH(0, 0, 375, 30));
+    ).createShader(const Rect.fromLTWH(0, 0, 375, 30));
 
-    final fore =
-        Paint()
-          // ..color = Colors.white
-          ..shader = shader;
+    final fore = Paint()..shader = shader;
 
-    final textStyle = TextStyle(
-      // color: Colors.red,
-      fontSize: 14,
-      foreground: fore,
-    );
+    final textStyle = TextStyle(fontSize: 14, foreground: fore);
 
     final textSpan = TextSpan(text: text, style: textStyle);
     final textPainter = TextPainter(
@@ -176,14 +98,13 @@ class PuzzleCaptchaTrack extends SliderTrackShape with BaseSliderTrackShape {
     final yCenter = (size.height - textPainter.height) / 2;
     final offset = Offset(xCenter, yCenter);
     textPainter.paint(canvas, offset);
-    return textPainter;
   }
 
-  void drawParttern(Canvas canvas, Size size) {
+  void _drawParttern(Canvas canvas, Size size) {
     final Path path_0 = Path();
     Paint paint_0 =
         Paint()
-          ..color = Color(0xffeeeeee)
+          ..color = const Color(0xffeeeeee)
           ..style = PaintingStyle.fill
           ..strokeWidth = 1;
 
@@ -205,6 +126,10 @@ class PuzzleCaptchaTrack extends SliderTrackShape with BaseSliderTrackShape {
       path_0.close();
     }
 
+    canvas.clipRect(Rect.fromLTWH(0, 0, size.width, size.height));
     canvas.drawPath(path_0, paint_0);
   }
+
+  @override
+  bool get isRounded => true;
 }
