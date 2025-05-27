@@ -23,7 +23,7 @@ class PuzzleCaptchaThumb extends SliderComponentShape {
   }) {
     final paint = Paint()..color = Colors.black;
     final rrect = RRect.fromRectAndRadius(
-      Rect.fromLTWH(0, 0, 40, 40),
+      Rect.fromLTWH(center.dx, 0, 40, 40),
       Radius.circular(4),
     );
 
@@ -34,12 +34,12 @@ class PuzzleCaptchaThumb extends SliderComponentShape {
     textPainter.text = TextSpan(
       text: String.fromCharCode(icon.codePoint),
       style: TextStyle(
-        fontSize: 32.0,
+        fontSize: 24.0,
         fontFamily: icon.fontFamily,
         color: Colors.white,
       ),
     );
     textPainter.layout();
-    textPainter.paint(context.canvas, Offset(4.0, 4.0));
+    textPainter.paint(context.canvas, Offset(center.dx + 10.0, 8.0));
   }
 }
