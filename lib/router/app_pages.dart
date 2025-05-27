@@ -3,8 +3,10 @@ import 'package:super_plus/pages/dashboard/index.dart';
 import 'package:super_plus/pages/demo/index.dart';
 import 'package:super_plus/pages/favorites/index.dart';
 import 'package:super_plus/pages/games/index.dart';
+import 'package:super_plus/pages/guide/guide.dart';
 import 'package:super_plus/pages/login/index.dart';
 import 'package:super_plus/pages/me/index.dart';
+import 'package:super_plus/pages/playing/index.dart';
 import 'package:super_plus/pages/promos/index.dart';
 import 'package:super_plus/pages/root/index.dart';
 import 'package:super_plus/pages/home/index.dart';
@@ -22,7 +24,7 @@ abstract class AppPages {
   AppPages._();
 
   // static const initial = Routes.dashboard;
-  static const initial = Routes.demo;
+  static const initial = Routes.playing;
 
   static final routes = [
     GetPage(
@@ -110,6 +112,12 @@ abstract class AppPages {
         ),
 
         GetPage(name: _Paths.demo, page: () => const DemoPage()),
+        GetPage(name: _Paths.guide, page: () => const GuideView()),
+        GetPage(
+          name: _Paths.playing,
+          page: () => const PlayingView(),
+          binding: PlayingBinding(),
+        ),
       ],
     ),
   ];

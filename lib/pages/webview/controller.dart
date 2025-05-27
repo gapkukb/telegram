@@ -3,6 +3,8 @@ part of 'index.dart';
 class WebviewController extends GetxController {
   WebviewController();
 
+  late final WebViewController webview;
+
   // tap
   void handleTap(int index) {
     Get.snackbar("标题", "消息");
@@ -12,6 +14,27 @@ class WebviewController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    webview =
+        WebViewController()
+          ..enableZoom(false)
+          ..clearCache()
+          ..setJavaScriptMode(JavaScriptMode.unrestricted)
+          ..setNavigationDelegate(
+            NavigationDelegate(
+              onHttpAuthRequest: (request) {
+                webview.runJavaScript('window.webview=123;');
+              },
+              onPageStarted: (url) {
+                webview.runJavaScript('window.webview=456;');
+              },
+              onUrlChange: (change) {
+                webview.runJavaScript('window.webview=789;');
+              },
+              onProgress: (url) {
+                webview.runJavaScript('window.webview=666;');
+              },
+            ),
+          );
   }
 
   /// 在 onInit() 之后调用 1 帧。这是进入的理想场所

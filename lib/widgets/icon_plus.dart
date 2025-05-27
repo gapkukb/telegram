@@ -10,6 +10,9 @@ class IconPlus extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (icon is ImageProvider) {
+      return Image(image: icon, width: size, height: size, fit: BoxFit.contain);
+    }
     if (icon is String) return Iconify(icon, size: size, color: color);
     if (icon is IconData) return Icon(icon, size: size, color: color);
     if (icon is Widget) return icon;

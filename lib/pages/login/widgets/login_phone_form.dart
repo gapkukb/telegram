@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:super_plus/components/puzzle_captcha.dart';
-import 'package:super_plus/const/gutter.dart';
+import 'package:super_plus/components/puzzle_captcha/index.dart';
 import 'package:super_plus/helpers/dialog.dart';
 import 'package:super_plus/mixins/validator.dart';
 import 'package:super_plus/pages/login/index.dart';
@@ -24,7 +22,7 @@ class LoginPhoneForm extends GetView<LoginController> with Validators {
           onSaved: (value) {
             controller.payload.account = value;
           },
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             hintText: "09xx xxx xxxx",
             border: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(4.0)),
@@ -34,17 +32,11 @@ class LoginPhoneForm extends GetView<LoginController> with Validators {
               borderRadius: BorderRadius.all(Radius.circular(4.0)),
               borderSide: BorderSide(width: 0.5, color: Colors.red),
             ),
-            prefixIcon: const IconPlus(
-              Icons.account_box_outlined,
-              color: Colors.red,
-            ),
-            suffixIcon: const IconPlus(
-              Icons.cancel_outlined,
-              color: Colors.red,
-            ),
+            prefixIcon: IconPlus(Icons.account_box_outlined, color: Colors.red),
+            suffixIcon: IconPlus(Icons.cancel_outlined, color: Colors.red),
           ),
         ),
-        SizedBox(height: 32),
+        const SizedBox(height: 32),
         GFButton(
           onPressed: () async {
             final state = controller.formKey.currentState!;
@@ -52,7 +44,7 @@ class LoginPhoneForm extends GetView<LoginController> with Validators {
             state.save();
             if (!controller.agreement.value) {
               final agreement = await dialog<bool?>(
-                LoginAgreementConfirmation(),
+                const LoginAgreementConfirmation(),
               );
               controller.agreement.value = agreement ?? false;
             }
@@ -76,7 +68,7 @@ class LoginPhoneForm extends GetView<LoginController> with Validators {
           color: Colors.red,
           text: "NEXT",
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         GFButton(
           onPressed: controller.isVerifyMode.toggle,
           fullWidthButton: true,

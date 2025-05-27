@@ -11,6 +11,15 @@ class DemoPage extends StatefulWidget {
 class _DemoPageState extends State<DemoPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: ListView(children: [const PuzzleCaptcha()]));
+    return Scaffold(
+      body: ListView(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: PuzzleCaptcha(onSuccess: (offset) {}),
+          ),
+        ],
+      ),
+    );
   }
 }

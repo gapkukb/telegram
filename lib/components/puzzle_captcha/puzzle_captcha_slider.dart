@@ -4,11 +4,13 @@ class PuzzleCaptchaSlider extends StatefulWidget {
   final double offset;
   final double height;
   final void Function(double offset) onChange;
+  final void Function(double offset) onComplete;
 
   const PuzzleCaptchaSlider({
     super.key,
     this.offset = 0.0,
     this.height = 40,
+    required this.onComplete,
     required this.onChange,
   });
 
@@ -38,13 +40,17 @@ class _PuzzleCaptchaSliderState extends State<PuzzleCaptchaSlider>
           data: theme.copyWith(
             trackShape: PuzzleCaptchaTrack(
               controller.value,
-              "Drag the slider to fit the puzzle",
+              "Slide to fit the puzzle",
             ),
           ),
           child: child!,
         );
       },
-      child: Slider(value: widget.offset, onChanged: widget.onChange),
+      child: Slider(
+        value: widget.offset,
+        onChanged: widget.onChange,
+        onChangeEnd: widget.onComplete,
+      ),
     );
   }
 
@@ -52,7 +58,7 @@ class _PuzzleCaptchaSliderState extends State<PuzzleCaptchaSlider>
   void initState() {
     super.initState();
     controller = AnimationController(vsync: this)
-      ..repeat(period: Duration(seconds: 2));
+      ..repeat(period: const Duration(seconds: 2));
   }
 
   @override
