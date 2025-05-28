@@ -33,15 +33,16 @@ class PlayingView extends GetView<PlayingController> {
           padding: const EdgeInsets.symmetric(horizontal: 4),
           decoration: const BoxDecoration(
             color: Colors.black,
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(8)),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.white,
-                // offset: Offset(, 4),
-                // spreadRadius: 10,
-                blurRadius: 8,
-              ),
-            ],
+            // borderRadius: BorderRadius.vertical(bottom: Radius.circular(8)),
+            border: Border(bottom: BorderSide(color: Colors.white, width: 1)),
+            // boxShadow: [
+            //   BoxShadow(
+            //     color: Colors.white,
+            //     // offset: Offset(, 4),
+            //     // spreadRadius: 10,
+            //     blurRadius: 8,
+            //   ),
+            // ],
           ),
           child: Row(
             spacing: 4,
@@ -96,10 +97,12 @@ class PlayingView extends GetView<PlayingController> {
       left: controller.showHeader.value ? -100 : 0,
       duration: duration,
       width: 60,
+      height: 56,
       child: GFIconButton(
+        color: GFColors.DANGER,
         onPressed: controller.toggle,
         icon: const Iconify(Ri.menu_unfold_line, color: Colors.white),
-        type: GFButtonType.transparent,
+        // type: GFButtonType.transparent,
       ),
     );
   }

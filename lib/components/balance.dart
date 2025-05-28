@@ -57,8 +57,8 @@ class _BalanceState extends State<Balance> {
           RawMaterialButton(
             onPressed: () {},
             fillColor: const Color(0xffff5800),
-            constraints: const BoxConstraints.tightFor(width: 60, height: 40),
-            child: const Text("Deposit"),
+            constraints: const BoxConstraints.tightFor(width: 64, height: 40),
+            child: const TextPlus("Deposit", color: Colors.white),
           ),
         ],
       ),

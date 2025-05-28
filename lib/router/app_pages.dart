@@ -24,7 +24,7 @@ abstract class AppPages {
   AppPages._();
 
   // static const initial = Routes.dashboard;
-  static const initial = Routes.playing;
+  static const initial = Routes.demo;
 
   static final routes = [
     GetPage(
