@@ -24,7 +24,7 @@ class _DemoPageState extends State<DemoPage> {
                 trackShape: RectangularSliderTrackShape2(),
                 allowedInteraction: SliderInteraction.slideThumb,
                 overlayColor: Colors.transparent,
-                thumbShape: RoundSliderThumbShape(enabledThumbRadius: 20),
+                thumbShape: RoundSliderThumbShape2(enabledThumbRadius: 20),
                 activeTrackColor: Colors.red,
               ),
               child: Slider(
@@ -102,14 +102,30 @@ class RectangularSliderTrackShape2 extends SliderTrackShape
       isDiscrete: isDiscrete,
     );
 
-    final Rect rightTrackSegment = Rect.fromLTRB(
-      trackRect.left - 20,
-      trackRect.top,
-      trackRect.right + 20,
-      trackRect.bottom,
+    final rightTrackSegment = RRect.fromRectAndRadius(
+      Rect.fromLTRB(
+        trackRect.left - 20,
+        trackRect.top,
+        trackRect.right + 20,
+        trackRect.bottom,
+      ),
+      Radius.circular(4),
     );
+
+    const borderWidth = 1;
+    final border = RRect.fromRectAndRadius(
+      Rect.fromLTRB(
+        rightTrackSegment.left - borderWidth,
+        rightTrackSegment.top - borderWidth,
+        rightTrackSegment.right + borderWidth,
+        rightTrackSegment.bottom + borderWidth,
+      ),
+      Radius.circular(4),
+    );
+
     if (!rightTrackSegment.isEmpty) {
-      context.canvas.drawRect(rightTrackSegment, rightTrackPaint);
+      context.canvas.drawRRect(border, Paint()..color = Colors.black);
+      context.canvas.drawRRect(rightTrackSegment, rightTrackPaint);
     }
 
     final rate = thumbCenter.dx / (trackRect.width + trackRect.left);
