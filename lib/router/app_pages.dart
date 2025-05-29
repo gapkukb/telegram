@@ -15,6 +15,7 @@ import 'package:super_plus/pages/terms/terms.dart';
 import 'package:super_plus/pages/verification_code/verification_code.dart';
 import 'package:super_plus/pages/webview/index.dart';
 import 'package:super_plus/pages/share/index.dart';
+import 'package:super_plus/pages/search/index.dart';
 import 'package:super_plus/router/middleware/auth_middleware.dart';
 
 part 'app_routes.dart';
@@ -24,7 +25,7 @@ abstract class AppPages {
   AppPages._();
 
   // static const initial = Routes.dashboard;
-  static const initial = Routes.demo;
+  static const initial = Routes.search;
 
   static final routes = [
     GetPage(
@@ -117,6 +118,11 @@ abstract class AppPages {
           name: _Paths.playing,
           page: () => const PlayingView(),
           binding: PlayingBinding(),
+        ),
+        GetPage(
+          name: _Paths.search,
+          page: () => const SearchView(),
+          binding: SearchBinding(),
         ),
       ],
     ),
