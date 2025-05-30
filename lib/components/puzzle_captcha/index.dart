@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:super_plus/api/user_api.dart';
 import 'package:super_plus/helpers/dialog.dart';
 

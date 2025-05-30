@@ -1,5 +1,20 @@
 part of 'index.dart';
 
+const fontSize = 24.0;
+final padding = (40.0 - fontSize) / 2;
+final icon = Icons.arrow_forward_ios_outlined;
+final TextPainter textPainter =
+    TextPainter(textDirection: TextDirection.rtl)
+      ..text = TextSpan(
+        text: String.fromCharCode(icon.codePoint),
+        style: TextStyle(
+          fontSize: fontSize,
+          fontFamily: icon.fontFamily,
+          color: Colors.white,
+        ),
+      )
+      ..layout();
+
 class PuzzleCaptchaTrack extends SliderTrackShape with BaseSliderTrackShape {
   final double animationValue;
   final String? text;
@@ -19,9 +34,8 @@ class PuzzleCaptchaTrack extends SliderTrackShape with BaseSliderTrackShape {
     required TextDirection textDirection,
     double additionalActiveTrackHeight = 0,
   }) {
-    // Assign the track segment paints, which are leading: active and
-    // trailing: inactive.
-
+    // Assign the track segment paints, which are left: active, right: inactive,
+    // but reversed for right to left text.
     final ColorTween activeTrackColorTween = ColorTween(
       begin: sliderTheme.disabledActiveTrackColor,
       end: sliderTheme.activeTrackColor,
@@ -34,6 +48,13 @@ class PuzzleCaptchaTrack extends SliderTrackShape with BaseSliderTrackShape {
         Paint()..color = activeTrackColorTween.evaluate(enableAnimation)!;
     final Paint inactivePaint =
         Paint()..color = inactiveTrackColorTween.evaluate(enableAnimation)!;
+    final (
+      Paint leftTrackPaint,
+      Paint rightTrackPaint,
+    ) = switch (textDirection) {
+      TextDirection.ltr => (activePaint, inactivePaint),
+      TextDirection.rtl => (inactivePaint, activePaint),
+    };
 
     final Rect trackRect = getPreferredRect(
       parentBox: parentBox,
@@ -42,39 +63,52 @@ class PuzzleCaptchaTrack extends SliderTrackShape with BaseSliderTrackShape {
       isEnabled: isEnabled,
       isDiscrete: isDiscrete,
     );
-    const trackRadius = Radius.circular(4.0);
-    final Radius activeTrackRadius = trackRadius;
 
-    context.canvas.drawRRect(
-      RRect.fromLTRBR(
-        thumbCenter.dx - (sliderTheme.trackHeight! / 2),
+    final rightTrackSegment = RRect.fromRectAndRadius(
+      Rect.fromLTRB(
+        trackRect.left - 20,
         trackRect.top,
-        trackRect.right,
+        trackRect.right + 20,
         trackRect.bottom,
-        trackRadius,
       ),
-      inactivePaint,
+      const Radius.circular(4),
     );
 
-    _drawParttern(
-      context.canvas,
-      Size(trackRect.right - trackRect.left, trackRect.height),
+    const borderWidth = 1;
+    final border = RRect.fromRectAndRadius(
+      Rect.fromLTRB(
+        rightTrackSegment.left - borderWidth,
+        rightTrackSegment.top - borderWidth,
+        rightTrackSegment.right + borderWidth,
+        rightTrackSegment.bottom + borderWidth,
+      ),
+      const Radius.circular(4),
     );
+
+    if (!rightTrackSegment.isEmpty) {
+      context.canvas.drawRRect(border, Paint()..color = Colors.black);
+      context.canvas.drawRRect(rightTrackSegment, rightTrackPaint);
+    }
+
+    _drawParttern(context.canvas, Size(trackRect.left, trackRect.height));
     _drawText(
       context.canvas,
       Size(trackRect.right - trackRect.left, trackRect.height),
     );
+    final rate = thumbCenter.dx / (trackRect.width + trackRect.left);
 
-    context.canvas.drawRRect(
-      RRect.fromLTRBR(
-        trackRect.left,
-        trackRect.top - (additionalActiveTrackHeight / 2),
-        thumbCenter.dx,
-        trackRect.bottom + (additionalActiveTrackHeight / 2),
-        activeTrackRadius,
+    final leftTrackSegment = RRect.fromRectAndRadius(
+      Rect.fromLTRB(
+        trackRect.left - 20,
+        trackRect.top,
+        thumbCenter.dx + 20 * rate,
+        trackRect.bottom,
       ),
-      activePaint,
+      const Radius.circular(4),
     );
+    if (!leftTrackSegment.isEmpty) {
+      context.canvas.drawRRect(leftTrackSegment, leftTrackPaint);
+    }
   }
 
   void _drawText(Canvas canvas, Size size) {
@@ -94,42 +128,24 @@ class PuzzleCaptchaTrack extends SliderTrackShape with BaseSliderTrackShape {
       textDirection: TextDirection.ltr,
     );
     textPainter.layout(minWidth: 0, maxWidth: size.width);
-    final xCenter = (size.width - textPainter.width) / 2;
-    final yCenter = (size.height - textPainter.height) / 2;
+    final xCenter = (size.width + 40 - textPainter.width) / 2;
+    final yCenter = (size.height + 6 - textPainter.height) / 2;
     final offset = Offset(xCenter, yCenter);
     textPainter.paint(canvas, offset);
   }
 
   void _drawParttern(Canvas canvas, Size size) {
-    final Path path_0 = Path();
-    Paint paint_0 =
-        Paint()
-          ..color = const Color(0xffeeeeee)
-          ..style = PaintingStyle.fill
-          ..strokeWidth = 1;
-
     final w = 20.0;
-    final h = 30.0;
-    final dis = 20.0;
+    final dis = 10.0;
     final count = (375.0 / (dis + w)).ceil();
     double x = 0.0;
 
     for (var i = 0; i < count; i++) {
-      x = i * (w + dis);
-
-      path_0.moveTo(x, 0);
-      path_0.lineTo(x + w / 2, 0);
-      path_0.lineTo(x + w, h / 2);
-      path_0.lineTo(x + w / 2, h);
-      path_0.lineTo(x, h);
-      path_0.lineTo(x + w / 2, h / 2);
-      path_0.close();
+      x = 20 + i * (w + dis);
+      textPainter.paint(canvas, Offset(x - fontSize / 2, fontSize / 2));
     }
 
-    canvas.clipRect(Rect.fromLTWH(0, 0, size.width, size.height));
-    canvas.drawPath(path_0, paint_0);
+    // canvas.clipRect(Rect.fromLTWH(0, 0, size.width, size.height));
+    // canvas.drawPath(path_0, paint_0);
   }
-
-  @override
-  bool get isRounded => true;
 }

@@ -24,7 +24,11 @@ abstract class Routes {
   static const demo = _Paths.demo;
   static const guide = _Paths.guide;
   static const playing = _Paths.playing;
+<<<<<<< HEAD
   static const search = _Paths.search;
+=======
+  static const sports = _Paths.sports;
+>>>>>>> 59905a8 (update)
 
   static String LOGIN_THEN(String afterSuccessfulLogin) {
     return '$login?then=${Uri.encodeQueryComponent(afterSuccessfulLogin)}';
@@ -53,5 +57,9 @@ abstract class _Paths {
   static const demo = '/demo';
   static const guide = '/guide';
   static const playing = '/playing';
+<<<<<<< HEAD
   static const search = '/search';
+=======
+  static const sports = '/sports';
+>>>>>>> 59905a8 (update)
 }

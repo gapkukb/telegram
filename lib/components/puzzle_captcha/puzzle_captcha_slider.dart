@@ -26,11 +26,11 @@ class _PuzzleCaptchaSliderState extends State<PuzzleCaptchaSlider>
   Widget build(BuildContext context) {
     final theme = SliderTheme.of(context).copyWith(
       trackHeight: widget.height,
-      // padding: EdgeInsets.zero,
-      inactiveTrackColor: Color(0xfff2f2f2),
-      activeTrackColor: Color(0xff1aab42),
-      // thumbShape: PuzzleCaptchaThumb(),
-      thumbShape: RoundSliderThumbShape(),
+      // padding: const EdgeInsets.symmetric(horizontal: 32),
+      inactiveTrackColor: const Color(0xfff2f2f2),
+      activeTrackColor: const Color(0xff1aab42),
+      thumbShape: PuzzleCaptchaThumb(),
+      // thumbShape: const RoundSliderThumbShape(),
     );
 
     return AnimatedBuilder(

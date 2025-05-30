@@ -21,7 +21,7 @@ class _PuzzleCaptchaState extends State<PuzzleCaptcha> {
         const SizedBox(height: 8),
         PuzzleCaptchaSlider(
           onChange: chagneHandler,
-          onComplete: completeHandler,
+          onComplete: onComplete,
           offset: offset,
         ),
       ],
@@ -34,14 +34,16 @@ class _PuzzleCaptchaState extends State<PuzzleCaptcha> {
     });
   }
 
-  void completeHandler(double offset) async {
-    await validatePuzzle(data: {"offset": offset})
-        .then((value) {
-          widget.onSuccess(value);
-        })
-        .catchError((err) {
-          chagneHandler(0);
-          //TODO:  重新请求图片
-        });
+  void onComplete(double offset) async {
+    print("offset${(Get.width * offset).toInt()}");
+
+    // await validatePuzzle(data: {"offset": offset})
+    //     .then((value) {
+    //       widget.onSuccess(value);
+    //     })
+    //     .catchError((err) {
+    //       chagneHandler(0);
+    //       //TODO:  重新请求图片
+    //     });
   }
 }

@@ -15,7 +15,7 @@ Future<T?> dialogPuzzleCaptcha<T>() {
       controller: controller,
       image: Container(
         color: Colors.grey,
-        margin: EdgeInsets.only(bottom: 16.0),
+        margin: const EdgeInsets.only(bottom: 16.0),
         child: Assets.images.pagcor.image(
           fit: BoxFit.fitWidth,
           width: double.infinity,
