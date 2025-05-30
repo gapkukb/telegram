@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ri.dart';
-import 'package:marquee/marquee.dart';
 import 'package:super_plus/const/gutter.dart';
 import 'package:super_plus/pages/me/index.dart';
 
@@ -20,23 +19,23 @@ class MeNoticeBar extends GetView<MeController> {
         borderRadius: BorderRadius.circular(100),
         border: Border.all(width: 1, color: const Color(0xffff5800)),
       ),
-      child: Row(
+      child: const Row(
         children: [
-          const Iconify(Ri.volume_up_line, color: Colors.white, size: 16),
-          const SizedBox(width: 8),
-          Expanded(
-            child: Marquee(
-              text: controller.marqueeText.value,
-              numberOfRounds: 100,
-              pauseAfterRound: const Duration(seconds: 1),
-              startPadding: 100,
-              style: const TextStyle(
-                fontSize: 12,
-                color: Colors.white,
-                height: 1,
-              ),
-            ),
-          ),
+          Iconify(Ri.volume_up_line, color: Colors.white, size: 16),
+          SizedBox(width: 8),
+          // Expanded(
+          //   child: Marquee(
+          //     text: controller.marqueeText.value,
+          //     numberOfRounds: 100,
+          //     pauseAfterRound: const Duration(seconds: 1),
+          //     startPadding: 100,
+          //     style: const TextStyle(
+          //       fontSize: 12,
+          //       color: Colors.white,
+          //       height: 1,
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );

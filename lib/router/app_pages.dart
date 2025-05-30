@@ -11,6 +11,7 @@ import 'package:super_plus/pages/promos/index.dart';
 import 'package:super_plus/pages/root/index.dart';
 import 'package:super_plus/pages/home/index.dart';
 import 'package:super_plus/pages/settings/index.dart';
+import 'package:super_plus/pages/sports/index.dart';
 import 'package:super_plus/pages/terms/terms.dart';
 import 'package:super_plus/pages/verification_code/verification_code.dart';
 import 'package:super_plus/pages/webview/index.dart';
@@ -24,7 +25,7 @@ abstract class AppPages {
   AppPages._();
 
   // static const initial = Routes.dashboard;
-  static const initial = Routes.demo;
+  static const initial = Routes.sports;
 
   static final routes = [
     GetPage(
@@ -117,6 +118,11 @@ abstract class AppPages {
           name: _Paths.playing,
           page: () => const PlayingView(),
           binding: PlayingBinding(),
+        ),
+        GetPage(
+          name: _Paths.sports,
+          page: () => const SportsView(),
+          binding: SportsBinding(),
         ),
       ],
     ),

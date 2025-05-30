@@ -189,8 +189,12 @@ class $AssetsImagesGen {
   /// File path: assets/images/21age.png
   AssetGenImage get a21age => const AssetGenImage('assets/images/21age.png');
 
+  /// File path: assets/images/balance-peso.png
+  AssetGenImage get balancePesoPng =>
+      const AssetGenImage('assets/images/balance-peso.png');
+
   /// File path: assets/images/balance-peso.webp
-  AssetGenImage get balancePeso =>
+  AssetGenImage get balancePesoWebp =>
       const AssetGenImage('assets/images/balance-peso.webp');
 
   /// File path: assets/images/balance_card_image.png
@@ -263,7 +267,8 @@ class $AssetsImagesGen {
   /// List of all assets
   List<dynamic> get values => [
     a21age,
-    balancePeso,
+    balancePesoPng,
+    balancePesoWebp,
     balanceCardImage,
     homTabArcade,
     homTabBingo,
@@ -282,6 +287,16 @@ class $AssetsImagesGen {
     unloginBanner,
     userBg,
   ];
+}
+
+class $AssetsMockGen {
+  const $AssetsMockGen();
+
+  /// File path: assets/mock/sports.json
+  String get sports => 'assets/mock/sports.json';
+
+  /// List of all assets
+  List<String> get values => [sports];
 }
 
 class $AssetsWebGen {
@@ -428,6 +443,7 @@ class Assets {
   static const $AssetsFontsGen fonts = $AssetsFontsGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsMockGen mock = $AssetsMockGen();
   static const $AssetsWebGen web = $AssetsWebGen();
 }
 

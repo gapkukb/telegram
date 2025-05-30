@@ -29,30 +29,24 @@ class PuzzleCaptchaThumb extends SliderComponentShape {
     required double textScaleFactor,
     required ui.Size sizeWithOverflow,
   }) {
-    final paint = Paint()..color = Colors.black;
-    final dx = center.dx - size / 2;
-
-    final rrect = RRect.fromRectAndRadius(
-      Rect.fromLTWH(center.dx, 0, 40, 40),
-      Radius.circular(4),
+    final Canvas canvas = context.canvas;
+    final ColorTween colorTween = ColorTween(
+      begin: sliderTheme.disabledThumbColor,
+      end: sliderTheme.thumbColor,
     );
 
-    context.canvas.drawRRect(rrect, paint);
+    final Color color = colorTween.evaluate(enableAnimation)!;
 
-    const fontSize = 32.0;
-    final icon = Icons.arrow_forward_ios_outlined;
-    final padding = (size - fontSize) / 2;
-
-    TextPainter textPainter = TextPainter(textDirection: TextDirection.rtl);
-    textPainter.text = TextSpan(
-      text: String.fromCharCode(icon.codePoint),
-      style: TextStyle(
-        fontSize: 24.0,
-        fontFamily: icon.fontFamily,
-        color: Colors.white,
-      ),
+    final path = RRect.fromRectAndRadius(
+      Rect.fromCenter(center: center, width: 40, height: 40),
+      const Radius.circular(4.0),
     );
-    textPainter.layout();
-    textPainter.paint(context.canvas, Offset(center.dx + 10.0, 8.0));
+
+    canvas.drawRRect(path, Paint()..color = color);
+
+    textPainter.paint(
+      context.canvas,
+      Offset(center.dx - fontSize / 2, fontSize / 2),
+    );
   }
 }
