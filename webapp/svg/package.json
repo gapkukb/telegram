@@ -1,0 +1,20 @@
+{
+  "name": "svg",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "font": "svgtofont --sources . --output ./font --fontName uiw-font"
+  },
+  "svgtofont": {
+    "css": {
+      "fontSize": "12px"
+    }
+  },
+  "website": {
+    "title": "svgtofont"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

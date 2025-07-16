@@ -1,0 +1,63 @@
+<script setup lang="ts">
+import { showToast } from 'vant';
+import History from './History.vue';
+import { ls } from '@/utils/storage';
+import { useLs } from '@/composables';
+import TrendPanel from './TrendPanel.vue';
+
+
+const fill = '#d5d5d5'
+const router = useRouter()
+const keywords = ref('')
+const history = useLs<string[]>(ls.keys.search, [])
+
+function searchByInput() {
+    const k = keywords.value
+
+    if (k && !history.value.has(k)) {
+        history.value = [k, ...history.value]
+    }
+
+    return search(k)
+};
+
+function searchByAll() {
+    return search()
+};
+
+function searchByHistory(text: string) {
+    return search(text)
+}
+
+function search(payload?: string) {
+    if (!payload) return router.push('/search')
+    return router.push({ path: '/search', query: { keywords: payload } })
+}
+
+
+
+</script>
+
+<template>
+    <header class="sticky top-0 bg-white z-1">
+        <van-search v-model.trim="keywords" placeholder="请输入搜索关键词" shape="round" background="#fff" right-icon="search"
+            left-icon="" show-action autocomplete="off" clearable autofocus @search="searchByInput"
+            @click-right-icon="searchByInput">
+            <template #action>
+                <div @click="searchByAll">All games</div>
+            </template>
+            <template #left>
+                <button class="block w-32 ml--12 text-18" @click="history = []"><van-icon name="arrow-left" /></button>
+            </template>
+        </van-search>
+
+    </header>
+    <History v-if="history.length" v-model="history" @search="searchByHistory" />
+    <div class="h-16"></div>
+    <div class="flex gap-8 items-start overflow-x-auto px-12">
+        <TrendPanel class="flex-shrink-0 bg-red" />
+        <TrendPanel class="flex-shrink-0 bg-blue" />
+    </div>
+</template>
+
+<style lang="scss"></style>

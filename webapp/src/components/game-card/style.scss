@@ -1,0 +1,25 @@
+.game {
+    overflow: hidden;
+    padding-bottom: 4px;
+    &__bio {
+        @apply relative;
+    }
+    &__thumb {
+        @apply aspect-ratio-square object-cover rd-4;
+    }
+    &__name {
+        @apply text-12 truncate px-4;
+    }
+    &__stat {
+        @apply flex justify-between px-4;
+    }
+    &__likes {
+        @apply text-12 text-#8286a3;
+    }
+    &__fav {
+        @apply text-12 p-8 m--8;
+    }
+    &__tag {
+        @apply absolute z-1 right-0 top-0 text-12 bg-amber px-12 rd-bl-4;
+    }
+}
