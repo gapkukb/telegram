@@ -7,4 +7,10 @@ export default defineConfig({
     },
     presets: [presetAttributify({}), presetWind3(), presetRemToPx({ baseFontSize: 4 })],
     transformers: [transformerAttributifyJsx(), transformerDirectives(), transformerVariantGroup(), transformerCompileClass()],
+    theme: {
+        colors: {
+            primary: '#ff5800',
+        },
+    },
+    rules: [[/^expand-(\d+)$/, ([, d]) => ({ margin: `-${d}px`, padding: `${d}px` })]],
 })

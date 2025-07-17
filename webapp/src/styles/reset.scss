@@ -87,7 +87,13 @@ p {
 html {
     overscroll-behavior: none;
 }
-
+input::-webkit-autofill {
+    box-shadow: 0 0 0 1000px transparent inset !important; 
+}
+input:-internal-autofill-previewed,
+input:-internal-autofill-selected {
+    transition: background-color 5000s ease-in-out 0s !important;
+}
 body {
     --van-base-font: Boxed;
     background: #fff;

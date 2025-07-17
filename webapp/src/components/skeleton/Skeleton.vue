@@ -6,7 +6,7 @@ type NumberLike = Required<number | `${number}`>
 type Numberish = number | string
 
 const patternId = (Math.random() * Math.random()).toString(32).substring(2)
-const wh = window.innerHeight*2
+const wh = window.innerHeight * 2
 
 const props = defineProps({
     itemWidth: {
@@ -44,21 +44,10 @@ const props = defineProps({
 </script>
 
 <template>
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        :viewBox="`0 0 750 ${wh}`"
-        :width="width"
-        :height="height || wh"
-        preserveAspectRatio="xMinYMin meet"
-        class="block flex-basis-auto"
-        role="alert"
-        aria-busy="true"
-        aria-label="Loading..."
-        aria-live="polite"
-        :fill="fill"
-        style="z-index: 0"
-        :style="{ 'background-color': bgcolor, position: fixed ? 'fixed' : undefined }"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" :viewBox="`0 0 750 ${wh}`" :width="width" :height="height || wh"
+        preserveAspectRatio="xMinYMin meet" class="block flex-basis-auto" role="alert" aria-busy="true"
+        aria-label="Loading..." aria-live="polite" :fill="fill" style="z-index: 0"
+        :style="{ position: fixed ? 'fixed' : undefined }">
         <title>Loading...</title>
         <template v-if="repeatable">
             <defs>

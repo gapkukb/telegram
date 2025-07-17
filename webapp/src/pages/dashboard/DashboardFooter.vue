@@ -3,7 +3,7 @@ import MdiLightGift from '~icons/mdi-light/gift'
 import ArcticonsPoker from '~icons/arcticons/poker'
 import IconoirWallet from '~icons/iconoir/wallet'
 import HugeiconsFire from '~icons/hugeicons/fire'
-import MdiLightAccount from '~icons/mdi-light/account'
+import GuidanceUser1 from '~icons/guidance/user-1';
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 const navs = [
@@ -11,7 +11,7 @@ const navs = [
     { name: t('bonus'), icon: MdiLightGift, id: 2, routePath: '/promos' },
     { name: t('wallet'), icon: IconoirWallet, id: 3, routePath: '/wallet' },
     { name: t('hot'), icon: HugeiconsFire, id: 4, routePath: '/hot' },
-    { name: t('me'), icon: MdiLightAccount, id: 4, routePath: '/me' },
+    { name: t('me'), icon: GuidanceUser1, id: 4, routePath: '/me' },
 ]
 </script>
 

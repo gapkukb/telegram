@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { useAsyncVisible } from '@/composables/useAsyncVisible'
 import { useLocale } from '@/locales'
-import { Locale } from 'vant';
-
-console.log(Locale.messages());
+import { Locale } from 'vant'
 
 const show = useAsyncVisible()
 const { locale, locales, setLocale } = useLocale()
@@ -20,7 +18,13 @@ function onselect(item: (typeof actions)[number]) {
 </script>
 
 <template>
-    <van-action-sheet v-model:show="show" :actions="actions" :cancel-text="Locale.messages().cancel" close-on-click-action @select="onselect" />
+    <van-action-sheet
+        v-model:show="show"
+        :actions="actions"
+        :cancel-text="Locale.messages().cancel"
+        close-on-click-action
+        @select="onselect"
+    />
 </template>
 
 <style lang="scss" scoped></style>

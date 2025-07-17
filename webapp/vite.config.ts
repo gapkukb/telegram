@@ -9,9 +9,15 @@ import { VantResolver } from 'unplugin-vue-components/resolvers'
 import IconsResovler from 'unplugin-icons/resolver'
 import basicSsl from '@vitejs/plugin-basic-ssl'
 import UnoCSS from 'unocss/vite'
+import { include, exclude } from './build/optimize'
+import autoimportLocale from './build/autoimport-locale'
+import { version } from './package.json'
 
 export default defineConfig(function configure() {
     return {
+        define: {
+            'import.meta.env.PACKAGE_VERSION': JSON.stringify(version),
+        },
         resolve: {
             alias: {
                 '@': resolve(__dirname, 'src'),
@@ -22,7 +28,7 @@ export default defineConfig(function configure() {
             vue(),
             jsx(),
             Components({
-                dirs: ['./src/composables', './src/components', './src/utils'],
+                dirs: ['./src/composables', './src/components', './src/utils', './src/locales'],
                 dts: 'typings/components.d.ts',
                 deep: true,
                 globs: ['**/index.{vue,ts,tsx}'],
@@ -45,6 +51,7 @@ export default defineConfig(function configure() {
                     //   'swiper-next/vue': [['Swiper', 'SwiperNext'], ['SwiperSlide', 'SwiperSlideNext'], 'useSwiper', 'useSwiperSlide'],
                     // },
                 ],
+                resolvers: [autoimportLocale],
             }),
             Icons(),
             UnoCSS(),
@@ -52,9 +59,16 @@ export default defineConfig(function configure() {
         build: {
             rollupOptions: {},
         },
+        optimizeDeps: {
+            include,
+            exclude,
+        },
         server: {
             // https: {},
-            // host: '0.0.0.0',
+            host: '0.0.0.0',
+            warmup: {
+                clientFiles: ['./index.html', './src/{pages,components,composables,api}/*'],
+            },
         },
     }
 })

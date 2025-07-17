@@ -2,3 +2,15 @@
     --van-button-danger-border-color: #ff5800;
     --van-button-danger-background: #ff5800;
 }
+
+.van-field-solid {
+    background: #f6f6f6 !important;
+    border-radius: 100px !important;
+    overflow: visible !important;
+    .van-field__error-message {
+        position: absolute;
+        /* top: 70%; */
+        top: calc(100% + 4px);
+        font-size: 10px;
+    }
+}

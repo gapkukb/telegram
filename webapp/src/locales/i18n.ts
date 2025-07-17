@@ -3,6 +3,7 @@ import { ls } from '@/utils/storage'
 import { Locale as Vant } from 'vant'
 import enUS from 'vant/es/locale/lang/en-US'
 import kmKH from 'vant/es/locale/lang/km-KH'
+import { useLs } from '@/composables'
 
 Vant.use('en-US', enUS)
 
@@ -15,37 +16,37 @@ export const localesList = [Locales.en, Locales.km] as const
 
 const defaultLocale = import.meta.env.DEV ? Locales.en : Locales.km
 
-const locale = ls.get(ls.keys.locale, defaultLocale)
+const locale = useLs(ls.keys.locale, defaultLocale)
 
 export const i18n = createI18n({
-    locale,
+    locale: locale.value,
     fallbackLocale: Locales.km,
 })
 
-export async function setLocale(locale: Locales) {
-    i18n.global.locale = locale
-    const messages = await import(/* webpackChunkName: "locale-[request]" */ `./messages/${locale}.json`)
-    i18n.global.setLocaleMessage(locale, messages.default)
-    ls.set(ls.keys.locale, locale)
+export async function setLocale(current: Locales) {
+    i18n.global.locale = current
+    locale.value = current
+    const messages = await import(/* webpackChunkName: "locale-[request]" */ `./messages/${current}.json`)
+    i18n.global.setLocaleMessage(current, messages.default)
 
-    setVantLocale(locale)
-    document.documentElement.setAttribute('lang', locale)
+    setVantLocale(current)
+    document.documentElement.setAttribute('lang', current)
 }
 
 export function initializeLocale() {
-    return setLocale(locale)
+    return setLocale(locale.value)
 }
 
 export function useLocale() {
     const locales = [
-        { code: Locales.km, label: '高棉语' },
+        { code: Locales.km, label: 'မြန်မာ' },
         { code: Locales.en, label: 'English' },
     ]
-
-    const locale = ref(i18n.global.locale)
+    const localeName = computed(() => locales.find((i) => i.code === locale.value)!.label)
 
     return {
         locale,
+        localeName,
         locales,
         setLocale,
     }
@@ -58,4 +59,8 @@ function setVantLocale(locale: Locales) {
     }[locale]
 
     Vant.use(locale, lang)
+}
+
+export function t(key:string){
+    return i18n.global.t(key)
 }

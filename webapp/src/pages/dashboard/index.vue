@@ -44,7 +44,7 @@ const navs = [
 
 <style lang="scss">
 .page-dashboard {
-    --pb: 40px;
+    --pb: 48px;
     --pt: 40px;
     padding-bottom: var(--pb);
     padding-top: var(--pt);

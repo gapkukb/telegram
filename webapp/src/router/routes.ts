@@ -38,6 +38,9 @@ export default <RouteRecordRaw[]>[
     {
         path: '/',
         component: Layout,
+        meta: {
+            // requiredAuth: true,
+        },
         children: [
             {
                 path: 'recover',
@@ -55,12 +58,20 @@ export default <RouteRecordRaw[]>[
                     title: 'change password',
                 },
             },
+            {
+                path: '/me/more',
+                name: 'more',
+                component: () => import('@/pages/me/more/index.vue'),
+                meta: {
+                    title: 'More',
+                },
+            },
         ],
     },
     {
         path: '/',
         meta: {
-            requiredAuth: true,
+            // requiredAuth: true,
         },
         children: [
             {
@@ -95,6 +106,14 @@ export default <RouteRecordRaw[]>[
         component: () => import('@/pages/search/Trend.vue'),
         meta: {
             title: 'trend',
+        },
+    },
+    {
+        path: '/login',
+        name: 'account',
+        component: () => import('@/pages/account/index.vue'),
+        meta: {
+            title: 'account',
         },
     },
 ]

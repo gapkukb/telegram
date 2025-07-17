@@ -54,10 +54,19 @@ function search(payload?: string) {
     </header>
     <History v-if="history.length" v-model="history" @search="searchByHistory" />
     <div class="h-16"></div>
-    <div class="flex gap-8 items-start overflow-x-auto px-12">
-        <TrendPanel class="flex-shrink-0 bg-red" />
-        <TrendPanel class="flex-shrink-0 bg-blue" />
+    <div class="trend-panels">
+        <TrendPanel class=" bg-red trend-panel" />
+        <TrendPanel class=" bg-blue trend-panel" />
     </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+.trend-panels{
+    @apply flex gap-8 items-start overflow-x-auto px-12;
+    scroll-snap-type:x  mandatory;
+}
+.trend-panel{
+    @apply flex-shrink-0 p-12  grid gap-16 w-7/10 rd-4;
+    scroll-snap-align: center;
+}
+</style>

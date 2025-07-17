@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <dl class="p-12  grid gap-16 w-7/10 rd-4">
+    <dl class="">
         <dt class="text-16 font-semibold">Most Popular</dt>
         <dd v-for="(item, index) in 10" class="flex gap-8 min-w-0">
             <span class="w-12 text-right -ml-4 flex-shrink-0"
@@ -17,5 +17,3 @@
         </dd>
     </dl>
 </template>
-
-<style lang="scss" scoped></style>
