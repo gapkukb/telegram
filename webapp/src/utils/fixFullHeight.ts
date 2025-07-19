@@ -3,7 +3,7 @@ import { throttle } from "xgplayer/es/utils/util";
 let dvh: string;
 
 function set() {
-  document.documentElement.style.setProperty("--_full-vh", dvh);
+  document.documentElement.style.setProperty("--wih", dvh);
 }
 
 function listen() {

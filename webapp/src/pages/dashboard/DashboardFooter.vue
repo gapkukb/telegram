@@ -3,7 +3,7 @@ import MdiLightGift from '~icons/mdi-light/gift'
 import ArcticonsPoker from '~icons/arcticons/poker'
 import IconoirWallet from '~icons/iconoir/wallet'
 import HugeiconsFire from '~icons/hugeicons/fire'
-import GuidanceUser1 from '~icons/guidance/user-1';
+import GuidanceUser1 from '~icons/guidance/user-1'
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 const navs = [
@@ -17,8 +17,17 @@ const navs = [
 
 <template>
     <footer class="footer">
-        <router-link v-for="nav in navs" :key="nav.name" :to="nav.routePath" tag="button" class="footer-nav">
-            <component :is="nav.icon" :class="{ 'text-20 -m-3': nav.id === 1 }" />
+        <router-link
+            v-for="nav in navs"
+            :key="nav.name"
+            :to="nav.routePath"
+            tag="button"
+            class="footer-nav"
+        >
+            <component
+                :is="nav.icon"
+                :class="{ 'text-20 -m-3': nav.id === 1 }"
+            />
             <span class="text-12">{{ nav.name }}</span>
         </router-link>
     </footer>
@@ -26,7 +35,7 @@ const navs = [
 
 <style lang="scss">
 .footer {
-    @apply fixed flex bottom-0 bg-white w-full justify-around z-1;
+    @apply fixed flex bottom-0 left-0 right-0 bg-white justify-around z-1;
     height: var(--pb);
     border-top: 1px solid #eee;
 }

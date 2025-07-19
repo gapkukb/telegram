@@ -28,11 +28,22 @@ const navs = [
 
 <template>
     <DashboardHeader />
-    <van-tabs v-model:active="active" swipeable line-height="1" sticky :offset-top="rpx(40)">
-        <van-tab v-for="item in navs" :key="item.id">
+    <van-tabs
+        v-model:active="active"
+        swipeable
+        line-height="1"
+        id="tabnav"
+    >
+        <van-tab
+            v-for="item in navs"
+            :key="item.id"
+        >
             <template #title>
                 <div class="inline-grid place-items-center gap-2">
-                    <img :src="item.icon" class="size-20" />
+                    <img
+                        :src="item.icon"
+                        class="size-20"
+                    />
                     <span class="text-12 lh-12">{{ item.name }}</span>
                 </div>
             </template>
@@ -48,5 +59,10 @@ const navs = [
     --pt: 40px;
     padding-bottom: var(--pb);
     padding-top: var(--pt);
+}
+#tabnav .van-tabs__wrap {
+    position: sticky;
+    top: var(--pt);
+    z-index: 1;
 }
 </style>

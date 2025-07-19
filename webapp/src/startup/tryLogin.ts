@@ -1,12 +1,12 @@
 import stores from "@/stores";
-import { useUserStore } from "@/stores/user.store";
+import { useUser } from "@/stores/user.store";
 import { LoginViaTicket, LoginViaToken } from "@/utils/login";
 import { platfrom } from "@/utils/platform";
 import { initialUrlParams } from "@/utils/url";
 import { showToast } from "vant/es";
 
 export async function tryLogin() {
-  const user = useUserStore();
+  const user = useUser();
   if (user.authenticated) return;
 
   // glife lazada跳转H5必须携带Token

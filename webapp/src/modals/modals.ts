@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 import { ModalsName } from '.'
 import mitt from '@/utils/mitt'
-import { useUserStore } from '@/stores/user.store'
+import { useUser } from '@/stores/user.store'
 
 const bus = mitt<{ close: any }>()
 
@@ -9,7 +9,7 @@ export abstract class Modals {
     static names = ref(new Set<ModalsName>([]))
 
     static open(name: ModalsName, params?: { redirect?: string; closeAll?: boolean; [key: string | number]: any }) {
-        const { authenticated } = useUserStore()
+        const { authenticated } = useUser()
         if (name === ModalsName.login && authenticated) return Promise.reject(`已经登录了`)
         this.names.value.add(name)
         return new Promise((resolve) => {

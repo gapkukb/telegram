@@ -39,14 +39,14 @@ const signup = ref(false)
             :class="{ 'text-primary font-semibold': !signup }"
             @click="signup = false"
         >
-            {{ $t('login2') }}
+            {{ $t('app.login') }}
         </button>
         <button
             class="uppercase"
             :class="{ 'text-primary font-semibold': signup }"
             @click="signup = true"
         >
-            {{ $t('signup') }}
+            {{ $t('app.signup') }}
         </button>
     </div>
 

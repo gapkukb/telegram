@@ -31,14 +31,14 @@ const byPhone = ref(true)
             :class="{ 'text-primary font-semibold': byPhone }"
             @click="byPhone = true"
         >
-            {{ $t('retrieval.phone') }}
+            {{ $t('acc.retrieval.phone') }}
         </button>
         <button
             class="uppercase"
             :class="{ 'text-primary font-semibold': !byPhone }"
             @click="byPhone = false"
         >
-            {{ $t('retrieval.email') }}
+            {{ $t('acc.retrieval.email') }}
         </button>
     </div>
 

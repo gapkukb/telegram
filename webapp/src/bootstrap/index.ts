@@ -1,7 +1,16 @@
-import "@/utils/fixFullHeight";
-import "./polyfill"
+import '@/utils/fixFullHeight'
+import './polyfill'
 import 'vant/lib/toast/style'
+import { t } from '@/locales'
+
+window.t = t
 
 export default async function bootstrap() {
-  return;
+    return Promise.all([emulator()])
+}
+
+async function emulator() {
+    if ('touchstart' in window) return
+    //@ts-expect-error
+    return import('@vant/touch-emulator')
 }

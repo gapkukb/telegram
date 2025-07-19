@@ -19,7 +19,7 @@ module.exports = (ctx) => ({
             //     }
             //     return designWidth;
             //   }, // 设计稿的视口宽度
-            // unitPrecision: 5, // 单位转换后保留的精度
+            unitPrecision: 2, // 单位转换后保留的精度
             // propList: ["*"], // 能转化为 vw 的属性列表
             // viewportUnit: "vw", // 希望使用的视口单位
             // fontViewportUnit: "vw", // 字体使用的视口单位

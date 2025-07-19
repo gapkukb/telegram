@@ -3,12 +3,13 @@ import { useAsyncVisible } from '@/composables/useAsyncVisible'
 const visible = useAsyncVisible()
 
 defineOptions({
-    inheritAttrs:false
+    inheritAttrs: false
 })
 </script>
 
 <template>
-    <van-popup v-model:show="visible" close-icon="close" closeable v-on="$attrs" v-bind="$attrs">
+    <van-popup v-model:show="visible" close-icon="close" style="width: 100%;height: 100%;" :overlay="false" closeable
+        v-on="$attrs" v-bind="$attrs">
         <slot />
     </van-popup>
 </template>

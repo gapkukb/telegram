@@ -1,4 +1,4 @@
-import { useUserStore } from "@/stores/user.store";
+import { useUser } from "@/stores/user.store";
 import { type SetupContext, type SlotsType, type VNode } from "vue";
 
 interface AuthenticationSlots {
@@ -12,7 +12,7 @@ export default function Authentication(
   props: any,
   ctx: SetupContext<null, SlotsType<AuthenticationSlots>>
 ) {
-  const { authenticated } = useUserStore();
+  const { authenticated } = useUser();
 
   function login() {
     alert("login");

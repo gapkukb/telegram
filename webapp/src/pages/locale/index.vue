@@ -4,11 +4,11 @@ import { useLocale } from '@/locales'
 import { Locale } from 'vant'
 
 const show = useAsyncVisible()
-const { locale, locales, setLocale } = useLocale()
+const { locale, supported, setLocale } = useLocale()
 
-const actions = locales.map((item) => ({
+const actions = supported.map((item) => ({
     code: item.code,
-    name: item.label,
+    name: item.localeName,
     color: locale.value === item.code ? '#ff5800' : undefined,
 }))
 

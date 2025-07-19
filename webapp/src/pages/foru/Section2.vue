@@ -2,6 +2,7 @@
 import { rpx } from '@/utils/rpx'
 import img from '../dashboard/assets/images/9.png'
 import type { SwipeInstance } from 'vant'
+import { useTimeout } from '@vueuse/core'
 
 const height = rpx(150)
 const banners = shallowRef<string[]>([])

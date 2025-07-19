@@ -1,0 +1,15 @@
+export default {
+    name: '我的',
+    account: '账户设置',
+    vip: '会员专享',
+    invite: '邀请好友',
+    collection: '我收藏的游戏',
+    service: '联系客服',
+    message: '消息中心',
+    more: '更多',
+    // account: '账户设置',
+    // account: '账户设置',
+    // account: '账户设置',
+    // account: '账户设置',
+    // account: '账户设置',
+}

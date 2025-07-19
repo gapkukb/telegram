@@ -11,7 +11,7 @@ function create<T extends Component>(name: ModalsName, loader: AsyncComponentLoa
 
 export default [
     create(ModalsName.guidelines, () => import('@/pages/guidelines/index.vue', {})),
-    create(ModalsName.login, () => import('@/pages/login/index.vue')),
+    create(ModalsName.login, () => import('@/pages/account/index.vue')),
     create(ModalsName.otp, () => import('@/pages/otp/index.vue')),
     create(ModalsName.terms, () => import('@/pages/terms/index.vue')),
     create(ModalsName.captcha, () => import('@/pages/puzzle-captcha/index.vue')),

@@ -13,6 +13,8 @@ canvas,
 svg {
     // display: block;
     max-width: 100%;
+    -webkit-user-drag: none;
+    user-drag: none;
 }
 
 img[src=''],
@@ -84,19 +86,25 @@ p {
     overflow-wrap: break-word;
 }
 
-html {
-    overscroll-behavior: none;
-}
 input::-webkit-autofill {
-    box-shadow: 0 0 0 1000px transparent inset !important; 
+    box-shadow: 0 0 0 1000px transparent inset !important;
 }
+
 input:-internal-autofill-previewed,
 input:-internal-autofill-selected {
     transition: background-color 5000s ease-in-out 0s !important;
 }
+
+html {
+    overscroll-behavior: none;
+    --wih: 100vh;
+    --wih: 100dvh;
+    -webkit-touch-callout: none;
+}
+
 body {
     --van-base-font: Boxed;
-    background: #fff;
+    background: #f6f8fa;
     color: #111;
     line-height: 1.5;
     font-size: 14px;
@@ -106,9 +114,14 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+#app,
 .page-view {
     isolation: isolate;
     min-height: 100dvh;
+}
+
+.scroll-none::-webkit-scrollbar {
+    display: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -116,3 +129,20 @@ body {
         interpolate-size: allow-keywords;
     }
 }
+
+@media screen and (min-width: 600px) {
+    html {
+        background-color: #000;
+        max-width: 600px;
+        margin: auto;
+        contain: paint;
+    }
+    body {
+        height: 100dvh;
+        overflow: auto;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}
+

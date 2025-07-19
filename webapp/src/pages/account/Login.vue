@@ -14,33 +14,22 @@ const rememberMe = ref(false)
         <CodeInput v-model="code" />
 
         <div class="flex items-center justify-between py-16">
-            <van-checkbox
-                v-model="rememberMe"
-                icon-size="16"
-                checked-color="#ff5800"
-                class="text-12"
-            >
-                {{ $t('placeholder.remember') }}
+            <van-checkbox v-model="rememberMe" icon-size="16" checked-color="#ff5800" class="text-12">
+                {{ $t('form.placeholder.remember') }}
             </van-checkbox>
-            <button
-                class="text-12 text-primary"
-                @click="$emit('forgot')"
-            >
-                {{ $t('placeholder.forgot') }}
+            <button class="text-12 text-primary" @click="$emit('forgot')">
+                {{ $t('form.placeholder.forgot') }}
             </button>
         </div>
 
-        <van-button
-            type="danger"
-            class="uppercase"
-        >
-            {{ $t('login2') }}
+        <van-button type="danger" class="uppercase">
+            {{ $t('app.login') }}
         </van-button>
     </van-form>
 
     <div class="px-24 pt-24">
-        <h2>{{ $t('instructions.title') }}</h2>
-        <p class="text-12 text-#666 mt-8">{{ $t('instructions.desc') }}</p>
+        <h2>{{ $t('account.instructions.title') }}</h2>
+        <p class="text-12 text-#666 mt-8">{{ $t('account.instructions.desc') }}</p>
     </div>
 </template>
 

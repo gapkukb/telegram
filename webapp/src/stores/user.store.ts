@@ -1,11 +1,11 @@
 import { defineStore } from 'pinia'
 import { computed, ref, shallowReactive, shallowRef } from 'vue'
-import { UserModel } from './User'
 
-export const useUserStore = defineStore(
+export const useUser = defineStore(
     'user',
     () => {
-        const info = shallowRef<UserModel>()
+        const info = shallowRef<model.user.User>()
+        const balance = ref(0)
         const authenticated = computed(() => !!info.value?.loginName)
         const token = ref('')
         const webToken = ref('')
@@ -16,7 +16,7 @@ export const useUserStore = defineStore(
 
         function logout() {}
 
-        return { info, authenticated, setInfo, token, webToken, logout }
+        return { info, authenticated, setInfo, token, webToken, logout, balance }
     }
     // {
     //   persist: {

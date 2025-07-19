@@ -1,3 +1,2 @@
-declare module globalThis {
-  var inApp: Readonly<boolean>;
-}
+var inApp: Readonly<boolean>
+var t:typeof import('./locales/index')['t'] 

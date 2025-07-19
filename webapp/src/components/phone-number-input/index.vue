@@ -7,7 +7,7 @@ const value = defineModel<string>()
 const rules: FieldRule[] = [
     {
         pattern: REGEXP_KM_NUMBER,
-        message: useI18n().t('validator.phone'),
+        message: t('form.error.phone'),
     },
 ]
 </script>
@@ -19,7 +19,7 @@ const rules: FieldRule[] = [
         class="van-field-solid van-field-phone"
         :border="false"
         maxlength="10"
-        :placeholder="$t('placeholder.account')"
+        :placeholder="$t('form.placeholder.phone')"
         :rules="rules"
     >
         <template #left-icon>
@@ -31,7 +31,7 @@ const rules: FieldRule[] = [
 <style lang="scss">
 .van-field-phone {
     .van-field__error-message {
-        left: -64px;
+        left: -42px;
     }
 }
 </style>

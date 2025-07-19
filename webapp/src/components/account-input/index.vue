@@ -17,7 +17,7 @@ const rules: FieldRule[] = [
         v-model.trim="value"
         class="van-field-solid"
         :border="false"
-        :placeholder="$t('placeholder.account')"
+        :placeholder="$t('form.placeholder.account')"
         :rules="rules"
     ></van-field>
 </template>

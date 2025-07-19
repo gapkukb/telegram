@@ -12,6 +12,7 @@ import UnoCSS from 'unocss/vite'
 import { include, exclude } from './build/optimize'
 import autoimportLocale from './build/autoimport-locale'
 import { version } from './package.json'
+import mock from "./mock/plugin"
 
 export default defineConfig(function configure() {
     return {
@@ -45,7 +46,7 @@ export default defineConfig(function configure() {
                     'vue',
                     'pinia',
                     'vue-router',
-                    '@vueuse/core',
+                    // '@vueuse/core',
 
                     // {
                     //   'swiper-next/vue': [['Swiper', 'SwiperNext'], ['SwiperSlide', 'SwiperSlideNext'], 'useSwiper', 'useSwiperSlide'],
@@ -55,6 +56,7 @@ export default defineConfig(function configure() {
             }),
             Icons(),
             UnoCSS(),
+            mock
         ],
         build: {
             rollupOptions: {},

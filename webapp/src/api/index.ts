@@ -1,5 +1,8 @@
-import { front, glaxy } from './_http'
+import { get, post } from './_http'
 
-export const mock = () => Promise.delay(1000)
-export const queryUser = front.get('/adf')
-export const queryUser2 = glaxy.get('/adf')
+export const login = post('/login')
+export const queryOtp = post('/otp')
+export const queryUser = get<model.user.User>('/user')
+export const refreshBalance = get<number>('/balance')
+export const queryCheckin = get('/check-in')
+export const doCheckIn = post('/check-in')

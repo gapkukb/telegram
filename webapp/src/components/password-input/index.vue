@@ -14,19 +14,19 @@ const visible = ref(false)
 const rule = computed<FieldPwd>(() => {
     if (props.isRepeat) {
         return {
-            placeholder: t('placeholder.repassword'),
+            placeholder: t('form.placeholder.repassword'),
             validator(value) {
                 if (value !== props.password) {
-                    return t('validator.repassword')
+                    return t('form.error.repassword')
                 }
             },
         } as FieldPwd
     }
 
     return {
-        placeholder: t('placeholder.password'),
+        placeholder: t('form.placeholder.password'),
         pattern: REGEXP_PASSWORD,
-        message: t('validator.password'),
+        message: t('form.error.password'),
     }
 })
 </script>

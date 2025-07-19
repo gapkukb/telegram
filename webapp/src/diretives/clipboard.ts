@@ -1,10 +1,11 @@
-import { i18n } from '@/locales'
-import { showToast } from 'vant'
 import type { FunctionDirective } from 'vue'
+import { showToast } from 'vant'
+import { useClipboard } from '@vueuse/core'
 
-export default <FunctionDirective<Element, string | number>>function clipboard(el, { value }) {
+export default <FunctionDirective<Element, string | number | undefined>>function clipboard(el, { value }) {
     const { copy } = useClipboard()
     el.addEventListener('click', (e) => {
-        copy('' + value).then(() => showToast(t('copy')))
+        if (value === null || value === undefined) return
+        copy('' + value).then(() => showToast(t('app.copy')))
     })
 }

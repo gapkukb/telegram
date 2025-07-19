@@ -8,7 +8,7 @@ const regexp = new RegExp(`/^\w${length}/$`)
 const rules: FieldRule[] = [
     {
         pattern: regexp,
-        message: useI18n().t('validator.code'),
+        message: t('form.error.code'),
     },
 ]
 const src = ref('/pwa-512x512.png')
@@ -22,7 +22,7 @@ function change() {}
         autocomplete="off"
         autocorrect="off"
         :border="false"
-        :placeholder="$t('placeholder.code')"
+        :placeholder="$t('form.placeholder.code')"
         maxlength="4"
         :rules="rules"
     >
