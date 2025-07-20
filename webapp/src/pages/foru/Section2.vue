@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { rpx } from '@/utils/rpx'
-import img from '../dashboard/assets/images/9.png'
+import img from '../home/assets/images/9.png'
 import type { SwipeInstance } from 'vant'
 import { useTimeout } from '@vueuse/core'
 

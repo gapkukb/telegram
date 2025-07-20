@@ -1,10 +1,5 @@
-import AbstractLogin from "./AbstractLogin";
+import { login } from '@/api'
 
-export default class LoginViaTicket extends AbstractLogin {
-  constructor(public ticket: string, public loginName: string) {
-    super();
-  }
-  login(): Promise<boolean> {
-    throw new Error("Method not implemented.");
-  }
+export default function loginViaTicket(paylaod: any): Promise<model.user.vo.Login> {
+    return login(paylaod)
 }

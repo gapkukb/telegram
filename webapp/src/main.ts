@@ -1,4 +1,7 @@
 // import 'virtual:vite-svg-2-webfont.css';
+window.onerror = function(msg){
+    alert(msg)
+}
 import 'virtual:uno.css'
 import './styles'
 import './http/index'

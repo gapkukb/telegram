@@ -41,4 +41,11 @@ declare namespace model.user {
         whiteListUser: boolean
         withdrewPwd: boolean
     }
+
+    namespace vo {
+        interface Login {
+            token: string
+            user: User
+        }
+    }
 }

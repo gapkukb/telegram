@@ -1,11 +1,11 @@
 export default {
     name: '账号',
     instructions: {
-        title: 'Login Instructions',
-        desc: 'Enter the Username you used to register,It should be 6-12 characters, only alphanumeric, begin with alphabet.If you need any help, please contact our customer service.',
+        title: '登录说明',
+        desc: '输入您注册时使用的用户名，长度为6-12个字符，只能包含字母数字，以字母开头。如需帮助，请联系我们的客服。',
     },
     retrieval: {
-        phone: 'Mobile retrieval',
-        email: 'Email retrieval',
+        phone: '手机号找回',
+        email: '邮箱找回',
     },
 }

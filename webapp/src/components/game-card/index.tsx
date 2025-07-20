@@ -1,5 +1,5 @@
 import type { SetupContext } from 'vue'
-import img from '../../pages/dashboard/assets/images/5.png'
+import img from '../../pages/home/assets/images/5.png'
 import MdiHeart from '~icons/mdi/heart'
 import MdiLightHeart from '~icons/mdi-light/heart'
 import './style.scss'

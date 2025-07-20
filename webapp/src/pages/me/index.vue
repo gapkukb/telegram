@@ -46,6 +46,11 @@
         <van-cell
             is-link
             title-class="font-medium"
+            :title="$t('me.turnOver')"
+        />
+        <van-cell
+            is-link
+            title-class="font-medium"
             :title="$t('me.account')"
         />
         <van-cell

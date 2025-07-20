@@ -7,7 +7,7 @@ import casual from 'casual'
 declare module 'stream' {
     interface Writable {
         ok(data: any): void
-        error(message: string, code?: number): void
+        error(message: string, code?: number, httpCode?: number): void
     }
 }
 
@@ -16,12 +16,11 @@ ServerResponse.prototype.ok = function (data) {
     this.end(JSON.stringify({ code: 200, msg: null, data: data }))
 }
 
-ServerResponse.prototype.error = function (message: string, code = 400) {
+ServerResponse.prototype.error = function (message: string, code = 400,httpCode = 200) {
     this.setHeader('Content-Type', 'application/jsonxml; charset=utf-8')
-    this.statusCode = code
+    this.statusCode = httpCode
     this.end(JSON.stringify({ code, msg: message, data: null }))
 }
-
 
 let date = 15
 
@@ -62,7 +61,7 @@ export default function (config: MockConfig): MockMethod[] {
             method: 'get',
             timeout: 1000,
             rawResponse(req, res) {
-                res.ok(casual.integer(0,1000))
+                res.ok(casual.integer(0, 1000))
             },
         },
 

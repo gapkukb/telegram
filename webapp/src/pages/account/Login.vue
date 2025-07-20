@@ -1,12 +1,21 @@
 <script setup lang="ts">
+import { login } from '@/api'
+
+
 const account = ref('')
 const password = ref('')
 const code = ref('')
 const rememberMe = ref(false)
+
+function doLogin(values:any){
+    console.log(values);
+    
+    login(values)
+}
 </script>
 
 <template>
-    <van-form class="px-24 grid gap-16">
+    <van-form class="px-24 grid gap-16" @submit="doLogin" validate-first>
         <AccountInput v-model="account" />
 
         <PasswordInput v-model="password" />
@@ -22,7 +31,7 @@ const rememberMe = ref(false)
             </button>
         </div>
 
-        <van-button type="danger" class="uppercase">
+        <van-button type="danger" class="uppercase" native-type="submit">
             {{ $t('app.login') }}
         </van-button>
     </van-form>

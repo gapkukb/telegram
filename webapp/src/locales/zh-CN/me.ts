@@ -1,5 +1,6 @@
 export default {
     name: '我的',
+    turnOver: '洗码',
     account: '账户设置',
     vip: '会员专享',
     invite: '邀请好友',

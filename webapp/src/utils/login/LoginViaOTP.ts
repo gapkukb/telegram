@@ -1,7 +1,5 @@
-import AbstractLogin from "./AbstractLogin";
+import { login } from '@/api'
 
-export default class LoginViaOTP extends AbstractLogin {
-  login(): Promise<boolean> {
-    throw new Error("Method not implemented.");
-  }
+export default function loginViaOtp(paylaod: any): Promise<model.user.vo.Login> {
+    return login(paylaod)
 }

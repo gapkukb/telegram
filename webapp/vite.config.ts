@@ -12,7 +12,8 @@ import UnoCSS from 'unocss/vite'
 import { include, exclude } from './build/optimize'
 import autoimportLocale from './build/autoimport-locale'
 import { version } from './package.json'
-import mock from "./mock/plugin"
+import mock from './mock/plugin'
+import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig(function configure() {
     return {
@@ -25,6 +26,7 @@ export default defineConfig(function configure() {
             },
         },
         plugins: [
+            VitePWA(),
             // basicSsl(),
             vue(),
             jsx(),
@@ -56,7 +58,7 @@ export default defineConfig(function configure() {
             }),
             Icons(),
             UnoCSS(),
-            mock
+            mock,
         ],
         build: {
             rollupOptions: {},

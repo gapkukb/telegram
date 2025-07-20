@@ -8,9 +8,9 @@ import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 const navs = [
     { name: t('home'), icon: ArcticonsPoker, id: 1, routePath: '/' },
-    { name: t('bonus'), icon: MdiLightGift, id: 2, routePath: '/promos' },
+    { name: t('bonus'), icon: MdiLightGift, id: 2, routePath: '/bouns' },
     { name: t('wallet'), icon: IconoirWallet, id: 3, routePath: '/wallet' },
-    { name: t('hot'), icon: HugeiconsFire, id: 4, routePath: '/hot' },
+    // { name: t('hot'), icon: HugeiconsFire, id: 4, routePath: '/hot' },
     { name: t('me'), icon: GuidanceUser1, id: 4, routePath: '/me' },
 ]
 </script>
@@ -36,7 +36,7 @@ const navs = [
 <style lang="scss">
 .footer {
     @apply fixed flex bottom-0 left-0 right-0 bg-white justify-around z-1;
-    height: var(--pb);
+    height: var(--h-footer);
     border-top: 1px solid #eee;
 }
 

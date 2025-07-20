@@ -1,3 +1,4 @@
+import loginUtil, { LoginType } from '@/utils/login'
 import { defineStore } from 'pinia'
 import { computed, ref, shallowReactive, shallowRef } from 'vue'
 
@@ -14,9 +15,14 @@ export const useUser = defineStore(
             info.value = value
         }
 
+        async function login(loginType: LoginType, payload?: any) {
+            const result = await loginUtil(loginType, payload)
+            token.value = result.token
+            setInfo(result.user)
+        }
         function logout() {}
 
-        return { info, authenticated, setInfo, token, webToken, logout, balance }
+        return { info, authenticated, setInfo, token, webToken, login, logout, balance }
     }
     // {
     //   persist: {

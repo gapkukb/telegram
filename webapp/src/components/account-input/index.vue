@@ -7,7 +7,7 @@ const value = defineModel<string>({ required: true })
 const rules: FieldRule[] = [
     {
         pattern: REGEXP_ACCOUNT,
-        message: useI18n().t('validator.account'),
+        message: useI18n().t('form.error.account'),
     },
 ]
 </script>
@@ -15,6 +15,7 @@ const rules: FieldRule[] = [
 <template>
     <van-field
         v-model.trim="value"
+        name="username"
         class="van-field-solid"
         :border="false"
         :placeholder="$t('form.placeholder.account')"

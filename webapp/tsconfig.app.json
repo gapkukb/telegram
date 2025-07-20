@@ -10,7 +10,7 @@
         "erasableSyntaxOnly": false,
         "noFallthroughCasesInSwitch": true,
         "noUncheckedSideEffectImports": true,
-        "types": ["unplugin-icons/types/vue"],
+        "types": ["unplugin-icons/types/vue","vite-plugin-pwa/client"],
         "baseUrl": ".",
         "paths": {
             "@/*": ["src/*"]

@@ -11,7 +11,7 @@ const user = useUser()
 
 <template>
     <div :key="`${user.authenticated}`" class="page-view"
-        :class="$route.matched.filter((i) => i.name && typeof i.name === 'string').map((i) => `page-${i.name as string}`)">
+        :class="$route.matched.filter((i) => i.name && typeof i.name === 'string').map((i) => `page-${(i.name as string).toLowerCase()}`)">
         <router-view />
     </div>
 

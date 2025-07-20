@@ -1,8 +1,5 @@
-import AbstractLogin from "./AbstractLogin";
+import { login } from '@/api'
 
-export default class LoginViaOAuth extends AbstractLogin {
-  #loadFacebookSdk() {}
-  login(): Promise<boolean> {
-    throw new Error("Method not implemented.");
-  }
+export default function loginViaOauth(paylaod: any): Promise<model.user.vo.Login> {
+    return login(paylaod)
 }

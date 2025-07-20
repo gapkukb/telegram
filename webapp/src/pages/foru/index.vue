@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { rpx } from '@/utils/rpx'
 import Section2 from './Section2.vue'
-import img from '../dashboard/assets/images/9.png'
+import img from '../home/assets/images/9.png'
 import { useTimeout } from '@vueuse/core'
 import usePlayGame from '@/composables/usePlayGame'
 
 const height = rpx(120)
 const banners = shallowRef<string[]>([])
-const playGame = usePlayGame([1,2,3,4,5])
+const playGame = usePlayGame([1, 2, 3, 4, 5])
 useTimeout(3000, {
     callback() {
         banners.value = Array.from<string>({ length: 6 }).fill(img)

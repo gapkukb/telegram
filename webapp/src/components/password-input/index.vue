@@ -34,6 +34,7 @@ const rule = computed<FieldPwd>(() => {
 <template>
     <van-field
         v-model="value"
+        name="password"
         class="van-field-solid"
         autocomplete="off"
         autocorrect="off"

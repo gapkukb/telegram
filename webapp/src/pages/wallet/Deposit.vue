@@ -8,7 +8,7 @@ const { isLoading, data } = useQuery({
     queryFn: queryActivities
 })
 
-const channle = ref(true)
+const channle = ref(false)
 
 </script>
 

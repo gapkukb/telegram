@@ -114,10 +114,14 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-#app,
-.page-view {
-    isolation: isolate;
-    min-height: 100dvh;
+// #app,
+// .page-view {
+//     isolation: isolate;
+//     min-height: 100dvh;
+// }
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 .scroll-none::-webkit-scrollbar {
@@ -146,3 +150,17 @@ body {
     }
 }
 
+html,
+body,
+#app {
+    height: 100dvh;
+    width: 100%;
+}
+
+#app {
+    position: relative;
+    overflow: hidden;
+    max-width: 600px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
