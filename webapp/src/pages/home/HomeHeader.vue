@@ -1,25 +1,45 @@
 <script setup lang="ts">
 import { Modals, ModalsName } from '@/modals'
 import DashboardActions from './HomeHeaderActions.vue'
-import { navs } from './navs';
+import { navs } from './navs'
+import { useUser } from '@/stores/user.store'
+import HomeHeaderAccount from './HomeHeaderAccount.vue'
 
 defineProps<{ active: number }>()
 defineEmits<{ change: [number] }>()
+const user = useUser()
 </script>
 
 <template>
     <header class="home-header">
         <div class="home-topbar">
-            <van-button round type="danger" size="small" class="min-w-100" @click="Modals.open(ModalsName.login)">
+            <HomeHeaderAccount v-if="user.authenticated" />
+            <van-button
+                v-else
+                round
+                type="danger"
+                size="small"
+                class="min-w-100"
+                @click="Modals.open(ModalsName.login)"
+            >
                 {{ $t('app.login') }} | {{ $t('app.signup') }}
             </van-button>
+
             <DashboardActions />
         </div>
 
         <nav class="home-nav-bar">
-            <div v-for="(item, index) in navs" :key="item.id" class="home-nav-item" :class="{ on: index === active }"
-                @click="$emit('change', index)">
-                <img :src="item.icon" class="size-20" />
+            <div
+                v-for="(item, index) in navs"
+                :key="item.id"
+                class="home-nav-item"
+                :class="{ on: index === active }"
+                @click="$emit('change', index)"
+            >
+                <img
+                    :src="item.icon"
+                    class="size-20"
+                />
                 <span class="text-12 lh-12">{{ item.name }}</span>
             </div>
         </nav>
@@ -30,7 +50,7 @@ defineEmits<{ change: [number] }>()
 
 <style lang="scss">
 .home-header {
-    @apply fixed top-0 left-0 right-0 z-1 bg-white;
+    @apply fixed top-0 left-0 right-0 z-1 bg-white bg-op-98;
     // height: var(--h-header)
 }
 
@@ -44,9 +64,8 @@ defineEmits<{ change: [number] }>()
     height: var(--h-navbar);
 }
 
-
 .home-nav-item {
-    @apply flex-1 inline-grid place-items-center gap-2 relative;
+    @apply flex-1 inline-grid place-items-center gap-4 relative;
 
     &.on {
         --color: #ff5800;

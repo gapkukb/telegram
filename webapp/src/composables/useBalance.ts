@@ -1,5 +1,6 @@
 import { refreshBalance } from '@/api'
 import { useUser } from '@/stores/user.store'
+import { formatter } from '@/utils/number'
 
 const balance = ref(0)
 const loading = ref(false)

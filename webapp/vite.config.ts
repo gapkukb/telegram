@@ -14,6 +14,7 @@ import autoimportLocale from './build/autoimport-locale'
 import { version } from './package.json'
 import mock from './mock/plugin'
 import { VitePWA } from 'vite-plugin-pwa'
+import svgLoader from 'vite-svg-loader'
 
 export default defineConfig(function configure() {
     return {
@@ -27,6 +28,34 @@ export default defineConfig(function configure() {
         },
         plugins: [
             VitePWA(),
+            svgLoader({
+                svgoConfig: {
+                    multipass: true,
+                    plugins: [
+                        {
+                            name: 'preset-default',
+                            params: {
+                                overrides: {
+                                    convertColors: {
+                                        currentColor: true,
+                                    },
+                                    cleanupIds: { remove: true },
+                                    mergePaths: { force: true },
+                                },
+                            },
+                        },
+                        {
+                            name: 'addAttributesToSVGElement',
+                            params: {
+                                attribute: { fill: 'currentColor' },
+                            },
+                        },
+                        {
+                            name: 'removeDimensions',
+                        },
+                    ],
+                },
+            }),
             // basicSsl(),
             vue(),
             jsx(),

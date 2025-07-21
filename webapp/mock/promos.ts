@@ -14,7 +14,7 @@ export default function (config: MockConfig): MockMethod[] {
         {
             url: '/api/activities',
             method: 'get',
-            timeout: 3000,
+            timeout: 1000,
             rawResponse(req, res) {
                 res.ok(array(10, item))
             },
@@ -44,4 +44,5 @@ const item = () => ({
     dateTime: casual.date('YYYY-MM-DD HH:mm:ss'),
     text: casual.text,
     description: casual.description,
+    image:`https://picsum.photos/id/${casual.integer(0,1000)}/200/300`
 })

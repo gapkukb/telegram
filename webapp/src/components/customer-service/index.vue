@@ -10,7 +10,8 @@ function call() {
 </script>
 
 <template>
-    <button class="lh-[1]" @click="call">
-        <slot><i-icon-park:customer /></slot>
+    <button class="lh-[1] text-20" @click="call">
+        <!-- <slot><i-icon-park:customer /></slot> -->
+        <slot><i-mdi:customer-service /></slot>
     </button>
 </template>

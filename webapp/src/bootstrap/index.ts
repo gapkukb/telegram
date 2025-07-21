@@ -1,6 +1,7 @@
 import '@/utils/fixFullHeight'
 import './polyfill'
 import 'vant/es/popup/style'
+import 'vant/es/dialog/style'
 import 'vant/es/toast/style'
 import { t } from '@/locales'
 

@@ -15,12 +15,15 @@ const delegate = useDelegate('data-day', (value, el) => {
     doCheckIn(value)
 })
  */
-export default function useDelegate<T extends string | string[]>(attrs: T, hanlder: (value: string, attr: KeysOfMaybeArray<T>, el: HTMLElement, e: MouseEvent) => any) {
+export default function useDelegate<T extends string | string[]>({ attrs, hanlder }: { attrs: T; hanlder: R<T> }) {
     attrs = (Array.isArray(attrs) ? attrs : [attrs]) as any
     return function handle(e: MouseEvent) {
-        const result = find(e.currentTarget as HTMLElement, e.target, attrs as any)
-        result && hanlder(result[0], result[1] as any, result[2], e)
+        console.log(e.currentTarget);
+        
+        // const result = find(e.currentTarget as HTMLElement, e.target, attrs as any)
+        // result && hanlder(result[0], result[1] as any, result[2], e)
     }
 }
 
 type KeysOfMaybeArray<T> = T extends Array<any> ? T[number] : T
+type R<T> = (value: string, attr: KeysOfMaybeArray<T>, el: HTMLElement, e: MouseEvent) => any

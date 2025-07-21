@@ -4,26 +4,12 @@ import Deposit from './Deposit.vue';
 import Withdrawal from './Withdrawal.vue';
 import FontistoWallet from '~icons/fontisto/wallet';
 
-const { balance, refresh, loading } = useBalance()
 const isDeposit = ref(true)
 </script>
 
 <template>
     <FontistoWallet class="absolute right-32 top-32 text-100 z--1 select-none op-10" />
-    <div class="p-16 relative text-white">
-        <div class="text-12 flex items-center gap-8">
-            <span>{{ $t('app.balance') }}</span>
-            <button class="lh-1 expand-8" :class="{ spin: loading }" @click="refresh">
-                <i-system-uicons:refresh-alt />
-            </button>
-        </div>
-        <h1>
-            <span class="text-36 font-semibold" v-motion="">
-                {{ balance }}.00
-            </span>
-            <span class="text-16 pl-4">MMK</span>
-        </h1>
-    </div>
+    <AccountBalance />
     <div class="flex bg-white rd-4 py-16 px-2 gap-4" style="box-shadow: 0 0 10px 0 #aaa;">
         <button class="wallet-menu van-haptics-feedback">
             <div class="wallet-menu-icon">
@@ -86,9 +72,10 @@ const isDeposit = ref(true)
         <button @click="isDeposit = false" class="wallet-type-button" :class="{ on: !isDeposit }">提款</button>
     </div>
 
+    <router-view />
 
-    <Deposit v-if="isDeposit" key="1" />
-    <Withdrawal v-else key="2" />
+    <!-- <Deposit v-if="isDeposit" key="1" /> -->
+    <!-- <Withdrawal v-else key="2" /> -->
 
 
 
@@ -98,7 +85,7 @@ const isDeposit = ref(true)
 <style lang="scss">
 .page-wallet {
     background-image: linear-gradient(180deg, #ff3000, #fff0 200px, transparent 0);
-    padding: 12px;
+    padding: 8px;
 }
 
 .wallet-menu {

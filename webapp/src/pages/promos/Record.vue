@@ -12,19 +12,19 @@ const { isLoading, data } = useQuery({
 </script>
 
 <template>
-    <button class="absolute right--12 top-12 text-white bg-primary text-12 font-bold px-16 py-4 rd-l-full"
+    <button class="absolute right--4 top-12 text-white bg-primary text-12 font-bold px-16 py-4 rd-l-full"
         @click="show = true">
         {{ $t("promos.record") }}
     </button>
-    <van-popup v-model:show="show" teleport="body" position="bottom" closeable close-icon="close" class="py-24">
-        <h2 class="text-24 px-12">
-            <span class="mr-16"> {{ $t("promos.record") }}</span>
+    <van-popup v-model:show="show" teleport="body" position="bottom" closeable class="py-16">
+        <h6 class="flex justify-between items-center pr-56 text-16 font-semibold px-16">
+            <span class=""> {{ $t("promos.record") }}</span>
             <CustomerService @called="show = false" />
-        </h2>
-        <p class="text-12  px-12 text-#999">{{ $t("promos.desc") }}</p>
+        </h6>
+        <p class="text-12 text-#999 px-16">{{ $t("promos.desc") }}</p>
         <div class="h-16"></div>
-        <div v-if="data?.length" class="max-h-60vh overflow-auto">
-            <van-cell-group :border="true" inset>
+        <div v-if="data?.length" class="h-60vh overflow-auto">
+            <van-cell-group :border="true">
                 <van-cell v-for="item in data" :title="item.title" :label="item.dateTime" center><span
                         class="text-24 text-primary font-bold">{{ item.amount }}</span></van-cell>
 
@@ -34,4 +34,4 @@ const { isLoading, data } = useQuery({
     </van-popup>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss"></style>

@@ -1,35 +1,19 @@
 <script setup lang="ts">
 import useBalance from '@/composables/useBalance'
-import Checkin from './Checkin.vue';
-import Activities from './Activities.vue';
-import Record from './Record.vue';
-
-const { balance, refresh, loading } = useBalance()
+import Checkin from './Checkin.vue'
+import Promos from './Promos.vue'
+import Record from './Record.vue'
 </script>
 
 <template>
-    <div class="p-16 relative">
-        <div class="text-12 flex items-center gap-8">
-            <span>{{ $t('app.balance') }}</span>
-            <button class="lh-1 expand-8" :class="{ spin: loading }" @click="refresh">
-                <i-system-uicons:refresh-alt />
-            </button>
-        </div>
-        <h1>
-            <span class="text-36 font-bold" v-motion="">
-                {{ balance }}
-            </span>
-            <span class="text-16 pl-4">MMK</span>
-        </h1>
-
+    <AccountBalance>
         <Record />
-    </div>
-
+    </AccountBalance>
     <Checkin />
 
     <div class="h-16"></div>
 
-    <Activities />
+    <Promos />
 
     <!-- <Skeleton repeatable fixed item-height="164" class="px-12" fill="#d1d1d1">
         <rect width="100%" height="158" fill="#eee" rx="4" ry="4"/>
@@ -41,8 +25,16 @@ const { balance, refresh, loading } = useBalance()
 </template>
 
 <style lang="scss">
-.page-promos {
-    background: url(./assets/bg.png) no-repeat 0 -16px/100% auto;
-    padding: 12px;
+.page-promos  {
+    // background: url(./assets/bg.png) no-repeat 0 -16px/100% auto;
+    padding: 8px;
+    padding-bottom: var(--h-footer);
+    --image: url('@/assets/icons/accout-balance-bg.svg');
+    --transparent: url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==);
+    background-image: var(--image);
+    background-image: cross-fade(var(--transparent), var(--image), 80%);
+    background-image: -webkit-cross-fade(var(--transparent), var(--image), 90%);
+    background-size: 100% 220px;
+    background-repeat: no-repeat;
 }
 </style>

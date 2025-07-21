@@ -3,9 +3,10 @@ import { showToast } from 'vant'
 import { useClipboard } from '@vueuse/core'
 
 export default <FunctionDirective<Element, string | number | undefined>>function clipboard(el, { value }) {
-    const { copy } = useClipboard()
-    el.addEventListener('click', (e) => {
+    el.addEventListener('click', async (e) => {
+        const { copy, copied } = useClipboard({ legacy: true })
         if (value === null || value === undefined) return
-        copy('' + value).then(() => showToast(t('app.copy')))
+        await copy('' + value)
+        copied.value && showToast(t('app.copy'))
     })
 }

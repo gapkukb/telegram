@@ -16,17 +16,45 @@ useTimeout(3000, {
 </script>
 
 <template>
-    <Skeleton v-if="banners.length === 0" :height="height" />
-    <van-swipe v-else :autoplay="3000" indicator-color="white" :height="height">
-        <van-swipe-item v-for="item in 5" :key="item">
-            <img src="../dashboard/assets/images/9.png" class="size-full object-cover" />
-        </van-swipe-item>
-    </van-swipe>
-    <div class="h-8"></div>
-    <Section2 />
+    <div class="home-view">
+        <Skeleton
+            v-if="banners.length === 0"
+            :height="height"
+        />
+        <van-swipe
+            v-else
+            :autoplay="3000"
+            indicator-color="white"
+            :height="height"
+        >
+            <van-swipe-item
+                v-for="item in 5"
+                :key="item"
+            >
+                <img
+                    src="../home/assets/images/9.png"
+                    class="size-full object-cover rd-8"
+                />
+            </van-swipe-item>
+        </van-swipe>
+        <div class="h-8"></div>
+        <Section2 />
+        <div class="h-8"></div>
 
-    <div class="grid grid-cols-3 gap-8 px-12" @click="playGame">
-        <GameCard v-for="(i, index) in 30" :index="index" class="aspect-ratio-70/100 bg-#eee rd-4" />
+        <div class="bg-white p-8 game-list rd-4">
+            <h4 class="game-list-title">Featured games</h4>
+            <div
+                class="flex overflow-auto gap-4"
+                @touchstart.stop=""
+            >
+                <Game
+                    v-for="i in 40"
+                    class="flex-shrink-0 w-80 text-12"
+                />
+            </div>
+        </div>
+        <div class="h-8"></div>
+        <GameTable title="Most Popular" />
     </div>
 </template>
 

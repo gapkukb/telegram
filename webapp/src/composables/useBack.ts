@@ -15,7 +15,7 @@ export function useBack(targets?: PlatformRoute | string, replacement = false) {
     : {};
 
   return function handle() {
-    if (platfrom.webview) {
+    if (platfrom.app) {
       return backToApp(route.webview || appRoutes.back);
     }
 

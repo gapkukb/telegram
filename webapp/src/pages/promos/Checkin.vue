@@ -11,6 +11,7 @@ import { rpx } from '@/utils/rpx'
 import { Skeleton2 } from '@/components/skeleton'
 
 const el = useTemplateRef<HTMLDivElement>('track')
+const showRules = ref(false)
 
 const [checkin, checking] = useStatefulFunc(async function () {
     await doCheckIn()
@@ -39,8 +40,11 @@ function scrollIntoView() {
 </script>
 
 <template>
-    <div class="bg-white p-12 rd-8">
-        <h5 class="font-semibold text-16">{{ $t('promos.name') }}</h5>
+    <div class="bg-white p-12 rd-8 bg-op-95 shadow-2xl">
+        <h5 class="flex justify-between">
+            <span class="font-semibold text-16">{{ $t('promos.name') }}</span>
+            <button class="text-primary block expand-8" @click="showRules = true"><van-icon name="info-o" /></button>
+        </h5>
 
         <!-- <Skeleton2 class="h-96 w-100" width="100" repeatable height="96" item-height="96" item-width="48">
             <rect x="2" y="16" rx="4" width="40" height="64" fill="#ccc" />
@@ -49,7 +53,7 @@ function scrollIntoView() {
         </skeleton2> -->
 
 
-        <div class="h-96 bg-white flex gap-8 overflow-scroll py-16 scroll-none" ref="track">
+        <div class="h-96 flex gap-8 overflow-scroll py-16 scroll-none" ref="track">
             <figure v-for="item in data" :key="item" class="checkin-item" :class="{ on: item.status === 1 }"
                 :data-day="item.date">
                 <img :src="item.status === 0 ? img1 : item.status === 1 ? img2 : img3" class="size-24" />
@@ -60,13 +64,18 @@ function scrollIntoView() {
             {{ $t('promos.confirm') }}
         </van-button>
     </div>
+    <van-popup teleport="body" v-model:show="showRules" closeable position="bottom" class="p-16">
+        <h6 class="font-semibold text-16">{{ $t("promos.checkin.title") }}</h6>
+        <div class="mt-16 h-60vh overflow-auto whitespace-pre-line">{{ $t('promos.checkin.rules') }}</div>
+    </van-popup>
 </template>
 
 <style lang="scss">
 .checkin-item {
-    @apply flex-shrink-0 w-40 h-64 bg-#f6f6f6 rd-4 text-center py-6;
+    @apply flex-shrink-0 w-40 h-64 bg-#eee rd-4 text-center py-6;
     width: 40px;
     height: 64px;
+
     &.on {
         background-color: #ff5800;
         color: white;

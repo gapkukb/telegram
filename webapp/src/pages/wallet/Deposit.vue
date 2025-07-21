@@ -8,27 +8,33 @@ const { isLoading, data } = useQuery({
     queryFn: queryActivities
 })
 
-const channle = ref(false)
+const showChannel = ref(false)
+const channel = ref<any>()
 
+function deposit(index: number) {
+    channel.value = data.value[index]
+    showChannel.value = true
+}
 </script>
 
 <template>
     <div class="" v-if="isLoading">Loading</div>
     <van-cell-group v-else>
-        <van-cell v-for="i in 10" title="KBZpay" is-link center title-class="pl-8 font-semibold">
+        <van-cell v-for="(channel, index) in data" :title="channel.name" is-link center title-class="pl-8 font-semibold"
+            @click="deposit(index)">
             <template #icon>
-                <img src="@/assets/images/logo1.png" class="size-36 object-contain">
+                <img :src="channel.image" class="size-36 object-cover rd-full">
             </template>
 
         </van-cell>
     </van-cell-group>
 
-    <VanPopup :show="channle" position="bottom" title="Recharge Details" closeable class="pt-14 px-12">
+    <VanPopup teleport="body" v-model:show="showChannel" position="bottom" title="Recharge Details" closeable class="pt-14 px-12">
         <div class="flex justify-between items-center pr-24">
-            <h6 class="font-semibold text-16">Recharge Details</h6>
+            <h6 class="font-semibold text-16">{{ $t("wallet.rechargeDetail") }}</h6>
             <CustomerService class="text-18 px-16" />
         </div>
-        <DepositForm />
+        <DepositForm :channel="channel" @close="channel = undefined" />
     </VanPopup>
 </template>
 

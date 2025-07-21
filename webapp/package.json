@@ -12,6 +12,7 @@
   "dependencies": {
     "@tanstack/vue-query": "^5.83.0",
     "@vant/touch-emulator": "^1.4.0",
+    "@vueuse/components": "^13.5.0",
     "@vueuse/core": "^13.5.0",
     "@vueuse/motion": "^3.0.3",
     "add": "^2.0.6",
@@ -70,6 +71,7 @@
     "vite-plugin-mock": "^3.0.2",
     "vite-plugin-pwa": "^1.0.1",
     "vite-svg-2-webfont": "^4.0.0",
+    "vite-svg-loader": "^5.1.0",
     "vue-tsc": "^2.2.10"
   },
   "pnpm": {

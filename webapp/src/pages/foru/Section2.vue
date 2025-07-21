@@ -23,10 +23,10 @@ function swipeTo(index: number) {
     <Skeleton v-if="banners.length === 0" :height="height" />
     <van-swipe v-else :autoplay="5000" indicator-color="white" :height="height" ref="swiper">
         <van-swipe-item v-for="(item, index) in banners" :key="index">
-            <img :src="item" class="size-full object-cover" />
+            <img :src="item" class="size-full object-cover rd-8" />
         </van-swipe-item>
         <template #indicator="{ active, total }">
-            <div class="flex h-40 text-12">
+            <div class="flex h-40 text-12 bg-white">
                 <button v-for="(_, index) in total" class="indicator-item" :class="{ 'indicator-active': index === active }" @click="swipeTo(index)">demo-{{ index }}</button>
             </div>
         </template>

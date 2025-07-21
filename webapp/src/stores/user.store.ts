@@ -19,6 +19,7 @@ export const useUser = defineStore(
             const result = await loginUtil(loginType, payload)
             token.value = result.token
             setInfo(result.user)
+            return true;
         }
         function logout() {}
 

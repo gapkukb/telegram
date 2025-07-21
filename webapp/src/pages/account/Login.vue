@@ -1,21 +1,27 @@
 <script setup lang="ts">
 import { login } from '@/api'
+import { Modals, ModalsName } from '@/modals'
+import { useUser } from '@/stores/user.store'
+import { LoginType } from '@/utils/login'
 
-
+const user = useUser()
 const account = ref('')
 const password = ref('')
 const code = ref('')
 const rememberMe = ref(false)
 
-function doLogin(values:any){
-    console.log(values);
-    
-    login(values)
+async function doLogin(values: any) {
+    user.login(LoginType.Account, values)
+    Modals.close(ModalsName.login)
 }
 </script>
 
 <template>
-    <van-form class="px-24 grid gap-16" @submit="doLogin" validate-first>
+    <van-form
+        class="px-24 grid gap-16"
+        @submit="doLogin"
+        validate-first
+    >
         <AccountInput v-model="account" />
 
         <PasswordInput v-model="password" />
@@ -23,15 +29,27 @@ function doLogin(values:any){
         <CodeInput v-model="code" />
 
         <div class="flex items-center justify-between py-16">
-            <van-checkbox v-model="rememberMe" icon-size="16" checked-color="#ff5800" class="text-12">
+            <van-checkbox
+                v-model="rememberMe"
+                icon-size="16"
+                checked-color="#ff5800"
+                class="text-12"
+            >
                 {{ $t('form.placeholder.remember') }}
             </van-checkbox>
-            <button class="text-12 text-primary" @click="$emit('forgot')">
+            <button
+                class="text-12 text-primary"
+                @click="$emit('forgot')"
+            >
                 {{ $t('form.placeholder.forgot') }}
             </button>
         </div>
 
-        <van-button type="danger" class="uppercase" native-type="submit">
+        <van-button
+            type="danger"
+            class="uppercase"
+            native-type="submit"
+        >
             {{ $t('app.login') }}
         </van-button>
     </van-form>

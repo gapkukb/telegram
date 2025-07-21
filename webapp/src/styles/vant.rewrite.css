@@ -10,7 +10,7 @@
     .van-field__error-message {
         position: absolute;
         /* top: 70%; */
-        top: calc(100% + 4px);
+        top: calc(100% + 6px);
         font-size: 10px;
     }
 }

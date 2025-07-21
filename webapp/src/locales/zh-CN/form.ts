@@ -9,6 +9,9 @@ export default {
         email: '请输入邮箱地址',
         remember: '记住用户名',
         forgot: '忘记密码',
+        last6digitsOrder: '请输入交易号码最后6位数字',
+        withdrawalAccount: '请输入您的收款账号',
+        withdrawalAmount: '请输入您的取款金额',
     },
     error: {
         account: '用户名必须以字母开头且包含6-12位字符',
@@ -18,5 +21,7 @@ export default {
         phone: '手机号码不正确',
         email: '邮箱地址格式错误',
         otp: '短信验证码应为6位数字',
+        required: '请填写{name}',
+        withdrawOverBalance: '您的余额不足',
     },
 }

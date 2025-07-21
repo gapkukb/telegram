@@ -1,26 +1,29 @@
 <script setup lang="ts">
 // import DashboardFooter from '../../layout/AppFooter.vue'
-import type { SwipeInstance } from 'vant';
+import type { SwipeInstance } from 'vant'
 import HomeHeader from './HomeHeader.vue'
-import { navs } from './navs';
-import Test from './Test.vue';
+import { navs } from './navs'
+import Test from '../../components/test/index.vue'
 
 const swiper = ref<SwipeInstance>()
 const active = ref(0)
-
 
 function onchange(index: number) {
     active.value = index
 }
 
+function a(index: number) {
+    onchange(index)
+    swiper.value!.swipeTo(index)
+}
 </script>
 
 <template>
-    <HomeHeader :active="active" @change="onchange" />
+    <HomeHeader :active="active" @change="a" />
     <van-swipe key="1" ref="swiper" id="home-page-swipe" lazy-render :loop="false" @change="onchange"
         :show-indicators="false">
         <van-swipe-item v-for="item in navs">
-            <component :is="Test" />
+            <component :is="item.component" />
         </van-swipe-item>
     </van-swipe>
 </template>
@@ -29,10 +32,22 @@ function onchange(index: number) {
 .page-home {
     height: 100%;
     overflow-y: auto;
-    --h-topbar: 40px;
-    --h-navbar: 44px;
-    --h-header: calc(var(--h-topbar) + var(--h-navbar));
-    --h-footer: 44px;
+    padding-bottom: 0 !important;
+}
+
+.home-view {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    --safe: 8px;
+    padding-top: var(--app-padding-top);
+    padding-bottom: var(--app-padding-bottom);
+    padding-left: var(--safe);
+    padding-right: var(--safe);
 }
 
 #home-page-swipe {

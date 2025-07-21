@@ -4,16 +4,24 @@ import { useApp } from './stores/app.store'
 import { useUser } from './stores/user.store'
 import Announcement from '@/pages/announcement/index.vue'
 import { rpx } from './utils/rpx'
+import AppFooter from './layout/AppFooter.vue'
 
+const route = useRoute()
 const user = useUser()
-
+const pageName = computed(() => {
+    const classes = route.matched.filter((i) => i.name && typeof i.name === 'string').map((i) => `page-${(i.name as string).toLowerCase()}`)
+    if (route.meta.footer) {
+        classes.push("page-layout")
+    }
+    return classes
+})
 </script>
 
 <template>
-    <div :key="`${user.authenticated}`" class="page-view"
-        :class="$route.matched.filter((i) => i.name && typeof i.name === 'string').map((i) => `page-${(i.name as string).toLowerCase()}`)">
-        <router-view />
+    <div :key="`${user.authenticated}`" class="page-view" :class="pageName">
+        <router-view class="page-view" :class="pageName"/>
     </div>
+    <AppFooter v-if="$route.meta.footer" />
 
     <!-- 公告弹窗 -->
     <!-- <Announcement /> -->
@@ -26,3 +34,19 @@ const user = useUser()
         style="border-radius: 4px;background: #ddd;width: fit-content;height: fit-content;padding: 4px 6px;"><img
             src="@/assets/images/app-download.gif" class="w-24 block"></van-floating-bubble>
 </template>
+
+
+<style lang="scss">
+#app {
+    --app-height-topbar: 40px;
+    --app-height-navbar: 44px;
+    --app-height-footer: 44px;
+    --app-height-header: calc(var(--app-height-topbar) + var(--app-height-navbar));
+    --app-padding-top: calc(var(--app-height-header) + 8px);
+    --app-padding-bottom: calc(var(--app-height-footer) + 8px);
+}
+
+.page-layout {
+    padding-bottom: var(--app-padding-bottom) !important;
+}
+</style>

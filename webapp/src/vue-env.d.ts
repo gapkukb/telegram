@@ -9,6 +9,7 @@ declare module 'vue-router' {
         title?: string
         keywords?: string
         description?: string
+        footer?: true
     }
 
     interface Router {
