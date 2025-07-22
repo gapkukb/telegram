@@ -8,4 +8,8 @@ export default {
         phone: '手机号找回',
         email: '邮箱找回',
     },
+    password: '登录密码',
+    phone: '手机号码',
+    email: '邮箱地址',
+    realName: '真实姓名',
 }

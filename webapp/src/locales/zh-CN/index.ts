@@ -1,3 +1,4 @@
+import page from './page'
 import app from './app'
 import account from './account'
 import home from './home'
@@ -7,11 +8,12 @@ import form from './form'
 import wallet from './wallet'
 
 export default {
+    page,
     app,
     account,
     home,
     me,
     promos,
     form,
-    wallet
-} 
+    wallet,
+}

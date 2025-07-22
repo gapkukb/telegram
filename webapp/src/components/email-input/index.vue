@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { REGEXP_EMAIL } from '@/constants/regexp'
 import type { FieldRule } from 'vant'
-import { useI18n } from 'vue-i18n'
 
 const value = defineModel<string>()
 const rules: FieldRule[] = [
     {
         pattern: REGEXP_EMAIL,
-        message: useI18n().t('validator.email'),
+        message: t('form.error.email'),
     },
 ]
 </script>
@@ -20,14 +19,14 @@ const rules: FieldRule[] = [
         autocorrect="off"
         class="van-field-solid van-field-email"
         :border="false"
-        maxlength="10"
-        :placeholder="$t('placeholder.email')"
+        maxlength="30"
+        :placeholder="$t('form.placeholder.email')"
         :rules="rules"
     >
         <template #left-icon>
             <van-icon
                 name="envelop-o"
-                class="opacity-50 pr-4"
+                class="opacity-50"
             />
         </template>
     </van-field>
@@ -35,8 +34,8 @@ const rules: FieldRule[] = [
 
 <style lang="scss">
 .van-field-email {
-    .van-field__error-message {
-        left: -24px;
-    }
+    // .van-field__error-message {
+    //     left: -24px;
+    // }
 }
 </style>

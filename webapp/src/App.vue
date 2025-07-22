@@ -30,9 +30,7 @@ const pageName = computed(() => {
     <!-- 背景音乐 -->
     <!-- <BGM /> -->
 
-    <van-floating-bubble axis="y" :gap="{ x: 0, y: rpx(200) }"
-        style="border-radius: 4px;background: #ddd;width: fit-content;height: fit-content;padding: 4px 6px;"><img
-            src="@/assets/images/app-download.gif" class="w-24 block"></van-floating-bubble>
+
 </template>
 
 
@@ -45,7 +43,7 @@ const pageName = computed(() => {
     --app-padding-top: calc(var(--app-height-header) + 8px);
     --app-padding-bottom: calc(var(--app-height-footer) + 8px);
 }
-
+.page-view {}
 .page-layout {
     padding-bottom: var(--app-padding-bottom) !important;
 }

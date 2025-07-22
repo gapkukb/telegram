@@ -1,4 +1,12 @@
-import { defineConfig, presetWind3, presetAttributify, transformerDirectives, transformerVariantGroup, transformerCompileClass, transformerAttributifyJsx } from 'unocss'
+import {
+    defineConfig,
+    presetWind3,
+    presetAttributify,
+    transformerDirectives,
+    transformerVariantGroup,
+    transformerCompileClass,
+    transformerAttributifyJsx,
+} from 'unocss'
 import { presetRemToPx } from '@unocss/preset-rem-to-px'
 
 export default defineConfig({
@@ -12,5 +20,8 @@ export default defineConfig({
             primary: '#ff5800',
         },
     },
-    rules: [[/^expand-(\d+)$/, ([, d]) => ({ margin: `-${d}px`, padding: `${d}px` })]],
+    rules: [
+        [/^expand-(\d+)$/, ([, d]) => ({ margin: `-${d}px`, padding: `${d}px` })],
+        [/^fs-(\d+)$/, ([, d]) => ({ 'font-size': `${d}px` })],
+    ],
 })

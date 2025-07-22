@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { queryActivities } from '@/api/promos.api';
-import useStatefulFunc from '@/composables/use-stateful-func';
+import useAsyncFunction from '@/composables/useAsyncFunction';
 import { router } from '@/router';
 import { useQuery } from '@tanstack/vue-query';
 
@@ -15,7 +15,7 @@ const { isLoading, data: presets } = useQuery({
 })
 
 const amount = ref('')
-const [todo, doing] = useStatefulFunc(async () => {
+const [todo, doing] = useAsyncFunction(async () => {
     await Promise.delay(1000)
     router.push({
         path: "/wallet/confirmation",

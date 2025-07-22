@@ -22,7 +22,7 @@ const user = useUser()
                 class="min-w-100"
                 @click="Modals.open(ModalsName.login)"
             >
-                {{ $t('app.login') }} | {{ $t('app.signup') }}
+                {{ $t('me.login') }} | {{ $t('me.signup') }}
             </van-button>
 
             <DashboardActions />

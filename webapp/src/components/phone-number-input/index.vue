@@ -15,7 +15,7 @@ const rules: FieldRule[] = [
 <template>
     <van-field
         v-model.trim="value"
-        type="digit"
+        type="tel"
         class="van-field-solid van-field-phone"
         :border="false"
         maxlength="10"
@@ -23,15 +23,17 @@ const rules: FieldRule[] = [
         :rules="rules"
     >
         <template #left-icon>
-            <CountryPicker changeable />
+            <CountryPicker>
+                <van-icon
+                    class-prefix="iconfont"
+                    name="shouji"
+                    class="c-#111 text-20"
+                />
+            </CountryPicker>
         </template>
     </van-field>
 </template>
 
 <style lang="scss">
-.van-field-phone {
-    .van-field__error-message {
-        left: -42px;
-    }
-}
+
 </style>

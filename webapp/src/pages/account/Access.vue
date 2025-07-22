@@ -21,9 +21,9 @@ const signup = ref(false)
         </button>
         <div class="flex-1"></div>
 
-        <CsTrigger class="page-account-button icon" />
+        <CallCenter class="page-account-button" icon-class="scale-140"/>
 
-        <button class="page-account-button icon">
+        <button class="page-account-button icon" @click="Modals.close(ModalsName.login)">
             <van-icon name="cross" />
         </button>
     </header>
@@ -39,14 +39,14 @@ const signup = ref(false)
             :class="{ 'text-primary font-semibold': !signup }"
             @click="signup = false"
         >
-            {{ $t('app.login') }}
+            {{ $t('me.login') }}
         </button>
         <button
             class="uppercase"
             :class="{ 'text-primary font-semibold': signup }"
             @click="signup = true"
         >
-            {{ $t('app.signup') }}
+            {{ $t('me.signup') }}
         </button>
     </div>
 

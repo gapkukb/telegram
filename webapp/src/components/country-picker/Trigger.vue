@@ -6,10 +6,11 @@ const showPicker = ref(false)
 
 <template>
     <button
+        type="button"
         class="country-picker-trigger"
         @click="showPicker = changeable ?? false"
     >
-        <i-proicons:phone />
+        <slot></slot>
         <span>+95</span>
         <van-icon
             v-if="changeable"

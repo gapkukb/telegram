@@ -1,8 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-    <div class="h-16"></div>
-    <div class="grid grid-cols-[56px_auto] grid-rows-2 h-64 p-12 items-center gap-6">
+    <div class="grid grid-cols-[56px_auto] grid-rows-2 h-64 items-center gap-6">
         <img
             src="https://fastly.jsdelivr.net/npm/@vant/assets/ipad.jpeg"
             class="size-56 grid-row-span-2 object-cover"
@@ -17,15 +16,7 @@
         </p>
     </div>
     <div class="h-8"></div>
-    <div class="me-balance">
-        <div class="text-12 flex items-center gap-8">
-            <span>{{ $t('app.balance') }}</span>
-            <button class="lh-1 expand-8"><i-system-uicons:refresh-alt /></button>
-        </div>
-        <h1>
-            <span class="text-36 font-bold">0.00</span>
-            <span class="text-16 pl-4">MMK</span>
-        </h1>
+    <account-balance>
         <div class="flex gap-16 pt-8">
             <button
                 class="me-wallet-button filled"
@@ -40,7 +31,7 @@
                 {{ $t('app.withdrawal') }}
             </button>
         </div>
-    </div>
+    </account-balance>
     <div class="h-16"></div>
     <van-cell-group>
         <van-cell
@@ -52,6 +43,7 @@
             is-link
             title-class="font-medium"
             :title="$t('me.account')"
+            to="/me/account"
         />
         <van-cell
             is-link
@@ -89,18 +81,22 @@
 
 <style lang="scss">
 .page-me {
-    // @apply p-12;
+    @apply p-8;
+    background: #fff url(./assets/balance-bg.png) no-repeat 50% 0/109%;
 }
 
 .me-balance {
     width: 345px;
     height: 135px;
-    background: rgba(0, 0, 0, 0.3) url(./assets/balance-bg.png) no-repeat 0 / cover;
+    // --image: url(./assets/balance-bg.png);
+    // --bg-op: 0.5;
     border-radius: 8px;
-    background-blend-mode: darken;
+    // background-blend-mode: darken;
     padding: 12px;
     color: white;
     margin: auto;
+    background: linear-gradient(-90deg, rgba(rgb(255, 145, 0), 0.9), rgba(#ff5800, 0.9));
+    // background-color: rgba(#ff8949, 0.5);
 }
 
 .me-wallet-button {

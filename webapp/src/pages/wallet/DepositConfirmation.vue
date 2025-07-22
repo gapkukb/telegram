@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { queryActivities } from '@/api/promos.api';
-import useStatefulFunc from '@/composables/use-stateful-func';
+import useAsyncFunction from '@/composables/useAsyncFunction';
 import { useBack } from '@/composables/useBack';
 import { formatter } from '@/utils/number';
 import { useQuery } from '@tanstack/vue-query';
@@ -16,7 +16,7 @@ const { isLoading, data } = useQuery({
 const id = ref('')
 const field = useTemplateRef<FieldInstance>("digits")
 
-const [todo, doing] = useStatefulFunc(async (id: string) => {
+const [todo, doing] = useAsyncFunction(async (id: string) => {
     await Promise.delay(1000)
     alert
 })

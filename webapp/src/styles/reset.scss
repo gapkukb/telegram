@@ -17,6 +17,7 @@ svg {
     user-drag: none;
 }
 
+img._img_error,
 img[src=''],
 img:not([src]) {
     display: inline-block;
@@ -33,22 +34,6 @@ img:not([src]) {
         background-size: contain;
         background-position: center center;
         color: transparent;
-    }
-    &::after {
-        content: attr(alt);
-        z-index: 1;
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        line-height: 2;
-        background-color: rgba(0, 0, 0, 0.5);
-        color: white;
-        font-size: 12px;
-        text-align: center;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
     }
 }
 
@@ -106,7 +91,7 @@ html {
 
 body {
     --van-base-font: Boxed;
-    background: #f1f1f1;
+    background: #fff;
     color: #111;
     line-height: 1.5;
     font-size: 14px;

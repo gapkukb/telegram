@@ -32,27 +32,27 @@ export default defineConfig(function configure() {
                 svgoConfig: {
                     multipass: true,
                     plugins: [
-                        {
-                            name: 'preset-default',
-                            params: {
-                                overrides: {
-                                    convertColors: {
-                                        currentColor: true,
-                                    },
-                                    cleanupIds: { remove: true },
-                                    mergePaths: { force: true },
-                                },
-                            },
-                        },
-                        {
-                            name: 'addAttributesToSVGElement',
-                            params: {
-                                attribute: { fill: 'currentColor' },
-                            },
-                        },
-                        {
-                            name: 'removeDimensions',
-                        },
+                        // {
+                        //     name: 'preset-default',
+                        //     params: {
+                        //         overrides: {
+                        //             // convertColors: {
+                        //             //     currentColor: true,
+                        //             // },
+                        //             cleanupIds: { remove: true },
+                        //             // mergePaths: { force: true },
+                        //         },
+                        //     },
+                        // },
+                        // {
+                        //     name: 'addAttributesToSVGElement',
+                        //     params: {
+                        //         // attribute: { fill: 'currentColor' },
+                        //     },
+                        // },
+                        // {
+                        //     name: 'removeDimensions',
+                        // },
                     ],
                 },
             }),

@@ -19,9 +19,11 @@ export const useUser = defineStore(
             const result = await loginUtil(loginType, payload)
             token.value = result.token
             setInfo(result.user)
-            return true;
+            return true
         }
-        function logout() {}
+        function logout() {
+            alert('正在退出登录')
+        }
 
         return { info, authenticated, setInfo, token, webToken, login, logout, balance }
     }

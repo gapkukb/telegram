@@ -20,7 +20,14 @@ const rules: FieldRule[] = [
         :border="false"
         :placeholder="$t('form.placeholder.account')"
         :rules="rules"
-    ></van-field>
+    >
+        <template #left-icon>
+            <van-icon
+                name="contact-o"
+                class="opacity-50"
+            />
+        </template>
+    </van-field>
 </template>
 
 <style lang="scss" scoped></style>

@@ -6,7 +6,7 @@ const recover = ref(false)
 </script>
 
 <template>
-    <ModalPage position="right">
+    <ModalPage position="right" :closeable="false">
         <Recover v-if="recover" :key="recover.toString()" @back="recover = false" />
         <Access v-else @forgot="recover = true" />
     </ModalPage>

@@ -26,6 +26,8 @@ function a(index: number) {
             <component :is="item.component" />
         </van-swipe-item>
     </van-swipe>
+
+    <DownloadApp />
 </template>
 
 <style lang="scss">

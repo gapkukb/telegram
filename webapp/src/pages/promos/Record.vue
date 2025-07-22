@@ -23,14 +23,14 @@ const { isLoading, data } = useQuery({
         </h6>
         <p class="text-12 text-#999 px-16">{{ $t("promos.desc") }}</p>
         <div class="h-16"></div>
-        <div v-if="data?.length" class="h-60vh overflow-auto">
-            <van-cell-group :border="true">
+        <div class="h-60vh overflow-auto">
+            <van-cell-group v-if="data?.length" :border="true">
                 <van-cell v-for="item in data" :title="item.title" :label="item.dateTime" center><span
                         class="text-24 text-primary font-bold">{{ item.amount }}</span></van-cell>
 
             </van-cell-group>
+            <van-empty v-else-if="!isLoading" image="error" :description="$t('promos.empty')" />
         </div>
-        <van-empty v-else-if="!isLoading" image="error" :description="$t('promos.empty')" />
     </van-popup>
 </template>
 

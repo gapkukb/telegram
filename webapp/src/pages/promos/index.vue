@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import useBalance from '@/composables/useBalance'
 import Checkin from './Checkin.vue'
-import Promos from './Promos.vue'
+// import Promos from './Promos.vue'
 import Record from './Record.vue'
 </script>
 

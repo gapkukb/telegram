@@ -1,7 +1,14 @@
 // import 'virtual:vite-svg-2-webfont.css';
-window.onerror = function(msg){
-    alert(msg)
-}
+window.addEventListener(
+    'error',
+    function (event) {
+        if (event.target instanceof HTMLImageElement) {
+            event.target.classList.add('_img_error')
+        }
+    },
+    true
+)
+
 import 'virtual:uno.css'
 import './styles'
 import './http/index'

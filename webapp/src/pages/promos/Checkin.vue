@@ -6,14 +6,14 @@ import dayjs from 'dayjs'
 import img1 from './assets/1.png'
 import img2 from './assets/2.png'
 import img3 from './assets/3.png'
-import useStatefulFunc from '@/composables/use-stateful-func'
+import useAsyncFunction from '@/composables/useAsyncFunction'
 import { rpx } from '@/utils/rpx'
 import { Skeleton2 } from '@/components/skeleton'
 
 const el = useTemplateRef<HTMLDivElement>('track')
 const showRules = ref(false)
 
-const [checkin, checking] = useStatefulFunc(async function () {
+const { doing, todo } = useAsyncFunction(async function () {
     await doCheckIn()
     return refetch()
 })
@@ -60,7 +60,7 @@ function scrollIntoView() {
                 <figcaption class="text-12">{{ dayjs(item.date).format('DD MMM') }}</figcaption>
             </figure>
         </div>
-        <van-button type="danger" block :disabled="checking || isPlaceholderData" @click="checkin">
+        <van-button type="danger" block :disabled="doing || isPlaceholderData" @click="todo">
             {{ $t('promos.confirm') }}
         </van-button>
     </div>

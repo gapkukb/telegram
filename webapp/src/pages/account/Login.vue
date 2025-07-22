@@ -20,13 +20,12 @@ async function doLogin(values: any) {
     <van-form
         class="px-24 grid gap-16"
         @submit="doLogin"
-        validate-first
     >
         <AccountInput v-model="account" />
 
         <PasswordInput v-model="password" />
 
-        <CodeInput v-model="code" />
+        <GraphicInput v-model="code"/>
 
         <div class="flex items-center justify-between py-16">
             <van-checkbox
@@ -50,7 +49,7 @@ async function doLogin(values: any) {
             class="uppercase"
             native-type="submit"
         >
-            {{ $t('app.login') }}
+            {{ $t('me.login') }}
         </van-button>
     </van-form>
 

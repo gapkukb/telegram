@@ -9,7 +9,7 @@ defineOptions({
 
 <template>
     <van-popup v-model:show="visible" close-icon="close" style="width: 100%;height: 100%;" :overlay="false" closeable
-        v-on="$attrs" v-bind="$attrs">
+        close-on-popstate v-on="$attrs" v-bind="$attrs">
         <slot />
     </van-popup>
 </template>

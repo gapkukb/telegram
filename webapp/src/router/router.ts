@@ -1,10 +1,9 @@
-import { createWebHistory, createRouter, type RouteRecordName, type Router, type RouteLocationRaw, type RouteLocationAsRelativeGeneric } from 'vue-router'
-import routes from './routes'
-
-import authenticate from './middlewares/auth.middleware'
-import modal from './middlewares/modal.middleware'
-import TDK from './middlewares/tdk.middleware'
+import { createWebHistory, createRouter, type Router, type RouteLocationAsRelativeGeneric } from 'vue-router'
 import type { App } from 'vue'
+import routes from './routes'
+console.log(routes);
+
+import installMiddleware from './middlewares'
 
 const router = createRouter({
     history: createWebHistory('/'),
@@ -12,9 +11,7 @@ const router = createRouter({
     scrollBehavior(to, from, savedPosition) {},
 })
 
-authenticate(router);
-// modal(router);
-// TDK(router);
+installMiddleware(router)
 
 const install = router.install
 router.install = function (app: App) {
