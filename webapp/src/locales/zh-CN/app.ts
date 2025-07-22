@@ -25,6 +25,8 @@ export default {
     wallet: '钱包',
     me: '我的',
     required: '必填',
-    // home:"首页",
-    // deposit:"充值",
+    continue: '继续',
+    next: '下一步',
+    previous: '上一步',
+    back: '返回',
 }

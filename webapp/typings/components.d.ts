@@ -93,6 +93,7 @@ declare module 'vue' {
     PromoModal: typeof import('./../src/pages/promo-modal/index.vue')['default']
     Promos: typeof import('./../src/pages/promos/index.vue')['default']
     PuzzleCaptcha: typeof import('./../src/pages/puzzle-captcha/index.vue')['default']
+    RealName: typeof import('./../src/pages/me/real-name/index.vue')['default']
     Recover: typeof import('./../src/pages/recover/index.vue')['default']
     Router: typeof import('./../src/router/index.ts')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

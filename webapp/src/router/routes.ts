@@ -82,6 +82,14 @@ export default <RouteRecordRaw[]>[
                 name: 'account',
                 component: () => import('@/pages/me/Account.vue'),
             },
+            {
+                path: 'real-name',
+                name: 'real-name',
+                component: () => import('@/pages/me/real-name/index.vue'),
+                meta:{
+                    title:"Setup your real name"
+                }
+            },
         ],
     },
 ]

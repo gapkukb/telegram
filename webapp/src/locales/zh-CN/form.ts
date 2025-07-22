@@ -12,6 +12,7 @@ export default {
         last6digitsOrder: '请输入交易号码最后6位数字',
         withdrawalAccount: '请输入您的收款账号',
         withdrawalAmount: '请输入您的取款金额',
+        realname: '您的真实姓名',
     },
     error: {
         account: '用户名必须以字母开头且包含6-12位字符',
