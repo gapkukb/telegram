@@ -8,7 +8,7 @@ import Components from 'unplugin-vue-components/vite'
 import { VantResolver } from 'unplugin-vue-components/resolvers'
 import IconsResovler from 'unplugin-icons/resolver'
 import basicSsl from '@vitejs/plugin-basic-ssl'
-import UnoCSS from 'unocss/vite'
+// import UnoCSS from 'unocss/vite'
 import { include, exclude } from './build/optimize'
 import autoimportLocale from './build/autoimport-locale'
 import { version } from './package.json'
@@ -86,7 +86,7 @@ export default defineConfig(function configure() {
                 resolvers: [autoimportLocale],
             }),
             Icons(),
-            UnoCSS(),
+            // UnoCSS(),
             mock,
         ],
         build: {

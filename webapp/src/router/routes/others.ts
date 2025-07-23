@@ -7,4 +7,14 @@ export default <RouteRecordRaw[]>[
         props: true,
         component: () => import('@/pages/success/index.vue'),
     },
+    {
+        path: '/trends',
+        name: 'Trends',
+        component: () => import('@/pages/trends/index.vue'),
+    },
+    {
+        path: '/search',
+        name: 'search',
+        component: () => import('@/pages/search/index.vue'),
+    },
 ]

@@ -1,8 +1,21 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { callCenter } from '@/components/call-center';
+
+const menus: { title: any, to?: string, handler: (...args: any) => any, className?: string }[] = [
+    { title: t('me.turnOver'), to: '/me/account', handler() { } },
+    { title: t('me.account'), to: '/me/account', handler() { } },
+    { title: t('page.vip'), className: 'text-primary', to: '/vip', handler() { } },
+    { title: t('me.invite'), to: '/act/invitation', handler() { } },
+    { title: t('me.collection'), to: '/me/favorites', handler() { } },
+    { title: t('me.service'), handler: callCenter },
+    { title: t('me.message'), to: '/messages', handler() { } },
+    { title: t('me.more'), to: '/me/more', handler() { } },
+]
+
+
+</script>
 
 <template>
-
-
     <van-cell title="Player 12345" title-class="font-medium" center is-link class="rd-4 !bg-white !bg-op-80"
         label-class="font-normal flex items-center">
         <template #icon>
@@ -10,32 +23,26 @@
         </template>
         <template #label>
             <span>ID：123123</span>
-            <button class="expand-8"><i-material-symbols-light:content-copy-outline /></button>
+            <button><i-material-symbols-light:content-copy-outline /></button>
         </template>
 
     </van-cell>
-
     <div class="h-8"></div>
     <account-balance>
         <div class="flex gap-16 pt-8">
-            <button class="me-wallet-button filled" @click="">
+            <button class="me-wallet-button filled" @click="$router.push('/wallet/deposit')">
                 {{ $t('app.deposit') }}
             </button>
-            <button class="me-wallet-button plain" @click="">
+            <button class="me-wallet-button plain" @click="$router.push('/wallet/withdrawal')">
                 {{ $t('app.withdrawal') }}
             </button>
         </div>
     </account-balance>
     <div class="h-16"></div>
     <van-cell-group>
-        <van-cell is-link title-class="font-medium" :title="$t('me.turnOver')" />
-        <van-cell is-link title-class="font-medium" :title="$t('me.account')" to="/me/account" />
-        <van-cell is-link title-class="font-medium text-primary" :title="$t('me.vip')" />
-        <van-cell is-link title-class="font-medium" :title="$t('me.invite')" />
-        <van-cell is-link title-class="font-medium" :title="$t('me.collection')" />
-        <van-cell is-link title-class="font-medium" :title="$t('me.service')" />
-        <van-cell is-link title-class="font-medium" :title="$t('me.message')" />
-        <van-cell is-link title-class="font-medium" :title="$t('me.more')" to="/me/more" />
+        <van-cell v-for="menu in menus" :key="menu.title" is-link :title-class="['font-medium', menu.className]"
+            :title="menu.title" :to="menu.to" @click="menu.handler" />
+
     </van-cell-group>
 </template>
 

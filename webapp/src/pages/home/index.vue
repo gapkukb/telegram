@@ -3,7 +3,7 @@
 import type { SwipeInstance } from 'vant'
 import HomeHeader from './HomeHeader.vue'
 import { navs } from './navs'
-import Test from '../../components/test/index.vue'
+import Announcement from '@/pages/announcement/index.vue'
 
 const swiper = ref<SwipeInstance>()
 const active = ref(0)
@@ -26,7 +26,9 @@ function a(index: number) {
             <component :is="item.component" />
         </van-swipe-item>
     </van-swipe>
-
+    <!-- 公告弹窗 -->
+    <Announcement />
+    <!-- 下载app -->
     <DownloadApp />
 </template>
 
@@ -34,7 +36,7 @@ function a(index: number) {
 .page-home {
     height: 100%;
     overflow-y: auto;
-    padding-bottom: 0 !important;
+    padding: 0;
 }
 
 .home-view {

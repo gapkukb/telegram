@@ -9,9 +9,10 @@ const announcements = ref(Array.from<string>({ length: 6 }).fill('🎁လော�
     <van-popup
         v-model:show="show"
         style="background: none"
+        teleport="#app"
     >
         <div class="promo-modal">
-            <h1 class="lh-60 text-22 text-center text-white font-semibold">{{ $t('announcement') }}</h1>
+            <h1 class="lh-60 text-22 text-center text-white font-semibold">{{ $t('page.announcement') }}</h1>
             <van-cell-group
                 inset
                 class="min-h-264"

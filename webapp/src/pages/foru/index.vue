@@ -41,7 +41,7 @@ useTimeout(3000, {
         <Section2 />
         <div class="h-8"></div>
 
-        <div class="bg-white p-8 game-list rd-4">
+        <div class="bg-white game-list rd-4">
             <h4 class="game-list-title">Featured games</h4>
             <div
                 class="flex overflow-auto gap-4"

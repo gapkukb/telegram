@@ -2,11 +2,15 @@ import type { useUser } from './stores/user.store'
 import type { RouteRecordName, Router, RouteLocationRaw, RouteLocationAsRelativeGeneric, NavigationFailure } from 'vue-router'
 import type zh from './locales/zh-CN'
 
+type Join<K, P> = K extends string | number ? (P extends string | number ? `${K}${'' extends P ? '' : '.'}${P}` : never) : never
+
+type Leaves<T, D extends number = 10> = [D] extends [never] ? never : T extends object ? { [K in keyof T]-?: Join<K, Leaves<T[K], Prev[D]>> }[keyof T] : ''
+
 type Named = (this: Router, to: string | RouteLocationAsRelativeGeneric) => Promise<NavigationFailure | void | undefined>
 declare module 'vue-router' {
     interface RouteMeta {
         requiredAuth?: boolean
-        title?: string
+        title?: Leaves<typeof zh>
         keywords?: string
         description?: string
         footer?: true

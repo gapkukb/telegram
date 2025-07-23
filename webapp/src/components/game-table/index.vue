@@ -66,7 +66,7 @@ const { done, loading, vIntersect, loadMore } = useLoadMore(async () => {
 
 <style lang="scss">
 .game-list {
-    @apply bg-white rd-4 p-8;
+    @apply bg-white rd-4;
     touch-action: pan-y;
 
     &-title {

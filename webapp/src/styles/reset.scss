@@ -42,6 +42,7 @@ iframe,
 table,
 th {
     border: 0;
+    font: inherit;
 }
 
 :where(button, a, input, textarea, select, a) {

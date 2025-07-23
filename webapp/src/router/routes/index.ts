@@ -5,7 +5,8 @@ import demos from './demos'
 import promos from './promos'
 import wallet from './wallet'
 import account from './account'
+import turnover from './turnover'
 import others from './others'
 import activity from './activity'
 
-export default <RouteRecordRaw[]>[home, promos, wallet, me, ...account, ...others, ...activity].concat(import.meta.env.DEV ? demos : [])
+export default <RouteRecordRaw[]>[home, promos, wallet, me, turnover, ...account, ...others, ...activity].concat(import.meta.env.DEV ? demos : [])

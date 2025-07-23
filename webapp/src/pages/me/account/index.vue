@@ -40,7 +40,7 @@ const details = [
 </script>
 
 <template>
-    <nav-bar :title="$t('page.account')" />
+    <!-- <nav-bar :title="$t('page.account')" /> -->
     <van-cell-group>
         <van-cell v-for="detail in details" :is-link="detail.id == 4 ? !detail.settled : true" :title="detail.name"
             :to="detail.to" :clickable="false">

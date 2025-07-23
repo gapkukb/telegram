@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { showToast } from 'vant';
 import Fitler from "./Filter.vue"
+import { useBack } from '@/composables/useBack';
 
 
 const value = ref('')
@@ -15,6 +16,8 @@ const tabs = [
     { name: 'Casino', value: "casino" },
 ]
 const platform = ref(tabs[0].value)
+const back = useBack()
+
 function filter(value: string) {
     platform.value = value;
 }
@@ -31,7 +34,9 @@ const fill = '#d5d5d5'
                 <Fitler />
             </template>
             <template #left>
-                <button class="block w-32 ml--12 text-18"><van-icon name="arrow-left" /></button>
+                <button class="block w-42 ml--12 text-18" @click="back">
+                    <van-icon name="arrow-left" />
+                </button>
             </template>
         </van-search>
         <div class="flex h-40 px-12 py-8">

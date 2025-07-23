@@ -6,6 +6,7 @@ import me from './me'
 import promos from './promos'
 import form from './form'
 import wallet from './wallet'
+import error from './error'
 
 export default {
     page,
@@ -16,4 +17,5 @@ export default {
     promos,
     form,
     wallet,
+    error,
 }

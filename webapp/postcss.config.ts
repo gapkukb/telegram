@@ -1,3 +1,4 @@
+// const UnoCSS = require('@unocss/postcss')
 const designWidth = 375
 /**
  * @type {import('postcss').PluginCreator}
@@ -6,6 +7,7 @@ const designWidth = 375
  */
 module.exports = (ctx) => ({
     plugins: {
+        '@unocss/postcss':{},
         'postcss-easysprites': {
             imagePath: './public/images',
             spritePath: './public/sprites',

@@ -1,4 +1,4 @@
-import View from '@/View.vue'
+import View from '@/app/Layout.vue'
 import type { RouteRecordRaw } from 'vue-router'
 
 export default <RouteRecordRaw>{

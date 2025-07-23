@@ -25,6 +25,6 @@
 
 .van-overflow-hidden {
     .page-view {
-        filter: blur(4px);
+        filter: blur(2px);
     }
 }

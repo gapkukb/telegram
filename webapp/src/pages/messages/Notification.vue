@@ -9,10 +9,10 @@ const { isLoading, data } = useQuery({
 </script>
 
 <template>
-
+    
     <div v-if="!isLoading" class="grid gap-16 px-12 py-12">
 
-        <div v-for="i in 10" class="grid gap-8 bg-white px-12 py-8 rd-4">
+        <div v-for="i in 10" class="grid gap-8 bg-white px-12 py-8 rd-4" @click="$router.push(`/message/${123}`)">
             <h4 class="font-medium text-16">2D lottery has begun in grand style</h4>
             <section class="line-clamp-2 text-12 text-#999">📅Prize Opening Time📅 Monday to Friday, 【Saturday and
                 Sunday

@@ -21,11 +21,15 @@ defineSlots<{ right: void, left: void; title: void }>()
 export default function (props: Partial<NavBarProps & { backPath: string }>, ctx: SetupContext) {
     const back = useBack({ web: props.backPath })
     return (
-        <NavBar
-            left-arrow
-            onClickLeft={back}
-            {...props}
-            v-slots={ctx.slots}
-        />
+        <div class="h-46">
+            <NavBar
+                fixed
+                left-arrow
+                left-text={t('app.back')}
+                onClickLeft={back}
+                {...props}
+                v-slots={ctx.slots}
+            />
+        </div>
     )
 }

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import useBalance from '@/composables/useBalance'
-import { formatter } from '@/utils/number'
-
+import CountUp from 'vue-countup-v3'
 const { balance, refresh, loading } = useBalance()
 </script>
 
@@ -9,21 +8,12 @@ const { balance, refresh, loading } = useBalance()
     <div class="account-balance">
         <div class="text-12 flex items-center gap-8">
             <span>{{ $t('app.balance') }}</span>
-            <button
-                class="lh-1 expand-8"
-                :class="{ spin: loading }"
-                @click="refresh"
-            >
+            <button class="lh-1 expand-8" :class="{ spin: loading }" @click="refresh">
                 <i-system-uicons:refresh-alt />
             </button>
         </div>
         <h1>
-            <span
-                class="text-36 font-bold"
-                v-motion=""
-            >
-                {{ formatter.commatize(balance, 2) }}
-            </span>
+            <count-up :end-val="balance" :duration="1" :decimal-places="2" class="text-36 font-bold"/>
             <span class="text-16 pl-4">MMK</span>
         </h1>
 

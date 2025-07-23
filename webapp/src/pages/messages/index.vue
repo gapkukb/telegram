@@ -7,21 +7,22 @@ const tab = ref(0)
 </script>
 
 <template>
-
-    <van-nav-bar left-arrow left-text="Back" title="Notification" class="notification top-0" style="position: sticky;">
+    <nav-bar :title="$t('page.messages')" class="messages">
         <template #right>
             <van-badge dot>
-                <button class="van-haptics-feedbac text-24" :class="{ 'text-#aaa': tab === 1 }"
-                    @click="tab = 0"><i-lets-icons:message-alt-duotone /></button>
+                <button class="van-haptics-feedback text-20" :class="{ 'text-#aaa': tab === 1 }" @click="tab = 0">
+                    <van-icon name="volume-o" />
+                </button>
             </van-badge>
             <div class="w-16"></div>
             <van-badge dot @click.stop="">
                 <!-- Notification -->
-                <button class=" van-haptics-feedbac text-18" :class="{ 'text-#aaa': tab === 0 }"
-                    @click="tab = 1"><i-tdesign:notification-filled /></button>
+                <button class=" van-haptics-feedback text-20" :class="{ 'text-#aaa': tab === 0 }" @click="tab = 1">
+                    <van-icon name="envelop-o" />
+                </button>
             </van-badge>
         </template>
-    </van-nav-bar>
+    </nav-bar>
 
     <Message v-if="tab === 0" />
 
@@ -30,12 +31,12 @@ const tab = ref(0)
 </template>
 
 <style lang="scss">
-.page-notification {
+.page-messages {
     background-color: #f1f1f1;
     // background-color: #111;
 }
 
-.notification .van-nav-bar__right.van-haptics-feedback:active {
+.messages .van-nav-bar__right.van-haptics-feedback:active {
     opacity: 1;
 }
 </style>

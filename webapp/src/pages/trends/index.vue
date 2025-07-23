@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { showToast } from 'vant';
-import History from './History.vue';
+import History from '../search/History.vue';
 import { ls } from '@/utils/storage';
 import { useLs } from '@/composables';
-import TrendPanel from './TrendPanel.vue';
+import TrendPanel from './Panel.vue';
+import { useBack } from '@/composables/useBack';
 
 
 const fill = '#d5d5d5'
@@ -34,7 +35,7 @@ function search(payload?: string) {
     return router.push({ path: '/search', query: { keywords: payload } })
 }
 
-
+const back = useBack()
 
 </script>
 
@@ -42,12 +43,14 @@ function search(payload?: string) {
     <header class="sticky top-0 bg-white z-1">
         <van-search v-model.trim="keywords" placeholder="请输入搜索关键词" shape="round" background="#fff" right-icon="search"
             left-icon="" show-action autocomplete="off" clearable autofocus @search="searchByInput"
-            @click-right-icon="searchByInput">
+            @click-left-icon="back" @click-right-icon="searchByInput">
             <template #action>
                 <div @click="searchByAll">All games</div>
             </template>
             <template #left>
-                <button class="block w-32 ml--12 text-18" @click="history = []"><van-icon name="arrow-left" /></button>
+                <button class="block w-42 ml--12 text-18" @click="back">
+                    <van-icon name="arrow-left" />
+                </button>
             </template>
         </van-search>
 
@@ -61,12 +64,13 @@ function search(payload?: string) {
 </template>
 
 <style lang="scss">
-.trend-panels{
+.trend-panels {
     @apply flex gap-8 items-start overflow-x-auto px-12;
-    scroll-snap-type:x  mandatory;
+    scroll-snap-type: x mandatory;
 }
-.trend-panel{
-    @apply flex-shrink-0 p-12  grid gap-16 w-7/10 rd-4;
+
+.trend-panel {
+    @apply flex-shrink-0 p-12 grid gap-16 w-7/10 rd-4;
     scroll-snap-align: center;
 }
 </style>
