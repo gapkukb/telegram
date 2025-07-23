@@ -22,3 +22,9 @@
     min-width: 22px;
     height: 24px;
 }
+
+.van-overflow-hidden {
+    .page-view {
+        filter: blur(4px);
+    }
+}

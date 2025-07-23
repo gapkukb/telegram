@@ -37,7 +37,7 @@ const { balance, refresh, loading } = useBalance()
     --transparent: url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==);
     background-image: var(--image);
     background-image: cross-fade(var(--transparent), var(--image), 80%);
-    background-image: -webkit-cross-fade(var(--transparent), var(--image), 90%);
+    background-image: -webkit-cross-fade(var(--transparent), var(--image), 1);
     background-size: 100% 100%;
     @apply min-h-110 p-16 relative rd-8 text-white;
 }

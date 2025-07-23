@@ -6,7 +6,7 @@ export default <RouteRecordRaw>{
     meta: {
         footer: true,
         title: 'me',
-        requiredAuth:true,
+        // requiredAuth:true,
     },
     component: View,
     children: [

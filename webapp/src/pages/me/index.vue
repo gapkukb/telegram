@@ -1,103 +1,62 @@
 <script setup lang="ts"></script>
 
 <template>
-    <div class="grid grid-cols-[56px_auto] grid-rows-2 h-64 items-center gap-6">
-        <img
-            src="https://fastly.jsdelivr.net/npm/@vant/assets/ipad.jpeg"
-            class="size-56 grid-row-span-2 object-cover"
-        />
-        <h4 class="font-semibold text-16">Player10849931</h4>
-        <p
-            class="text-#999 inline-flex items-center"
-            v-clipboard="8888888888"
-        >
+
+
+    <van-cell title="Player 12345" title-class="font-medium" center is-link class="rd-4 !bg-white !bg-op-80"
+        label-class="font-normal flex items-center">
+        <template #icon>
+            <img src="https://picsum.photos/id/1/80/80" class="size-56 grid-row-span-2 object-cover rd-full mr-8" />
+        </template>
+        <template #label>
             <span>ID：123123</span>
-            <i-material-symbols-light:content-copy-outline />
-        </p>
-    </div>
+            <button class="expand-8"><i-material-symbols-light:content-copy-outline /></button>
+        </template>
+
+    </van-cell>
+
     <div class="h-8"></div>
     <account-balance>
         <div class="flex gap-16 pt-8">
-            <button
-                class="me-wallet-button filled"
-                @click=""
-            >
+            <button class="me-wallet-button filled" @click="">
                 {{ $t('app.deposit') }}
             </button>
-            <button
-                class="me-wallet-button plain"
-                @click=""
-            >
+            <button class="me-wallet-button plain" @click="">
                 {{ $t('app.withdrawal') }}
             </button>
         </div>
     </account-balance>
     <div class="h-16"></div>
     <van-cell-group>
-        <van-cell
-            is-link
-            title-class="font-medium"
-            :title="$t('me.turnOver')"
-        />
-        <van-cell
-            is-link
-            title-class="font-medium"
-            :title="$t('me.account')"
-            to="/me/account"
-        />
-        <van-cell
-            is-link
-            title-class="font-medium text-primary"
-            :title="$t('me.vip')"
-        />
-        <van-cell
-            is-link
-            title-class="font-medium"
-            :title="$t('me.invite')"
-        />
-        <van-cell
-            is-link
-            title-class="font-medium"
-            :title="$t('me.collection')"
-        />
-        <van-cell
-            is-link
-            title-class="font-medium"
-            :title="$t('me.service')"
-        />
-        <van-cell
-            is-link
-            title-class="font-medium"
-            :title="$t('me.message')"
-        />
-        <van-cell
-            is-link
-            title-class="font-medium"
-            :title="$t('me.more')"
-            to="/me/more"
-        />
+        <van-cell is-link title-class="font-medium" :title="$t('me.turnOver')" />
+        <van-cell is-link title-class="font-medium" :title="$t('me.account')" to="/me/account" />
+        <van-cell is-link title-class="font-medium text-primary" :title="$t('me.vip')" />
+        <van-cell is-link title-class="font-medium" :title="$t('me.invite')" />
+        <van-cell is-link title-class="font-medium" :title="$t('me.collection')" />
+        <van-cell is-link title-class="font-medium" :title="$t('me.service')" />
+        <van-cell is-link title-class="font-medium" :title="$t('me.message')" />
+        <van-cell is-link title-class="font-medium" :title="$t('me.more')" to="/me/more" />
     </van-cell-group>
 </template>
 
 <style lang="scss">
 .page-me {
     @apply p-8;
-    background: #fff url(./assets/balance-bg.png) no-repeat 50% 0/109%;
+    //background: #fff url(./assets/balance-bg.png) no-repeat 50% 0/109%;
+    // background: linear-gradient(transparent 170px, #fff 0),
+    //     radial-gradient(circle at 0% 0%,
+    //         rgba(#ff5800, 0.1),
+    //         rgba(#ff5800, 0.2) 50vw,
+    //         rgba(#ff5800, 0.3) 75vw,
+    //         rgba(#ff5800, 0.4) 110vw,
+    //     ),
+
+    background: linear-gradient(transparent 220px, #fff 0), linear-gradient(90deg, #ff9b65, #ff5800);
+
+
 }
 
-.me-balance {
-    width: 345px;
-    height: 135px;
-    // --image: url(./assets/balance-bg.png);
-    // --bg-op: 0.5;
-    border-radius: 8px;
-    // background-blend-mode: darken;
-    padding: 12px;
-    color: white;
-    margin: auto;
-    background: linear-gradient(-90deg, rgba(rgb(255, 145, 0), 0.9), rgba(#ff5800, 0.9));
-    // background-color: rgba(#ff8949, 0.5);
-}
+
 
 .me-wallet-button {
     @apply h-32 rd-full lh-1 flex-1 color-#ff5800;
